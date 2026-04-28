@@ -1,2 +1,2 @@
 # TCC
-sistema de cadastro para pessoas praticantes de volei na cidade de Registro
+sistema de cadastro para pessoas praticantes de esportes
