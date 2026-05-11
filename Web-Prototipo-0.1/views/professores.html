@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Gerenciar Professores</h2>
+
+  <!-- Formulário de Cadastro -->
+  <div class="card mt-4 mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Cadastrar Novo Professor</h5>
+      <form method="POST">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome do Professor:</label>
+          <input type="text" class="form-control" id="nome" name="nome" required>
+        </div>
+        <div class="mb-3">
+          <label for="cpf" class="form-label">CPF:</label>
+          <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email:</label>
+          <input type="email" class="form-control" id="email" name="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="telefone" class="form-label">Telefone:</label>
+          <input type="text" class="form-control" id="telefone" name="telefone" required>
+        </div>
+        <div class="mb-3">
+          <label for="especialidade" class="form-label">Especialidade (Esporte):</label>
+          <input type="text" class="form-control" id="especialidade" name="especialidade" placeholder="Ex: Futebol, Natação, Vôlei" required>
+        </div>
+        <div class="mb-3">
+          <label for="escola_id" class="form-label">Escola:</label>
+          <select class="form-control" id="escola_id" name="escola_id" required>
+            <option value="">Selecione uma escola</option>
+            {% for escola in escolas %}
+            <option value="{{ escola.id }}">{{ escola.nome }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lista de Professores -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Lista de Professores</h5>
+      {% if professores %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Email</th>
+            <th>Especialidade</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for professor in professores %}
+          <tr>
+            <td>{{ professor.id }}</td>
+            <td>{{ professor.nome }}</td>
+            <td>{{ professor.cpf }}</td>
+            <td>{{ professor.email }}</td>
+            <td>{{ professor.especialidade }}</td>
+            <td>
+              <a href="{{ url_for('deletar_professor', id=professor.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Deseja deletar este professor?')">Deletar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>Nenhum professor cadastrado.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

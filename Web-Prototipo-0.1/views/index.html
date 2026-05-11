@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Bem-vindo ao Sistema de Cadastro de Esportes</h2>
+      <p>Este sistema permite gerenciar o cadastro de escolas, professores e alunos de esportes.</p>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Escolas</h5>
+          <p class="card-text">Gerencie as escolas cadastradas no sistema.</p>
+          <a href="{{ url_for('escolas') }}" class="btn btn-primary">Acessar Escolas</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Professores</h5>
+          <p class="card-text">Gerencie os professores de esportes cadastrados.</p>
+          <a href="{{ url_for('professores') }}" class="btn btn-primary">Acessar Professores</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Alunos</h5>
+          <p class="card-text">Gerencie os alunos cadastrados no sistema.</p>
+          <a href="{{ url_for('alunos') }}" class="btn btn-primary">Acessar Alunos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

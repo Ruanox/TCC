@@ -1,0 +1,118 @@
+/* Configurações Universais */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos Gerais */
+body {
+    font-family: 'Segoe UI';
+    color: #222;
+    background-color: #f6f7f9;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1b1b1b;
+    color: white;
+    padding: 0.5rem;
+    text-align: center;
+
+}
+
+footer {
+    background-color: #1b1b1b;
+    color: white;
+    margin-top: 2rem;
+    padding: 1rem 0.75rem;
+    text-align: center;
+}
+
+main {
+    width: 1300px;
+    min-height: 100vh;
+    margin: 1.5rem auto;
+    padding: 1rem 3rem;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos para Container */
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+/* Estilos para Cards */
+.card {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-title {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Estilos para Tabelas */
+.table {
+    margin-top: 1rem;
+}
+
+.table thead {
+    background-color: #f0f0f0;
+}
+
+.table th {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Estilos para Botões */
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+img {
+    border-radius: 8px;
+    
+}
+
+h1,
+h2,
+h3,
+p {
+    padding: 10px;
+}

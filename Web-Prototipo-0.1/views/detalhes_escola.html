@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Detalhes da Escola: {{ escola.nome }}</h2>
+
+  <!-- Informações da Escola -->
+  <div class="card mt-4 mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Informações da Escola</h5>
+      <p><strong>ID:</strong> {{ escola.id }}</p>
+      <p><strong>Nome:</strong> {{ escola.nome }}</p>
+      <p><strong>Endereço:</strong> {{ escola.endereco }}</p>
+      <p><strong>Telefone:</strong> {{ escola.telefone }}</p>
+      <p><strong>Email:</strong> {{ escola.email }}</p>
+    </div>
+  </div>
+
+  <!-- Professores da Escola -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Professores da Escola</h5>
+      {% if professores %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Especialidade</th>
+            <th>Email</th>
+            <th>Telefone</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for professor in professores %}
+          <tr>
+            <td>{{ professor.id }}</td>
+            <td>{{ professor.nome }}</td>
+            <td>{{ professor.especialidade }}</td>
+            <td>{{ professor.email }}</td>
+            <td>{{ professor.telefone }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>Nenhum professor cadastrado nesta escola.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <!-- Alunos da Escola -->
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Alunos da Escola</h5>
+      {% if alunos %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Esporte</th>
+            <th>Email</th>
+            <th>Data Nascimento</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for aluno in alunos %}
+          <tr>
+            <td>{{ aluno.id }}</td>
+            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.esporte }}</td>
+            <td>{{ aluno.email }}</td>
+            <td>{{ aluno.data_nascimento }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>Nenhum aluno cadastrado nesta escola.</p>
+      {% endif %}
+    </div>
+  </div>
+
+  <a href="{{ url_for('escolas') }}" class="btn btn-secondary">Voltar</a>
+</div>
+{% endblock %}
