@@ -1,0 +1,17 @@
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\bin\Debug\net8.0-windows\TCC.exe
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\bin\Debug\net8.0-windows\TCC.deps.json
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\bin\Debug\net8.0-windows\TCC.runtimeconfig.json
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\bin\Debug\net8.0-windows\TCC.dll
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\bin\Debug\net8.0-windows\TCC.pdb
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.Form1.resources
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.csproj.GenerateResource.cache
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.AssemblyInfoInputs.cache
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.AssemblyInfo.cs
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.csproj.CoreCompileInputs.cache
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.sourcelink.json
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.dll
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\refint\TCC.dll
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.pdb
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\TCC.genruntimeconfig.cache
+C:\Users\ruan.lima\Documents\C-sharp\TCC\TCC\obj\Debug\net8.0-windows\ref\TCC.dll

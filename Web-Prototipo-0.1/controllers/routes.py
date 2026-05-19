@@ -3,13 +3,11 @@ from flask import render_template, request, redirect, url_for
 # Importando os modelos
 from models.database import Aluno, Professor, Escola, db
 
-
 # Criado a função principal para inicializar as rotas
 def init_app(app):
     
     # Criando a rota principal do site
     @app.route('/')
-    # def cria funções no python
     def home():
         return render_template('index.html')
 
@@ -17,12 +15,16 @@ def init_app(app):
     @app.route('/escolas', methods=['GET', 'POST'])
     def escolas():
         if request.method == 'POST':
+            cnpj = request.form.get('cnpj')
             nome = request.form.get('nome')
-            endereco = request.form.get('endereco')
-            telefone = request.form.get('telefone')
             email = request.form.get('email')
+            telefone = request.form.get('telefone')
+            rua = request.form.get('rua')
+            bairro = request.form.get('bairro')
+            cidade = request.form.get('cidade')
+            estado = request.form.get('estado')
             
-            nova_escola = Escola(nome, endereco, telefone, email)
+            nova_escola = Escola(cnpj, email, nome, telefone, rua, bairro, cidade, estado)
             db.session.add(nova_escola)
             db.session.commit()
             return redirect(url_for('escolas'))
@@ -37,18 +39,21 @@ def init_app(app):
             nome = request.form.get('nome')
             cpf = request.form.get('cpf')
             email = request.form.get('email')
+            senha = request.form.get('senha')
             telefone = request.form.get('telefone')
-            especialidade = request.form.get('especialidade')
-            escola_id = request.form.get('escola_id')
+            rua = request.form.get('rua')
+            bairro = request.form.get('bairro')
+            cidade = request.form.get('cidade')
+            estado = request.form.get('estado')
+            num_casa = request.form.get('num_casa') or None
             
-            novo_professor = Professor(nome, cpf, email, telefone, especialidade, escola_id)
+            novo_professor = Professor(nome, cpf, email, senha, telefone, rua, bairro, cidade, estado, num_casa)
             db.session.add(novo_professor)
             db.session.commit()
             return redirect(url_for('professores'))
         
         professores = Professor.query.all()
-        escolas = Escola.query.all()
-        return render_template('professores.html', professores=professores, escolas=escolas)
+        return render_template('professores.html', professores=professores)
 
     # Rota para listar e cadastrar alunos
     @app.route('/alunos', methods=['GET', 'POST'])
@@ -56,35 +61,34 @@ def init_app(app):
         if request.method == 'POST':
             nome = request.form.get('nome')
             cpf = request.form.get('cpf')
-            email = request.form.get('email')
-            telefone = request.form.get('telefone')
-            data_nascimento = request.form.get('data_nascimento')
-            esporte = request.form.get('esporte')
-            escola_id = request.form.get('escola_id')
-            professor_id = request.form.get('professor_id')
+            senha = request.form.get('senha')
+            nome_responsavel = request.form.get('nome_responsavel')
+            telefone_responsavel = request.form.get('telefone_responsavel')
+            cpf_responsavel = request.form.get('cpf_responsavel')
+            rua = request.form.get('rua')
+            bairro = request.form.get('bairro')
+            cidade = request.form.get('cidade')
+            estado = request.form.get('estado')
+            num_casa = request.form.get('num_casa') or None
             
-            novo_aluno = Aluno(nome, cpf, email, telefone, data_nascimento, esporte, escola_id, professor_id)
+            novo_aluno = Aluno(nome, cpf, senha, nome_responsavel, telefone_responsavel, cpf_responsavel, rua, bairro, cidade, estado, num_casa)
             db.session.add(novo_aluno)
             db.session.commit()
             return redirect(url_for('alunos'))
         
         alunos = Aluno.query.all()
-        escolas = Escola.query.all()
-        professores = Professor.query.all()
-        return render_template('alunos.html', alunos=alunos, escolas=escolas, professores=professores)
+        return render_template('alunos.html', alunos=alunos)
     
     # Rota para visualizar detalhes de uma escola
-    @app.route('/escola/<int:id>')
-    def detalhes_escola(id):
-        escola = Escola.query.get(id)
-        professores = Professor.query.filter_by(escola_id=id).all()
-        alunos = Aluno.query.filter_by(escola_id=id).all()
-        return render_template('detalhes_escola.html', escola=escola, professores=professores, alunos=alunos)
+    @app.route('/escola/<cnpj>')
+    def detalhes_escola(cnpj):
+        escola = Escola.query.get(cnpj)
+        return render_template('detalhes_escola.html', escola=escola)
     
     # Rota para deletar escola
-    @app.route('/deletar_escola/<int:id>')
-    def deletar_escola(id):
-        escola = Escola.query.get(id)
+    @app.route('/deletar_escola/<cnpj>')
+    def deletar_escola(cnpj):
+        escola = Escola.query.get(cnpj)
         db.session.delete(escola)
         db.session.commit()
         return redirect(url_for('escolas'))

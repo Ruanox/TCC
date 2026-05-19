@@ -9,21 +9,45 @@
     <div class="card-body">
       <h5 class="card-title">Cadastrar Nova Escola</h5>
       <form method="POST">
-        <div class="mb-3">
-          <label for="nome" class="form-label">Nome da Escola:</label>
-          <input type="text" class="form-control" id="nome" name="nome" required>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cnpj" class="form-label">CNPJ:</label>
+            <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="nome" class="form-label">Nome da Escola:</label>
+            <input type="text" class="form-control" id="nome" name="nome" required>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="endereco" class="form-label">Endereço:</label>
-          <input type="text" class="form-control" id="endereco" name="endereco" required>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="telefone" class="form-label">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" required>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="telefone" class="form-label">Telefone:</label>
-          <input type="text" class="form-control" id="telefone" name="telefone" required>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="rua" class="form-label">Rua:</label>
+            <input type="text" class="form-control" id="rua" name="rua" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="bairro" class="form-label">Bairro:</label>
+            <input type="text" class="form-control" id="bairro" name="bairro" required>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" id="email" name="email" required>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cidade" class="form-label">Cidade:</label>
+            <input type="text" class="form-control" id="cidade" name="cidade" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="estado" class="form-label">Estado:</label>
+            <input type="text" class="form-control" id="estado" name="estado" required>
+          </div>
         </div>
         <button type="submit" class="btn btn-success">Cadastrar</button>
       </form>
@@ -38,25 +62,31 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>ID</th>
+            <th>CNPJ</th>
             <th>Nome</th>
-            <th>Endereço</th>
-            <th>Telefone</th>
             <th>Email</th>
+            <th>Telefone</th>
+            <th>Rua</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
             <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           {% for escola in escolas %}
           <tr>
-            <td>{{ escola.id }}</td>
+            <td>{{ escola.cnpj }}</td>
             <td>{{ escola.nome }}</td>
-            <td>{{ escola.endereco }}</td>
-            <td>{{ escola.telefone }}</td>
             <td>{{ escola.email }}</td>
+            <td>{{ escola.telefone }}</td>
+            <td>{{ escola.rua }}</td>
+            <td>{{ escola.bairro }}</td>
+            <td>{{ escola.cidade }}</td>
+            <td>{{ escola.estado }}</td>
             <td>
-              <a href="{{ url_for('detalhes_escola', id=escola.id) }}" class="btn btn-info btn-sm">Detalhes</a>
-              <a href="{{ url_for('deletar_escola', id=escola.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('Deseja deletar esta escola?')">Deletar</a>
+              <a href="{{ url_for('detalhes_escola', cnpj=escola.cnpj) }}" class="btn btn-info btn-sm">Detalhes</a>
+              <a href="{{ url_for('deletar_escola', cnpj=escola.cnpj) }}" class="btn btn-danger btn-sm" onclick="return confirm('Deseja deletar esta escola?')">Deletar</a>
             </td>
           </tr>
           {% endfor %}
