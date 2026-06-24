@@ -15,8 +15,8 @@
             <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="nome" class="form-label">Nome da Escola:</label>
-            <input type="text" class="form-control" id="nome" name="nome" required>
+            <label for="usuario" class="form-label">Nome da Escola:</label>
+            <input type="text" class="form-control" id="usuario" name="usuario" required>
           </div>
         </div>
         <div class="row">
@@ -77,7 +77,7 @@
           {% for escola in escolas %}
           <tr>
             <td>{{ escola.cnpj }}</td>
-            <td>{{ escola.nome }}</td>
+            <td>{{ escola.usuario }}</td>
             <td>{{ escola.email }}</td>
             <td>{{ escola.telefone }}</td>
             <td>{{ escola.rua }}</td>

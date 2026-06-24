@@ -4,10 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cadastro Escolar</title>
-    <link
-      rel="stylesheet"
-      href="{{url_for('static',filename='/css/style.css')}}"
-    />
     <!-- Importação do bootstrap -->
     <link
       rel="stylesheet"
@@ -15,17 +11,25 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static',filename='/css/style.css')}}"
+    />
   </head>
 
   <body>
-    <header>
-      <h1 style="text-align: center; padding: 20px; color: #333;">Sistema de Cadastro de Esportes</h1>
+    <header class="site-header">
+      <img
+        src="{{ url_for('static', filename='images/sportcorp_logo_transparente.png') }}"
+        alt="SportCorp Logo"
+        class="header-logo"
+      />
     </header>
 
     <!-- Aqui vai a NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark header-nav">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/">Cadastro Escolar</a>
+        <a class="navbar-brand" href="/">Tela de Cadastro</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -52,17 +56,6 @@
               <a class="nav-link" href="{{url_for('alunos')}}">Alunos</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Pesquisar"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-primary" type="submit">
-              Pesquisar
-            </button>
-          </form>
         </div>
       </div>
     </nav>
@@ -70,9 +63,5 @@
     {% block content %}
     <!-- Aqui irá conteúdo principal do site -->
     {% endblock content %}
-
-    <footer>
-      <p>&copy; 2026 - Sistema de Cadastro Escolar - Todos os direitos reservados.</p>
-    </footer>
   </body>
 </html>

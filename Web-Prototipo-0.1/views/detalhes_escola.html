@@ -2,14 +2,14 @@
 
 {% block content %}
 <div class="container mt-5">
-  <h2>Detalhes da Escola: {{ escola.nome }}</h2>
+  <h2>Detalhes da Escola: {{ escola.usuario }}</h2>
 
   <!-- Informações da Escola -->
   <div class="card mt-4 mb-4">
     <div class="card-body">
       <h5 class="card-title">Informações da Escola</h5>
       <p><strong>CNPJ:</strong> {{ escola.cnpj }}</p>
-      <p><strong>Nome:</strong> {{ escola.nome }}</p>
+      <p><strong>Nome:</strong> {{ escola.usuario }}</p>
       <p><strong>Email:</strong> {{ escola.email }}</p>
       <p><strong>Telefone:</strong> {{ escola.telefone }}</p>
       <p><strong>Rua:</strong> {{ escola.rua }}</p>

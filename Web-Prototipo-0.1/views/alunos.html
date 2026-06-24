@@ -11,8 +11,8 @@
       <form method="POST">
         <div class="row">
           <div class="col-md-6 mb-3">
-            <label for="nome" class="form-label">Nome do Aluno:</label>
-            <input type="text" class="form-control" id="nome" name="nome" required>
+            <label for="usuario" class="form-label">Nome do Aluno:</label>
+            <input type="text" class="form-control" id="usuario" name="usuario" required>
           </div>
           <div class="col-md-6 mb-3">
             <label for="cpf" class="form-label">CPF:</label>
@@ -25,8 +25,8 @@
             <input type="password" class="form-control" id="senha" name="senha" required>
           </div>
           <div class="col-md-6 mb-3">
-            <label for="nome_responsavel" class="form-label">Nome do Responsável:</label>
-            <input type="text" class="form-control" id="nome_responsavel" name="nome_responsavel" required>
+            <label for="usuario_responsavel" class="form-label">Nome do Responsável:</label>
+            <input type="text" class="form-control" id="usuario_responsavel" name="usuario_responsavel" required>
           </div>
         </div>
         <div class="row">
@@ -90,9 +90,9 @@
           {% for aluno in alunos %}
           <tr>
             <td>{{ aluno.id_aluno }}</td>
-            <td>{{ aluno.nome }}</td>
+            <td>{{ aluno.usuario }}</td>
             <td>{{ aluno.cpf }}</td>
-            <td>{{ aluno.nome_responsavel }}</td>
+            <td>{{ aluno.usuario_responsavel }}</td>
             <td>{{ aluno.telefone_responsavel }}</td>
             <td>{{ aluno.cidade }}</td>
             <td>{{ aluno.estado }}</td>

@@ -16,7 +16,7 @@ def init_app(app):
     def escolas():
         if request.method == 'POST':
             cnpj = request.form.get('cnpj')
-            nome = request.form.get('nome')
+            usuario = request.form.get('usuario')
             email = request.form.get('email')
             telefone = request.form.get('telefone')
             rua = request.form.get('rua')
@@ -24,7 +24,7 @@ def init_app(app):
             cidade = request.form.get('cidade')
             estado = request.form.get('estado')
             
-            nova_escola = Escola(cnpj, email, nome, telefone, rua, bairro, cidade, estado)
+            nova_escola = Escola(cnpj, email, usuario, telefone, rua, bairro, cidade, estado)
             db.session.add(nova_escola)
             db.session.commit()
             return redirect(url_for('escolas'))
@@ -36,7 +36,7 @@ def init_app(app):
     @app.route('/professores', methods=['GET', 'POST'])
     def professores():
         if request.method == 'POST':
-            nome = request.form.get('nome')
+            usuario = request.form.get('usuario')
             cpf = request.form.get('cpf')
             email = request.form.get('email')
             senha = request.form.get('senha')
@@ -47,7 +47,7 @@ def init_app(app):
             estado = request.form.get('estado')
             num_casa = request.form.get('num_casa') or None
             
-            novo_professor = Professor(nome, cpf, email, senha, telefone, rua, bairro, cidade, estado, num_casa)
+            novo_professor = Professor(usuario, cpf, email, senha, telefone, rua, bairro, cidade, estado, num_casa)
             db.session.add(novo_professor)
             db.session.commit()
             return redirect(url_for('professores'))
@@ -59,7 +59,7 @@ def init_app(app):
     @app.route('/alunos', methods=['GET', 'POST'])
     def alunos():
         if request.method == 'POST':
-            nome = request.form.get('nome')
+            usuario = request.form.get('usuario')
             cpf = request.form.get('cpf')
             senha = request.form.get('senha')
             nome_responsavel = request.form.get('nome_responsavel')
@@ -71,7 +71,7 @@ def init_app(app):
             estado = request.form.get('estado')
             num_casa = request.form.get('num_casa') or None
             
-            novo_aluno = Aluno(nome, cpf, senha, nome_responsavel, telefone_responsavel, cpf_responsavel, rua, bairro, cidade, estado, num_casa)
+            novo_aluno = Aluno(usuario, cpf, senha, nome_responsavel, telefone_responsavel, cpf_responsavel, rua, bairro, cidade, estado, num_casa)
             db.session.add(novo_aluno)
             db.session.commit()
             return redirect(url_for('alunos'))

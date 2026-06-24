@@ -7,7 +7,7 @@ import pymysql
 from models.database import db, Aluno, Professor, Escola
 
 #Definindo um nome para o banco
-DB_NAME = 'tcc'
+DB_NAME = 'volei'
 
 from controllers import routes
 # do pacote do flask, importe a classe Flask

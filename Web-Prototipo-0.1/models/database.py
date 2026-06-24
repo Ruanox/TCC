@@ -6,7 +6,7 @@ db = SQLAlchemy()
 class Aluno(db.Model):
     __tablename__ = 'aluno'
     id_aluno = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    nome = db.Column(db.String(50), nullable=False)
+    usuario = db.Column(db.String(50), nullable=False)
     cpf = db.Column(db.String(18), unique=True, nullable=False)
     senha = db.Column(db.String(50), nullable=False)
     nome_responsavel = db.Column(db.String(50), nullable=True)
@@ -18,8 +18,8 @@ class Aluno(db.Model):
     estado = db.Column(db.String(50), nullable=True)
     num_casa = db.Column(db.Integer, nullable=True)
 
-    def __init__(self, nome, cpf, senha, nome_responsavel, telefone_responsavel, cpf_responsavel, rua, bairro, cidade, estado, num_casa):
-        self.nome = nome
+    def __init__(self, usuario, cpf, senha, nome_responsavel, telefone_responsavel, cpf_responsavel, rua, bairro, cidade, estado, num_casa):
+        self.usuario = usuario
         self.cpf = cpf
         self.senha = senha
         self.nome_responsavel = nome_responsavel
@@ -34,7 +34,7 @@ class Aluno(db.Model):
 class Professor(db.Model):
     __tablename__ = 'professor'
     id_professor = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    nome = db.Column(db.String(50), nullable=False)
+    usuario = db.Column(db.String(50), nullable=False)
     cpf = db.Column(db.String(18), unique=True, nullable=False)
     email = db.Column(db.String(50), unique=True, nullable=False)
     senha = db.Column(db.String(50), nullable=False)
@@ -45,8 +45,8 @@ class Professor(db.Model):
     estado = db.Column(db.String(50), nullable=True)
     num_casa = db.Column(db.Integer, nullable=True)
 
-    def __init__(self, nome, cpf, email, senha, telefone, rua, bairro, cidade, estado, num_casa):
-        self.nome = nome
+    def __init__(self, usuario, cpf, email, senha, telefone, rua, bairro, cidade, estado, num_casa):
+        self.usuario = usuario
         self.cpf = cpf
         self.email = email
         self.senha = senha
@@ -61,17 +61,17 @@ class Escola(db.Model):
     __tablename__ = 'escola'
     cnpj = db.Column(db.String(18), primary_key=True)
     email = db.Column(db.String(50), nullable=True)
-    nome = db.Column(db.String(50), nullable=False)
+    usuario = db.Column(db.String(50), nullable=False)
     telefone = db.Column(db.String(50), nullable=True)
     rua = db.Column(db.String(50), nullable=True)
     bairro = db.Column(db.String(50), nullable=True)
     cidade = db.Column(db.String(50), nullable=True)
     estado = db.Column(db.String(50), nullable=True)
 
-    def __init__(self, cnpj, email, nome, telefone, rua, bairro, cidade, estado):
+    def __init__(self, cnpj, email, usuario, telefone, rua, bairro, cidade, estado):
         self.cnpj = cnpj
         self.email = email
-        self.nome = nome
+        self.usuario = usuario
         self.telefone = telefone
         self.rua = rua
         self.bairro = bairro
