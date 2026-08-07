@@ -1,44 +1,70 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-md-12">
-      <h2>Bem-vindo ao Sistema de Cadastro Escolar</h2>
-      <p>Este sistema permite gerenciar o cadastro de escolas, professores e alunos.</p>
+<section class="hero-panel">
+  <div class="hero-copy">
+    <p class="eyebrow">SportCorp App</p>
+    <h1>Mais organização para o esporte, em qualquer lugar.</h1>
+    <p>
+      O aplicativo SportCorp para desktop e mobile ajuda clubes, academias e times a
+      centralizar gestão, acompanhar desempenho e fortalecer a comunicação entre equipe e atletas.
+    </p>
+    <div class="hero-actions">
+      <a href="#download" class="btn btn-primary btn-lg">Baixar agora</a>
+      <a href="#funcionalidades" class="btn btn-outline-light btn-lg">Ver funcionalidades</a>
     </div>
+    <ul class="hero-badges">
+      <li>Disponível para Windows</li>
+      <li>Compatível com Android e iOS</li>
+      <li>Experiência simples e intuitiva</li>
+    </ul>
   </div>
 
-  <div class="row mt-5">
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Escolas</h5>
-          <p class="card-text">Gerencie as escolas cadastradas no sistema.</p>
-          <a href="{{ url_for('escolas') }}" class="btn btn-primary">Acessar Escolas</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Professores</h5>
-          <p class="card-text">Gerencie os professores cadastrados.</p>
-          <a href="{{ url_for('professores') }}" class="btn btn-primary">Acessar Professores</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title">Alunos</h5>
-          <p class="card-text">Gerencie os alunos cadastrados no sistema.</p>
-          <a href="{{ url_for('alunos') }}" class="btn btn-primary">Acessar Alunos</a>
-        </div>
-      </div>
+  <div class="hero-card">
+    <img src="{{ url_for('static', filename='images/sportcorp_logo_transparente.png') }}" alt="SportCorp" />
+    <div class="hero-card-body">
+      <h3>Uma plataforma para cada etapa do seu esporte</h3>
+      <p>Do planejamento à execução, tudo em um só ambiente.</p>
     </div>
   </div>
-</div>
+</section>
+
+<section id="funcionalidades" class="feature-grid">
+  <div class="feature-card">
+    <h3>Gestão completa</h3>
+    <p>Organize treinos, agenda e rotina de forma clara e prática.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Acompanhamento de desempenho</h3>
+    <p>Monitore evolução, metas e feedbacks em tempo real.</p>
+  </div>
+  <div class="feature-card">
+    <h3>Comunicação ágil</h3>
+    <p>Conecte atletas, comissão técnica e responsáveis em um só canal.</p>
+  </div>
+</section>
+
+<section class="info-section">
+  <div>
+    <p class="eyebrow">Desktop + Mobile</p>
+    <h2>Use o SportCorp onde e quando precisar.</h2>
+    <p>
+      A experiência foi pensada para funcionar com fluidez no computador, no celular e em qualquer rotina esportiva.
+    </p>
+  </div>
+  <div class="check-list">
+    <p>✓ Planejamento de treinos em segundos</p>
+    <p>✓ Acesso rápido à agenda e notificações</p>
+    <p>✓ Interface pensada para equipes e atletas</p>
+  </div>
+</section>
+
+<section id="download" class="cta-banner">
+  <h2>Pronto para conhecer o SportCorp?</h2>
+  <p>Baixe o aplicativo e veja como a sua rotina esportiva pode ficar mais eficiente.</p>
+  <div class="hero-actions">
+    <a href="#" class="btn btn-primary btn-lg">Download para Windows</a>
+    <a href="#" class="btn btn-outline-light btn-lg">Disponível para celular</a>
+  </div>
+</section>
 {% endblock %}
