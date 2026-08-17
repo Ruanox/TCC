@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Documentos_escola));
-            txtbox_cnpj = new TextBox();
             label4 = new Label();
-            txtbox_usuario = new TextBox();
             btn_confirmar = new Button();
             lbl_usuario = new Label();
             panel1 = new Panel();
@@ -51,6 +49,8 @@
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
+            txtbox_cnpj = new TextBox();
+            txtbox_usuario = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -59,35 +59,18 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
-            // txtbox_cnpj
-            // 
-            txtbox_cnpj.Location = new Point(885, 434);
-            txtbox_cnpj.Name = "txtbox_cnpj";
-            txtbox_cnpj.PlaceholderText = "Digite o CNPJ da escola";
-            txtbox_cnpj.Size = new Size(271, 23);
-            txtbox_cnpj.TabIndex = 12;
-            // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label4.Image = (Image)resources.GetObject("label4.Image");
             label4.ImageAlign = ContentAlignment.MiddleLeft;
             label4.Location = new Point(873, 401);
             label4.Name = "label4";
-            label4.Size = new Size(94, 30);
+            label4.Size = new Size(88, 24);
             label4.TabIndex = 11;
             label4.Text = "      CNPJ";
             label4.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txtbox_usuario
-            // 
-            txtbox_usuario.Location = new Point(885, 334);
-            txtbox_usuario.Name = "txtbox_usuario";
-            txtbox_usuario.PlaceholderText = "Digite seu usuário";
-            txtbox_usuario.Size = new Size(271, 23);
-            txtbox_usuario.TabIndex = 5;
-            txtbox_usuario.TextChanged += txtbox_usuario_TextChanged;
             // 
             // btn_confirmar
             // 
@@ -95,7 +78,7 @@
             btn_confirmar.FlatAppearance.BorderColor = Color.White;
             btn_confirmar.FlatAppearance.BorderSize = 0;
             btn_confirmar.FlatAppearance.MouseDownBackColor = Color.FromArgb(128, 255, 128);
-            btn_confirmar.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_confirmar.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_confirmar.ForeColor = Color.White;
             btn_confirmar.Image = (Image)resources.GetObject("btn_confirmar.Image");
             btn_confirmar.ImageAlign = ContentAlignment.MiddleRight;
@@ -111,12 +94,12 @@
             // lbl_usuario
             // 
             lbl_usuario.AutoSize = true;
-            lbl_usuario.Font = new Font("Montserrat", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_usuario.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lbl_usuario.Image = (Image)resources.GetObject("lbl_usuario.Image");
             lbl_usuario.ImageAlign = ContentAlignment.MiddleLeft;
             lbl_usuario.Location = new Point(873, 301);
             lbl_usuario.Name = "lbl_usuario";
-            lbl_usuario.Size = new Size(111, 30);
+            lbl_usuario.Size = new Size(99, 24);
             lbl_usuario.TabIndex = 5;
             lbl_usuario.Text = "     Usuario";
             lbl_usuario.TextAlign = ContentAlignment.MiddleRight;
@@ -159,37 +142,37 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Font = new Font("Montserrat", 21.7499962F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(302, 485);
+            label7.Font = new Font("Microsoft Sans Serif", 21.7499962F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(306, 601);
             label7.Name = "label7";
-            label7.Size = new Size(179, 45);
+            label7.Size = new Size(160, 33);
             label7.TabIndex = 3;
             label7.Text = "resultados";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Montserrat SemiBold", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(238, 438);
+            label6.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(237, 533);
             label6.Name = "label6";
-            label6.Size = new Size(316, 38);
+            label6.Size = new Size(295, 29);
             label6.TabIndex = 2;
             label6.Text = "Gestão que impulsinona";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Montserrat", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(302, 344);
+            label5.Font = new Font("Microsoft Sans Serif", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(303, 455);
             label5.Name = "label5";
-            label5.Size = new Size(192, 49);
+            label5.Size = new Size(173, 37);
             label5.TabIndex = 1;
             label5.Text = "SportCorp";
             // 
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(227, 196);
+            pictureBox1.Location = new Point(228, 307);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(238, 122);
             pictureBox1.TabIndex = 0;
@@ -202,7 +185,7 @@
             panel3.Controls.Add(label2);
             panel3.Controls.Add(label1);
             panel3.Dock = DockStyle.Bottom;
-            panel3.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            panel3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             panel3.Location = new Point(0, 701);
             panel3.Name = "panel3";
             panel3.Size = new Size(1370, 48);
@@ -213,7 +196,7 @@
             label8.AutoSize = true;
             label8.Location = new Point(1221, 15);
             label8.Name = "label8";
-            label8.Size = new Size(98, 24);
+            label8.Size = new Size(103, 18);
             label8.TabIndex = 3;
             label8.Text = "Versão 1.0.0";
             // 
@@ -222,28 +205,28 @@
             label3.AutoSize = true;
             label3.Location = new Point(269, 15);
             label3.Name = "label3";
-            label3.Size = new Size(226, 24);
+            label3.Size = new Size(230, 18);
             label3.TabIndex = 2;
             label3.Text = "Todos os direitos reservados";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Montserrat Medium", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(250, 42, 85);
             label2.Location = new Point(162, 15);
             label2.Name = "label2";
-            label2.Size = new Size(88, 24);
+            label2.Size = new Size(86, 18);
             label2.TabIndex = 1;
             label2.Text = "SportCorp";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Montserrat Medium", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(88, 14);
             label1.Name = "label1";
-            label1.Size = new Size(68, 25);
+            label1.Size = new Size(66, 20);
             label1.TabIndex = 0;
             label1.Text = "©2026 ";
             // 
@@ -259,31 +242,31 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Montserrat", 15.75F, FontStyle.Bold);
+            label9.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold);
             label9.Location = new Point(934, 125);
             label9.Name = "label9";
-            label9.Size = new Size(74, 33);
+            label9.Size = new Size(68, 25);
             label9.TabIndex = 16;
             label9.Text = "Sport";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new Font("Montserrat", 15.75F, FontStyle.Bold);
+            label10.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold);
             label10.ForeColor = Color.FromArgb(250, 42, 85);
             label10.Location = new Point(1000, 125);
             label10.Name = "label10";
-            label10.Size = new Size(66, 33);
+            label10.Size = new Size(62, 25);
             label10.TabIndex = 17;
             label10.Text = "Corp";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Font = new Font("Montserrat", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label11.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label11.Location = new Point(901, 170);
             label11.Name = "label11";
-            label11.Size = new Size(182, 42);
+            label11.Size = new Size(161, 31);
             label11.TabIndex = 18;
             label11.Text = "Bem-vindo!";
             // 
@@ -296,6 +279,23 @@
             label12.Size = new Size(228, 20);
             label12.TabIndex = 19;
             label12.Text = "faça login para acessar sua conta";
+            // 
+            // txtbox_cnpj
+            // 
+            txtbox_cnpj.Location = new Point(885, 434);
+            txtbox_cnpj.Name = "txtbox_cnpj";
+            txtbox_cnpj.PlaceholderText = "Digite o CNPJ da escola";
+            txtbox_cnpj.Size = new Size(271, 23);
+            txtbox_cnpj.TabIndex = 12;
+            // 
+            // txtbox_usuario
+            // 
+            txtbox_usuario.Location = new Point(885, 334);
+            txtbox_usuario.Name = "txtbox_usuario";
+            txtbox_usuario.PlaceholderText = "Digite seu usuário";
+            txtbox_usuario.Size = new Size(271, 23);
+            txtbox_usuario.TabIndex = 5;
+            txtbox_usuario.TextChanged += txtbox_usuario_TextChanged;
             // 
             // Documentos_escola
             // 
@@ -331,9 +331,8 @@
         }
 
         #endregion
-        private TextBox txtbox_cnpj;
         private Label label4;
-        private TextBox txtbox_usuario;
+        private TextBox customTextBox1;
         private Button btn_confirmar;
         private Label lbl_usuario;
         private Panel panel1;
@@ -353,5 +352,8 @@
         private Label label12;
         private PictureBox pictureBox3;
         private PictureBox pictureBox5;
+        private TextBox txtbox_cnpj;
+        private TextBox txtbox_usuario;
+        private CustomTextBox txtbox_user;
     }
 }

@@ -43,8 +43,6 @@
             btn_aleatorio = new Button();
             label8 = new Label();
             btn_aleatorio2 = new Button();
-            label7 = new Label();
-            btn_aleatorio3 = new Button();
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
@@ -52,9 +50,12 @@
             label2 = new Label();
             label1 = new Label();
             panel2 = new Panel();
+            label7 = new Label();
+            btn_aleatorio3 = new Button();
             panel1.SuspendLayout();
             panelcadSubMenu.SuspendLayout();
             panelSideMenu.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -185,8 +186,6 @@
             panelSideMenu.Controls.Add(btn_aleatorio);
             panelSideMenu.Controls.Add(label8);
             panelSideMenu.Controls.Add(btn_aleatorio2);
-            panelSideMenu.Controls.Add(label7);
-            panelSideMenu.Controls.Add(btn_aleatorio3);
             panelSideMenu.Controls.Add(label6);
             panelSideMenu.Controls.Add(label5);
             panelSideMenu.Controls.Add(label4);
@@ -222,7 +221,7 @@
             // 
             button4.BackColor = Color.FromArgb(250, 42, 85);
             button4.FlatAppearance.BorderSize = 0;
-            button4.Font = new Font("Montserrat", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button4.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button4.ForeColor = Color.White;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleRight;
@@ -239,16 +238,16 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Montserrat", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label9.Location = new Point(1012, 540);
+            label9.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label9.Location = new Point(1013, 542);
             label9.Name = "label9";
-            label9.Size = new Size(71, 25);
+            label9.Size = new Size(65, 20);
             label9.TabIndex = 21;
             label9.Text = "Escolas";
             // 
             // btn_aleatorio
             // 
-            btn_aleatorio.Font = new Font("Montserrat", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_aleatorio.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_aleatorio.ForeColor = Color.FromArgb(250, 42, 85);
             btn_aleatorio.Image = (Image)resources.GetObject("btn_aleatorio.Image");
             btn_aleatorio.ImageAlign = ContentAlignment.TopCenter;
@@ -263,16 +262,16 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Montserrat", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label8.Location = new Point(833, 540);
+            label8.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label8.Location = new Point(838, 542);
             label8.Name = "label8";
-            label8.Size = new Size(104, 25);
+            label8.Size = new Size(94, 20);
             label8.TabIndex = 19;
             label8.Text = "Professores";
             // 
             // btn_aleatorio2
             // 
-            btn_aleatorio2.Font = new Font("Montserrat", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_aleatorio2.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_aleatorio2.ForeColor = Color.FromArgb(250, 42, 85);
             btn_aleatorio2.Image = (Image)resources.GetObject("btn_aleatorio2.Image");
             btn_aleatorio2.ImageAlign = ContentAlignment.TopCenter;
@@ -285,38 +284,13 @@
             btn_aleatorio2.UseVisualStyleBackColor = true;
             btn_aleatorio2.Click += button2_Click_2;
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Montserrat", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label7.Location = new Point(688, 540);
-            label7.Name = "label7";
-            label7.Size = new Size(67, 25);
-            label7.TabIndex = 17;
-            label7.Text = "Alunos";
-            // 
-            // btn_aleatorio3
-            // 
-            btn_aleatorio3.Font = new Font("Montserrat", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn_aleatorio3.ForeColor = Color.FromArgb(250, 42, 85);
-            btn_aleatorio3.Image = (Image)resources.GetObject("btn_aleatorio3.Image");
-            btn_aleatorio3.ImageAlign = ContentAlignment.TopCenter;
-            btn_aleatorio3.Location = new Point(659, 455);
-            btn_aleatorio3.Name = "btn_aleatorio3";
-            btn_aleatorio3.Size = new Size(126, 114);
-            btn_aleatorio3.TabIndex = 16;
-            btn_aleatorio3.Text = "Gerencie\r\nAlunos\r\n";
-            btn_aleatorio3.TextAlign = ContentAlignment.BottomCenter;
-            btn_aleatorio3.UseVisualStyleBackColor = true;
-            btn_aleatorio3.Click += button1_Click_3;
-            // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Montserrat SemiBold", 17.9999981F, FontStyle.Bold);
+            label6.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             label6.Location = new Point(755, 352);
             label6.Name = "label6";
-            label6.Size = new Size(253, 38);
+            label6.Size = new Size(245, 29);
             label6.TabIndex = 15;
             label6.Text = "profesores e escola";
             label6.Click += label6_Click;
@@ -324,53 +298,53 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Montserrat SemiBold", 17.9999981F, FontStyle.Bold);
+            label5.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             label5.Location = new Point(616, 300);
             label5.Name = "label5";
-            label5.Size = new Size(513, 38);
+            label5.Size = new Size(482, 29);
             label5.TabIndex = 14;
             label5.Text = "Sitema completo para gestão de alunos,";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Montserrat SemiBold", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.FromArgb(250, 42, 85);
             label4.Location = new Point(890, 223);
             label4.Name = "label4";
-            label4.Size = new Size(147, 38);
+            label4.Size = new Size(140, 29);
             label4.TabIndex = 13;
             label4.Text = "SportCorp!";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Montserrat SemiBold", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(710, 223);
             label3.Name = "label3";
-            label3.Size = new Size(196, 38);
+            label3.Size = new Size(181, 29);
             label3.TabIndex = 12;
             label3.Text = "Bem-vindo ao ";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Montserrat ExtraBold", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.FromArgb(250, 42, 85);
             label2.Location = new Point(642, 130);
             label2.Name = "label2";
-            label2.Size = new Size(460, 25);
+            label2.Size = new Size(569, 20);
             label2.TabIndex = 11;
             label2.Text = "________________________________________________________";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Montserrat", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 48F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.FromArgb(250, 42, 85);
             label1.Location = new Point(667, 43);
             label1.Name = "label1";
-            label1.Size = new Size(383, 100);
+            label1.Size = new Size(334, 73);
             label1.TabIndex = 10;
             label1.Text = "SportCorp";
             // 
@@ -378,10 +352,37 @@
             // 
             panel2.BackgroundImage = (Image)resources.GetObject("panel2.BackgroundImage");
             panel2.BackgroundImageLayout = ImageLayout.Stretch;
+            panel2.Controls.Add(label7);
+            panel2.Controls.Add(btn_aleatorio3);
             panel2.Location = new Point(250, -50);
             panel2.Name = "panel2";
             panel2.Size = new Size(541, 1000);
             panel2.TabIndex = 8;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label7.Location = new Point(451, 592);
+            label7.Name = "label7";
+            label7.Size = new Size(58, 20);
+            label7.TabIndex = 17;
+            label7.Text = "Alunos";
+            // 
+            // btn_aleatorio3
+            // 
+            btn_aleatorio3.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_aleatorio3.ForeColor = Color.FromArgb(250, 42, 85);
+            btn_aleatorio3.Image = (Image)resources.GetObject("btn_aleatorio3.Image");
+            btn_aleatorio3.ImageAlign = ContentAlignment.TopCenter;
+            btn_aleatorio3.Location = new Point(417, 505);
+            btn_aleatorio3.Name = "btn_aleatorio3";
+            btn_aleatorio3.Size = new Size(126, 114);
+            btn_aleatorio3.TabIndex = 16;
+            btn_aleatorio3.Text = "Gerencie\r\nAlunos\r\n";
+            btn_aleatorio3.TextAlign = ContentAlignment.BottomCenter;
+            btn_aleatorio3.UseVisualStyleBackColor = true;
+            btn_aleatorio3.Click += button1_Click_3;
             // 
             // Form_principal
             // 
@@ -395,6 +396,8 @@
             panelcadSubMenu.ResumeLayout(false);
             panelSideMenu.ResumeLayout(false);
             panelSideMenu.PerformLayout();
+            panel2.ResumeLayout(false);
+            panel2.PerformLayout();
             ResumeLayout(false);
         }
 

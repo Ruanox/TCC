@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(entrada_escola));
             panel1 = new Panel();
-            button1 = new Button();
+            btn_entradaAluno = new Button();
             pictureBox4 = new PictureBox();
             label1 = new Label();
             pictureBox5 = new PictureBox();
@@ -60,7 +60,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(250, 42, 85);
-            panel1.Controls.Add(button1);
+            panel1.Controls.Add(btn_entradaAluno);
             panel1.Controls.Add(pictureBox4);
             panel1.Controls.Add(label1);
             panel1.Controls.Add(pictureBox5);
@@ -73,16 +73,16 @@
             panel1.Size = new Size(780, 754);
             panel1.TabIndex = 16;
             // 
-            // button1
+            // btn_entradaAluno
             // 
-            button1.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Image = (Image)resources.GetObject("button1.Image");
-            button1.Location = new Point(331, 429);
-            button1.Name = "button1";
-            button1.Size = new Size(106, 42);
-            button1.TabIndex = 17;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btn_entradaAluno.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_entradaAluno.Image = (Image)resources.GetObject("btn_entradaAluno.Image");
+            btn_entradaAluno.Location = new Point(330, 429);
+            btn_entradaAluno.Name = "btn_entradaAluno";
+            btn_entradaAluno.Size = new Size(106, 42);
+            btn_entradaAluno.TabIndex = 20;
+            btn_entradaAluno.UseVisualStyleBackColor = true;
+            btn_entradaAluno.Click += button1_Click_1;
             // 
             // pictureBox4
             // 
@@ -288,12 +288,12 @@
         private Label label3;
         private PictureBox pictureBox4;
         private PictureBox pictureBox6;
-        private Button button1;
         private Button button2;
         private Panel panel3;
         private Label label8;
         private Label label4;
         private Label label6;
         private Label label7;
+        private Button btn_entradaAluno;
     }
 }

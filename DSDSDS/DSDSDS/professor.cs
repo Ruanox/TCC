@@ -19,14 +19,11 @@ namespace DSDSDS
         }
         private void CustomizeDesign()
         {
-            panelcadSubMenu.Visible = false;
+           
         }
         private void hideSubMenu()
         {
-            if (panelcadSubMenu.Visible == true)
-            {
-                panelcadSubMenu.Visible = false;
-            }
+            
         }
         private void showSubMenu(Panel subMenu)
         {
@@ -57,7 +54,7 @@ namespace DSDSDS
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
-            showSubMenu(panelcadSubMenu);
+            
         }
 
         private void btn_info_Click(object sender, EventArgs e)

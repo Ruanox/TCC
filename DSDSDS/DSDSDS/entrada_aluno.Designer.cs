@@ -28,12 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "entrada_aluno";
+            label1 = new Label();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Montserrat", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(187, 133);
+            label1.Name = "label1";
+            label1.Size = new Size(233, 100);
+            label1.TabIndex = 0;
+            label1.Text = "porno";
+            // 
+            // entrada_aluno
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1036, 663);
+            Controls.Add(label1);
+            Name = "entrada_aluno";
+            Text = "entrada_aluno";
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
     }
 }

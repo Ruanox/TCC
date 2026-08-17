@@ -64,8 +64,8 @@ namespace DSDSDS
             int valor = l.consultarLogin();
             if (valor == 1)
             {
-                entrada_escola formulario = new entrada_escola();
-                formulario.Show();
+                entrada_escola asdf = new entrada_escola();
+               asdf.Show();
                 this.Hide();
             }
             else
@@ -77,9 +77,7 @@ namespace DSDSDS
 
         private void btn_menu_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form_principal nsei = new Form_principal();
-            nsei.Show();
+       ;
         }
 
         private void panelcadSubMenu_Paint(object sender, PaintEventArgs e)

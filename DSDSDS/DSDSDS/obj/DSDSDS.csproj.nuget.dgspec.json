@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\DSDSDS.csproj": {}
+    "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\DSDSDS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\DSDSDS.csproj": {
+    "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\DSDSDS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\DSDSDS.csproj",
+        "projectUniqueName": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\DSDSDS.csproj",
         "projectName": "DSDSDS",
-        "projectPath": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\DSDSDS.csproj",
-        "packagesPath": "C:\\Users\\ruang\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\obj\\",
+        "projectPath": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\DSDSDS.csproj",
+        "packagesPath": "C:\\Users\\ruan.lima\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ruang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ruan.lima\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -74,7 +78,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.315/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.317/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

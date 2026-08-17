@@ -38,9 +38,7 @@ namespace DSDSDS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Hide();
-            Add_aluno nka = new Add_aluno();
-            nka.Show();
+
 
         }
 
@@ -56,6 +54,23 @@ namespace DSDSDS
         private void pictureBox5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonPanel1_Paint(object sender, PaintEventArgs e)
+        {
+            
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Hide();
+            ALN_ADD iodo = new ALN_ADD();
+            iodo.Show();
         }
     }
 }

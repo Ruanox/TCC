@@ -1,18 +1,22 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\",
+  "WorkspaceRootPath": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|c:\\users\\ruang\\onedrive\\documentos\\tcc\\dsdsds\\dsdsds\\add_prof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|c:\\users\\ruan.lima\\documents\\tcc\\tcc\\dsdsds\\dsdsds\\add_prof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|solutionrelative:dsdsds\\add_prof.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|c:\\users\\ruang\\onedrive\\documentos\\tcc\\dsdsds\\dsdsds\\frm_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|c:\\users\\ruan.lima\\documents\\tcc\\tcc\\dsdsds\\dsdsds\\frm_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|solutionrelative:dsdsds\\frm_principal.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\dsdsds\\documentos_escola.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|solutionrelative:dsdsds\\documentos_escola.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|c:\\users\\ruan.lima\\documents\\tcc\\tcc\\dsdsds\\dsdsds\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|solutionrelative:dsdsds\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|c:\\users\\ruan.lima\\documents\\tcc\\tcc\\dsdsds\\dsdsds\\aln_add.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{3BC55719-2920-47E8-B0F9-35F28C076BD7}|DSDSDS\\DSDSDS.csproj|solutionrelative:dsdsds\\aln_add.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,42 +26,55 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "frm_principal.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\frm_principal.cs",
+              "DocumentMoniker": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\frm_principal.cs",
               "RelativeDocumentMoniker": "DSDSDS\\frm_principal.cs",
-              "ToolTip": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\frm_principal.cs [Projeto]",
-              "RelativeToolTip": "DSDSDS\\frm_principal.cs [Projeto]",
+              "ToolTip": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\frm_principal.cs [Projeto]*",
+              "RelativeToolTip": "DSDSDS\\frm_principal.cs [Projeto]*",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-04T18:46:55.965Z",
-              "EditorCaption": " [Projeto]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Add_prof.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\Add_prof.cs",
-              "RelativeDocumentMoniker": "DSDSDS\\Add_prof.cs",
-              "ToolTip": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\Add_prof.cs [Projeto]",
-              "RelativeToolTip": "DSDSDS\\Add_prof.cs [Projeto]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-03T16:32:24.041Z",
+              "WhenOpened": "2026-08-17T16:37:58.164Z",
               "EditorCaption": " [Projeto]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Documentos_escola.cs [Projeto]",
-              "DocumentMoniker": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\Documentos_escola.cs",
-              "RelativeDocumentMoniker": "DSDSDS\\Documentos_escola.cs",
-              "ToolTip": "C:\\Users\\ruang\\OneDrive\\Documentos\\TCC\\DSDSDS\\DSDSDS\\Documentos_escola.cs [Projeto]",
-              "RelativeToolTip": "DSDSDS\\Documentos_escola.cs [Projeto]",
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\Program.cs",
+              "RelativeDocumentMoniker": "DSDSDS\\Program.cs",
+              "ToolTip": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\Program.cs",
+              "RelativeToolTip": "DSDSDS\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-29T14:07:38.132Z",
+              "WhenOpened": "2026-08-17T14:22:18.411Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Add_prof.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\Add_prof.cs",
+              "RelativeDocumentMoniker": "DSDSDS\\Add_prof.cs",
+              "ToolTip": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\Add_prof.cs [Projeto]",
+              "RelativeToolTip": "DSDSDS\\Add_prof.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-17T16:09:04.602Z",
+              "EditorCaption": " [Projeto]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ALN_ADD.cs [Projeto]",
+              "DocumentMoniker": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\ALN_ADD.cs",
+              "RelativeDocumentMoniker": "DSDSDS\\ALN_ADD.cs",
+              "ToolTip": "C:\\Users\\ruan.lima\\Documents\\TCC\\TCC\\DSDSDS\\DSDSDS\\ALN_ADD.cs [Projeto]",
+              "RelativeToolTip": "DSDSDS\\ALN_ADD.cs [Projeto]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-17T14:43:56.728Z",
               "EditorCaption": " [Projeto]"
             }
           ]
