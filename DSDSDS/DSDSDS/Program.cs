@@ -11,7 +11,7 @@ namespace DSDSDS
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new Add_prof_());
+            Application.Run(new ALN_ADD());
         }
     }
 }
