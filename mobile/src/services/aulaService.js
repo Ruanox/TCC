@@ -1,7 +1,17 @@
 import api from "./api";
 
-export const getAulas = async () => {
-  const response = await api.get("/horarios.php");
+export async function getAulas() {
+  const response = await api.get(
+    "/horarios.php"
+  );
 
-  return response.data;
+  if (Array.isArray(response.data)) {
+    return response.data;
+  }
+
+  return [];
+}
+
+export default {
+  getAulas,
 };

@@ -9,81 +9,219 @@ import {
 } from "react-native";
 
 import { registerAluno } from "../../services/alunoService";
-import { calcularIdade } from "../../services/idadeService";
 
 export default function RegisterAluno({ navigation }) {
   const [nome, setNome] = useState("");
   const [cpf, setCpf] = useState("");
-  const [dataNasc, setDataNasc] = useState(""); // use format YYYY-MM-DD
+  const [dataNasc, setDataNasc] = useState("");
+  const [carregando, setCarregando] = useState(false);
+
+  function formatarCPF(valor) {
+    const numeros = valor
+      .replace(/\D/g, "")
+      .slice(0, 11);
+
+    if (numeros.length <= 3) {
+      return numeros;
+    }
+
+    if (numeros.length <= 6) {
+      return `${numeros.slice(0, 3)}.${numeros.slice(3)}`;
+    }
+
+    if (numeros.length <= 9) {
+      return `${numeros.slice(0, 3)}.${numeros.slice(
+        3,
+        6
+      )}.${numeros.slice(6)}`;
+    }
+
+    return `${numeros.slice(0, 3)}.${numeros.slice(
+      3,
+      6
+    )}.${numeros.slice(6, 9)}-${numeros.slice(9)}`;
+  }
+
+  function formatarData(valor) {
+    const numeros = valor
+      .replace(/\D/g, "")
+      .slice(0, 8);
+
+    if (numeros.length <= 4) {
+      return numeros;
+    }
+
+    if (numeros.length <= 6) {
+      return `${numeros.slice(0, 4)}-${numeros.slice(4)}`;
+    }
+
+    return `${numeros.slice(0, 4)}-${numeros.slice(
+      4,
+      6
+    )}-${numeros.slice(6, 8)}`;
+  }
 
   async function handleRegister() {
-    if (!nome || !cpf || !dataNasc) {
-      Alert.alert("Erro", "Preencha todos os campos");
+    if (carregando) {
       return;
     }
 
-    const data = new Date(dataNasc);
+    const nomeLimpo = nome.trim();
+    const cpfLimpo = cpf.replace(/\D/g, "");
+    const dataLimpa = dataNasc.trim();
+
+    if (!nomeLimpo || !cpfLimpo || !dataLimpa) {
+      Alert.alert(
+        "Atenção",
+        "Preencha todos os campos."
+      );
+      return;
+    }
+
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(dataLimpa)) {
+      Alert.alert(
+        "Data inválida",
+        "Digite a data no formato AAAA-MM-DD."
+      );
+      return;
+    }
+
+    const data = new Date(
+      `${dataLimpa}T00:00:00`
+    );
+
     if (Number.isNaN(data.getTime())) {
-      Alert.alert("Erro", "Data inválida. Use AAAA-MM-DD");
+      Alert.alert(
+        "Data inválida",
+        "Digite uma data válida."
+      );
       return;
     }
 
-    const idade = calcularIdade(data);
-    const menorDeIdade = idade !== null && idade < 18;
+    if (data > new Date()) {
+      Alert.alert(
+        "Data inválida",
+        "A data de nascimento não pode ser futura."
+      );
+      return;
+    }
 
     try {
-      const payload = {
-        nome,
-        cpf,
-        data_nasc: dataNasc,
-        menor_de_idade: menorDeIdade ? 1 : 0,
-      };
+      setCarregando(true);
 
-      const res = await registerAluno(payload);
+      const resposta = await registerAluno({
+        nome: nomeLimpo,
+        cpf: cpfLimpo,
+        data_nasc: dataLimpa,
+      });
 
-      if (res.success || res.status === "success") {
-        Alert.alert("Sucesso", "Cadastro realizado com sucesso.", [
-          {
-            text: "OK",
-            onPress: () => navigation.navigate("Login"),
-          },
-        ]);
-      } else {
-        Alert.alert("Erro", res.message || "Não foi possível cadastrar o aluno.");
+      console.log(
+        "Resposta do cadastro:",
+        resposta
+      );
+
+      if (resposta?.success === true) {
+        Alert.alert(
+          "Sucesso",
+          "Aluno cadastrado com sucesso!",
+          [
+            {
+              text: "OK",
+              onPress: () => {
+                navigation.popToTop();
+              },
+            },
+          ]
+        );
+
+        return;
       }
-    } catch (err) {
-      console.log("Erro ao registrar:", err.response?.data || err.message);
-      Alert.alert("Erro", err.response?.data?.message || "Não foi possível cadastrar o aluno. Verifique a conexão com o servidor.");
+
+      Alert.alert(
+        "Erro",
+        resposta?.error ||
+          resposta?.message ||
+          "Não foi possível cadastrar o aluno."
+      );
+    } catch (error) {
+      console.log(
+        "Erro ao cadastrar aluno:",
+        error.response?.data ||
+          error.message
+      );
+
+      const dados = error.response?.data;
+
+      if (error.response?.status === 409) {
+        Alert.alert(
+          "CPF já cadastrado",
+          "Este CPF já está cadastrado no sistema."
+        );
+      } else {
+        Alert.alert(
+          "Erro",
+          dados?.error ||
+            dados?.message ||
+            "Não foi possível cadastrar o aluno."
+        );
+      }
+    } finally {
+      setCarregando(false);
     }
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Cadastro de Aluno</Text>
+      <Text style={styles.title}>
+        Cadastro de Aluno
+      </Text>
 
       <TextInput
-        placeholder="Nome"
         style={styles.input}
+        placeholder="Nome completo"
         value={nome}
         onChangeText={setNome}
+        autoCapitalize="words"
+        editable={!carregando}
       />
 
       <TextInput
+        style={styles.input}
         placeholder="CPF"
-        style={styles.input}
         value={cpf}
-        onChangeText={setCpf}
+        onChangeText={(valor) =>
+          setCpf(formatarCPF(valor))
+        }
+        keyboardType="numeric"
+        maxLength={14}
+        editable={!carregando}
       />
 
       <TextInput
-        placeholder="Data de nascimento (AAAA-MM-DD)"
         style={styles.input}
+        placeholder="Data de nascimento (AAAA-MM-DD)"
         value={dataNasc}
-        onChangeText={setDataNasc}
+        onChangeText={(valor) =>
+          setDataNasc(formatarData(valor))
+        }
+        keyboardType="numeric"
+        maxLength={10}
+        editable={!carregando}
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleRegister}>
-        <Text style={styles.buttonText}>Cadastrar</Text>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          carregando && styles.buttonDisabled,
+        ]}
+        onPress={handleRegister}
+        disabled={carregando}
+      >
+        <Text style={styles.buttonText}>
+          {carregando
+            ? "Cadastrando..."
+            : "Cadastrar"}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -96,27 +234,41 @@ const styles = StyleSheet.create({
     backgroundColor: "#F5F5F5",
     justifyContent: "center",
   },
+
   title: {
-    fontSize: 22,
+    fontSize: 26,
     fontWeight: "bold",
-    marginBottom: 18,
+    marginBottom: 25,
     textAlign: "center",
+    color: "#222",
   },
+
   input: {
-    backgroundColor: "#fff",
-    padding: 12,
-    borderRadius: 8,
-    marginBottom: 12,
+    backgroundColor: "#FFFFFF",
+    paddingHorizontal: 15,
+    paddingVertical: 13,
+    borderRadius: 10,
+    marginBottom: 14,
+    borderWidth: 1,
+    borderColor: "#DDD",
+    fontSize: 16,
   },
+
   button: {
     backgroundColor: "#FA2A55",
-    padding: 14,
+    paddingVertical: 15,
     borderRadius: 10,
     alignItems: "center",
-    marginTop: 8,
+    marginTop: 5,
   },
+
+  buttonDisabled: {
+    opacity: 0.6,
+  },
+
   buttonText: {
-    color: "#fff",
+    color: "#FFFFFF",
+    fontSize: 17,
     fontWeight: "bold",
   },
 });

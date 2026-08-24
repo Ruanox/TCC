@@ -1,15 +1,25 @@
 import api from "./api";
 
-export const getHorarios = async () => {
-  const res = await api.get("/horarios.php");
-  return res.data;
-};
+export async function getHorarios() {
+  const response = await api.get(
+    "/horarios.php"
+  );
 
-export const atualizarHorario = async (dados) => {
-  const res = await api.post(
-    "/atualizar_horarios.php",
+  return Array.isArray(response.data)
+    ? response.data
+    : [];
+}
+
+export async function atualizarHorario(dados) {
+  const response = await api.post(
+    "/horarios.php",
     dados
   );
 
-  return res.data;
+  return response.data;
+}
+
+export default {
+  getHorarios,
+  atualizarHorario,
 };

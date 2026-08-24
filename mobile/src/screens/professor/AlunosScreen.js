@@ -1,4 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, {
+  useEffect,
+  useState,
+} from "react";
+
 import {
   View,
   Text,
@@ -6,7 +10,15 @@ import {
   StyleSheet,
   ActivityIndicator,
 } from "react-native";
-import { agruparAlunosPorFaixaEtaria, normalizarAluno } from "../../services/idadeService";
+
+import {
+  getAlunos,
+} from "../../services/alunoService";
+
+import {
+  agruparAlunosPorFaixaEtaria,
+  normalizarAluno,
+} from "../../services/idadeService";
 
 export default function AlunosScreen() {
   const [alunos, setAlunos] = useState([]);
@@ -16,35 +28,42 @@ export default function AlunosScreen() {
     carregarAlunos();
   }, []);
 
-  const carregarAlunos = async () => {
+  async function carregarAlunos() {
     try {
-      const response = await fetch(
-        "http://localhost/tcc_mobile/alunos.php"
+      const dados = await getAlunos();
+
+      const lista = Array.isArray(dados)
+        ? dados.map(normalizarAluno)
+        : [];
+
+      setAlunos(lista);
+    } catch (error) {
+      console.log(
+        "Erro ao carregar alunos:",
+        error.response?.data ||
+          error.message
       );
 
-      const dados = await response.json();
-      const alunosNormalizados = (Array.isArray(dados) ? dados : []).map(normalizarAluno);
-
-      console.log("Dados recebidos:", dados);
-      console.log("Alunos normalizados:", alunosNormalizados);
-
-      setAlunos(alunosNormalizados);
-    } catch (error) {
-      console.log("Erro ao carregar alunos:", error);
+      setAlunos([]);
     } finally {
       setLoading(false);
     }
-  };
+  }
 
   if (loading) {
     return (
       <View style={styles.center}>
-        <ActivityIndicator size="large" color="#6C2BD9" />
+        <ActivityIndicator
+          size="large"
+          color="#6C2BD9"
+        />
       </View>
     );
   }
 
-  const grupos = agruparAlunosPorFaixaEtaria(alunos);
+  const grupos =
+    agruparAlunosPorFaixaEtaria(alunos);
+
   const chaves = Object.keys(grupos);
 
   return (
@@ -54,29 +73,48 @@ export default function AlunosScreen() {
           Nenhum aluno encontrado.
         </Text>
       ) : (
-        chaves.map((chave) => (
-          <View key={chave} style={styles.grupoContainer}>
-            <Text style={styles.grupoTitulo}>{chave}</Text>
-            <FlatList
-              data={grupos[chave]}
-              keyExtractor={(item, index) => `${chave}-${index}`}
-              scrollEnabled={false}
-              renderItem={({ item }) => (
-                <View style={styles.card}>
-                  <Text style={styles.nome}>
-                    {item.nome || item.Nome || "Aluno sem nome"}
-                  </Text>
-                  <Text style={styles.info}>
-                    Idade: {item.idade ?? "Não informada"}
-                  </Text>
-                  <Text style={styles.info}>
-                    Turma: {item.turmaIdade}
-                  </Text>
-                </View>
+        <FlatList
+          data={chaves}
+          keyExtractor={(item) => item}
+          renderItem={({ item: chave }) => (
+            <View style={styles.grupoContainer}>
+              <Text style={styles.grupoTitulo}>
+                {chave}
+              </Text>
+
+              {grupos[chave].map(
+                (aluno, index) => (
+                  <View
+                    key={`${aluno.id_aluno}-${index}`}
+                    style={styles.card}
+                  >
+                    <Text style={styles.nome}>
+                      {aluno.nome ||
+                        "Aluno sem nome"}
+                    </Text>
+
+                    <Text style={styles.info}>
+                      Idade:{" "}
+                      {aluno.idade ??
+                        "Não informada"}
+                    </Text>
+
+                    <Text style={styles.info}>
+                      CPF:{" "}
+                      {aluno.cpf ||
+                        "Não informado"}
+                    </Text>
+
+                    <Text style={styles.info}>
+                      Turma:{" "}
+                      {aluno.turmaIdade}
+                    </Text>
+                  </View>
+                )
               )}
-            />
-          </View>
-        ))
+            </View>
+          )}
+        />
       )}
     </View>
   );
@@ -86,6 +124,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 15,
+    backgroundColor: "#F5F5F5",
   },
 
   center: {

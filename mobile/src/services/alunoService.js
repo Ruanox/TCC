@@ -1,8 +1,25 @@
 import api from "./api";
 
-export const registerAluno = async (payload) => {
-  const res = await api.post("/alunos_create.php", payload);
-  return res.data;
-};
+export async function registerAluno(payload) {
+  const response = await api.post(
+    "/alunos_create.php",
+    payload
+  );
 
-export default { registerAluno };
+  return response.data;
+}
+
+export async function getAlunos() {
+  const response = await api.get(
+    "/alunos.php"
+  );
+
+  return Array.isArray(response.data)
+    ? response.data
+    : [];
+}
+
+export default {
+  registerAluno,
+  getAlunos,
+};

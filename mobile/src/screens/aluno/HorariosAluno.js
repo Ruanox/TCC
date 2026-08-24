@@ -1,82 +1,93 @@
+import React, {
+  useEffect,
+  useState,
+} from "react";
+
 import {
   ScrollView,
   View,
   Text,
-  StyleSheet
-}
-  from "react-native";
+  StyleSheet,
+} from "react-native";
 
 import {
-  useEffect,
-  useState
-}
-  from "react";
-
-import {
-  getAulas
-}
-  from "../../services/aulaService";
+  getAulas,
+} from "../../services/aulaService";
 
 export default function HorariosAluno() {
-
-  const [aulas, setAulas] = useState([]);
+  const [aulas, setAulas] =
+    useState([]);
 
   useEffect(() => {
-    load();
+    carregar();
   }, []);
 
-  async function load() {
-
+  async function carregar() {
     try {
+      const data =
+        await getAulas();
 
-      const data = await getAulas();
-
-      if (Array.isArray(data)) {
-        setAulas(data);
-      }
-
-    } catch (err) {
-      console.log(err);
+      setAulas(
+        Array.isArray(data)
+          ? data
+          : []
+      );
+    } catch (error) {
+      console.log(
+        "Erro:",
+        error.message
+      );
     }
   }
 
   return (
-
-    <ScrollView style={styles.container}>
-
+    <ScrollView
+      style={styles.container}
+    >
       <Text style={styles.title}>
         Meus Horários
       </Text>
 
-      {aulas.map((a, i) => (
+      {aulas.length === 0 ? (
+        <Text>
+          Nenhum horário encontrado.
+        </Text>
+      ) : (
+        aulas.map((aula) => (
+          <View
+            key={aula.id_horario}
+            style={styles.card}
+          >
+            <Text
+              style={styles.modalidade}
+            >
+              {aula.modalidade}
+            </Text>
 
-        <View key={i} style={styles.card}>
+            <Text style={styles.info}>
+              📅 {aula.dia_semana}
+            </Text>
 
-          <Text style={styles.modalidade}>
-            {a.modalidade}
-          </Text>
+            <Text style={styles.info}>
+              ⏰ {aula.hora_inicio} -{" "}
+              {aula.hora_fim}
+            </Text>
 
-          <Text style={styles.info}>
-            📅 {a.dia_semana}
-          </Text>
+            <Text style={styles.info}>
+              👨‍🏫 {aula.professor}
+            </Text>
 
-          <Text style={styles.info}>
-            ⏰ {a.hora_inicio} - {a.hora_fim}
-          </Text>
-
-          <Text style={styles.info}>
-            👨‍🏫 {a.professor}
-          </Text>
-
-        </View>
-      ))}
-
+            <Text style={styles.info}>
+              🌙 {aula.turno}
+            </Text>
+          </View>
+        ))
+      )}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: "#f5f5f5",
@@ -110,5 +121,4 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     color: "#444",
   },
-
 });

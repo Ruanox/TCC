@@ -1,83 +1,93 @@
+import React, {
+  useEffect,
+  useState,
+} from "react";
+
 import {
   ScrollView,
   View,
   Text,
-  StyleSheet
+  StyleSheet,
 } from "react-native";
 
 import {
-  useEffect,
-  useState
-} from "react";
-
-import {
-  getAulas
+  getAulas,
 } from "../../services/aulaService";
 
 export default function ProfessorHome() {
-
-  const [aulas, setAulas] = useState([]);
+  const [aulas, setAulas] =
+    useState([]);
 
   useEffect(() => {
-    load();
+    carregar();
   }, []);
 
-  async function load() {
-
+  async function carregar() {
     try {
+      const data =
+        await getAulas();
 
-      const data = await getAulas();
-
-      if (Array.isArray(data)) {
-        setAulas(data);
-      }
-
+      setAulas(
+        Array.isArray(data)
+          ? data
+          : []
+      );
     } catch (error) {
-      console.log(error);
+      console.log(
+        "Erro:",
+        error.message
+      );
     }
   }
 
   return (
-
-    <ScrollView style={styles.container}>
-
+    <ScrollView
+      style={styles.container}
+    >
       <Text style={styles.title}>
         Aulas do Dia
       </Text>
 
-      {aulas.map((aula) => (
+      {aulas.length === 0 ? (
+        <Text>
+          Nenhuma aula encontrada.
+        </Text>
+      ) : (
+        aulas.map((aula) => (
+          <View
+            key={aula.id_horario}
+            style={styles.card}
+          >
+            <Text
+              style={styles.cardTitle}
+            >
+              {aula.modalidade}
+            </Text>
 
-        <View
-          key={aula.id_horario}
-          style={styles.card}
-        >
+            <Text>
+              📅 {aula.dia_semana}
+            </Text>
 
-          <Text style={styles.cardTitle}>
-            {aula.modalidade}
-          </Text>
+            <Text>
+              ⏰ {aula.hora_inicio} -{" "}
+              {aula.hora_fim}
+            </Text>
 
-          <Text>
-            📅 {aula.dia_semana}
-          </Text>
+            <Text>
+              👨‍🏫 {aula.professor}
+            </Text>
 
-          <Text>
-            ⏰ {aula.hora_inicio} - {aula.hora_fim}
-          </Text>
-
-          <Text>
-            👨‍🏫 {aula.professor}
-          </Text>
-
-        </View>
-
-      ))}
-
+            <Text>
+              🌙 {aula.turno}
+            </Text>
+          </View>
+        ))
+      )}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: "#f5f5f5",
@@ -104,5 +114,4 @@ const styles = StyleSheet.create({
     color: "#FA2A55",
     marginBottom: 10,
   },
-
 });

@@ -1,76 +1,94 @@
+import React, {
+  useEffect,
+  useState,
+} from "react";
+
 import {
   ScrollView,
   View,
   Text,
-  StyleSheet
-}
-  from "react-native";
+  StyleSheet,
+} from "react-native";
+
+import api from "../../services/api";
 
 export default function PresencaAluno() {
+  const [presencas, setPresencas] =
+    useState([]);
 
-  const presencas = [
+  useEffect(() => {
+    carregar();
+  }, []);
 
-    {
-      aula: "Voleibol",
-      data: "20/05/2026",
-      status: "Presente"
-    },
+  async function carregar() {
+    try {
+      const response =
+        await api.get(
+          "/presenca.php"
+        );
 
-    {
-      aula: "Voleibol",
-      data: "22/05/2026",
-      status: "Falta"
-    },
+      setPresencas(
+        Array.isArray(response.data)
+          ? response.data
+          : []
+      );
+    } catch (error) {
+      console.log(
+        "Erro:",
+        error.response?.data ||
+          error.message
+      );
 
-    {
-      aula: "Voleibol",
-      data: "24/05/2026",
-      status: "Presente"
-    },
-
-  ];
+      setPresencas([]);
+    }
+  }
 
   return (
-
-    <ScrollView style={styles.container}>
-
+    <ScrollView
+      style={styles.container}
+    >
       <Text style={styles.title}>
         Minha Presença
       </Text>
 
-      {presencas.map((p, i) => (
-
-        <View key={i} style={styles.card}>
-
-          <Text style={styles.aula}>
-            🏐 {p.aula}
-          </Text>
-
-          <Text style={styles.info}>
-            📅 {p.data}
-          </Text>
-
-          <Text
-            style={[
-              styles.status,
-
-              p.status === "Presente"
-                ? styles.presente
-                : styles.falta
-            ]}
+      {presencas.length === 0 ? (
+        <Text>
+          Nenhum registro de presença.
+        </Text>
+      ) : (
+        presencas.map((p) => (
+          <View
+            key={p.id_presenca}
+            style={styles.card}
           >
-            {p.status}
-          </Text>
+            <Text style={styles.aula}>
+              🏐 {p.aluno}
+            </Text>
 
-        </View>
-      ))}
+            <Text style={styles.info}>
+              📅 {p.data_presenca}
+            </Text>
 
+            <Text
+              style={[
+                styles.status,
+                p.status === "Presente"
+                  ? styles.presente
+                  : p.status === "Faltou"
+                  ? styles.falta
+                  : styles.justificado,
+              ]}
+            >
+              {p.status}
+            </Text>
+          </View>
+        ))
+      )}
     </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-
   container: {
     flex: 1,
     backgroundColor: "#f5f5f5",
@@ -118,4 +136,7 @@ const styles = StyleSheet.create({
     color: "red",
   },
 
+  justificado: {
+    color: "#d69e00",
+  },
 });

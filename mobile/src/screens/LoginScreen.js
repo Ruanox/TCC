@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,48 +8,126 @@ import {
   Alert,
 } from "react-native";
 
-import { useState } from "react";
-
 import { login } from "../services/authService";
 
 export default function LoginScreen({ navigation }) {
   const [cpf, setCpf] = useState("");
   const [senha, setSenha] = useState("");
+  const [carregando, setCarregando] = useState(false);
+
+  function formatarCPF(valor) {
+    const numeros = valor
+      .replace(/\D/g, "")
+      .slice(0, 11);
+
+    if (numeros.length <= 3) {
+      return numeros;
+    }
+
+    if (numeros.length <= 6) {
+      return `${numeros.slice(0, 3)}.${numeros.slice(3)}`;
+    }
+
+    if (numeros.length <= 9) {
+      return `${numeros.slice(0, 3)}.${numeros.slice(3, 6)}.${numeros.slice(6)}`;
+    }
+
+    return `${numeros.slice(0, 3)}.${numeros.slice(3, 6)}.${numeros.slice(6, 9)}-${numeros.slice(9)}`;
+  }
 
   async function handleLogin() {
-    if (!cpf || !senha) {
-      Alert.alert("Erro", "Preencha todos os campos");
+    if (carregando) {
+      return;
+    }
+
+    const cpfLimpo = cpf.replace(/\D/g, "");
+
+    if (!cpfLimpo || !senha) {
+      Alert.alert(
+        "Atenção",
+        "Preencha todos os campos."
+      );
+      return;
+    }
+
+    if (cpfLimpo.length !== 11) {
+      Alert.alert(
+        "CPF inválido",
+        "Digite um CPF válido."
+      );
       return;
     }
 
     try {
-      const res = await login(cpf, senha);
+      setCarregando(true);
 
-      if (res.tipo === "professor") {
+      const resposta = await login(
+        cpfLimpo,
+        senha
+      );
+
+      console.log(
+        "Resposta do login:",
+        resposta
+      );
+
+      if (
+        resposta?.success === true &&
+        resposta?.tipo === "professor"
+      ) {
         navigation.replace("Professor");
-      } else if (res.tipo === "aluno") {
-        if (res.menorDeIdade) {
-          alert(`Aluno menor de idade. Turma de idade: ${res.faixaEtaria}`);
-        }
-        navigation.replace("Aluno");
-      } else {
-        Alert.alert("Erro", res.message || "Login inválido");
+        return;
       }
-    } catch (err) {
-      console.log("Erro ao fazer login:", err.response?.data || err.message);
-      Alert.alert("Erro", err.response?.data?.message || "Não foi possível conectar ao servidor. Verifique sua conexão e a URL da API.");
+
+      if (
+        resposta?.success === true &&
+        resposta?.tipo === "aluno"
+      ) {
+        navigation.replace("Aluno");
+        return;
+      }
+
+      Alert.alert(
+        "Erro",
+        resposta?.error ||
+          resposta?.message ||
+          "CPF ou senha incorretos."
+      );
+    } catch (error) {
+      console.log(
+        "Erro ao fazer login:",
+        error.response?.data ||
+          error.message
+      );
+
+      const dados = error.response?.data;
+
+      Alert.alert(
+        "Erro",
+        dados?.error ||
+          dados?.message ||
+          "Não foi possível conectar ao servidor."
+      );
+    } finally {
+      setCarregando(false);
     }
   }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>SportCorp</Text>
+      <Text style={styles.title}>
+        SportCorp
+      </Text>
 
       <TextInput
         placeholder="CPF"
         style={styles.input}
         value={cpf}
-        onChangeText={setCpf}
+        onChangeText={(valor) =>
+          setCpf(formatarCPF(valor))
+        }
+        keyboardType="numeric"
+        maxLength={14}
       />
 
       <TextInput
@@ -59,8 +138,19 @@ export default function LoginScreen({ navigation }) {
         onChangeText={setSenha}
       />
 
-      <TouchableOpacity style={styles.button} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Entrar</Text>
+      <TouchableOpacity
+        style={[
+          styles.button,
+          carregando && styles.buttonDisabled,
+        ]}
+        onPress={handleLogin}
+        disabled={carregando}
+      >
+        <Text style={styles.buttonText}>
+          {carregando
+            ? "Entrando..."
+            : "Entrar"}
+        </Text>
       </TouchableOpacity>
     </View>
   );
@@ -94,6 +184,10 @@ const styles = StyleSheet.create({
     padding: 15,
     borderRadius: 12,
     alignItems: "center",
+  },
+
+  buttonDisabled: {
+    opacity: 0.6,
   },
 
   buttonText: {
