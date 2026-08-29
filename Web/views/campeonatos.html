@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="demo-hero">
+  <div class="demo-hero-copy">
+    <p class="eyebrow">Demonstração</p>
+    <h1>Espaço para escolas anunciarem campeonatos de vôlei.</h1>
+    <p>
+      Esta página mostra como a interface pode destacar torneios, categorias e datas para que as escolas
+      compartilhem seus eventos de vôlei de forma visual e organizada.
+    </p>
+    <div class="hero-actions">
+      <a href="#eventos" class="btn btn-primary btn-lg">Ver campeonatos</a>
+      <a href="{{ url_for('home') }}" class="btn btn-outline-light btn-lg">Voltar ao início</a>
+    </div>
+  </div>
+
+  <div class="demo-card-highlight">
+    <h3>Próximo evento</h3>
+    <p class="demo-date">18 de agosto · Escola Municipal do Esporte</p>
+    <p>Campeonato Interescolar de Vôlei Masculino e Feminino.</p>
+    <span class="demo-pill">Inscrições abertas</span>
+  </div>
+</section>
+
+<section id="eventos" class="demo-grid">
+  <article class="demo-card">
+    <h3>Campeonato de Vôlei Juvenil</h3>
+    <p class="demo-date">25 de agosto</p>
+    <p>Evento aberto para equipes do ensino fundamental e médio.</p>
+    <span class="demo-pill">Categoria: Juvenil</span>
+  </article>
+
+  <article class="demo-card">
+    <h3>Torneio de Vôlei Escolar</h3>
+    <p class="demo-date">02 de setembro</p>
+    <p>Competição com rodada única e premiação para os melhores times.</p>
+    <span class="demo-pill">Categoria: Escolar</span>
+  </article>
+
+  <article class="demo-card">
+    <h3>Supercopa de Vôlei</h3>
+    <p class="demo-date">15 de setembro</p>
+    <p>Grande disputa entre escolas da região com transmissão do evento.</p>
+    <span class="demo-pill">Categoria: Aberta</span>
+  </article>
+</section>
+{% endblock %}

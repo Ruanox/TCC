@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Gerenciar Alunos</h2>
+
+  <!-- Formulário de Cadastro -->
+  <div class="card mt-4 mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Cadastrar Novo Aluno</h5>
+      <form method="POST">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="usuario" class="form-label">Nome do Aluno:</label>
+            <input type="text" class="form-control" id="usuario" name="usuario" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cpf" class="form-label">CPF:</label>
+            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="senha" class="form-label">Senha:</label>
+            <input type="password" class="form-control" id="senha" name="senha" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="usuario_responsavel" class="form-label">Nome do Responsável:</label>
+            <input type="text" class="form-control" id="usuario_responsavel" name="usuario_responsavel" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="telefone_responsavel" class="form-label">Telefone do Responsável:</label>
+            <input type="text" class="form-control" id="telefone_responsavel" name="telefone_responsavel" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="cpf_responsavel" class="form-label">CPF do Responsável:</label>
+            <input type="text" class="form-control" id="cpf_responsavel" name="cpf_responsavel" placeholder="000.000.000-00" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="rua" class="form-label">Rua:</label>
+            <input type="text" class="form-control" id="rua" name="rua" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="bairro" class="form-label">Bairro:</label>
+            <input type="text" class="form-control" id="bairro" name="bairro" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="cidade" class="form-label">Cidade:</label>
+            <input type="text" class="form-control" id="cidade" name="cidade" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="estado" class="form-label">Estado:</label>
+            <input type="text" class="form-control" id="estado" name="estado" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="num_casa" class="form-label">Número da Casa:</label>
+            <input type="number" class="form-control" id="num_casa" name="num_casa">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lista de Alunos -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Lista de Alunos</h5>
+      {% if alunos %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Responsável</th>
+            <th>Telefone</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for aluno in alunos %}
+          <tr>
+            <td>{{ aluno.id_aluno }}</td>
+            <td>{{ aluno.usuario }}</td>
+            <td>{{ aluno.cpf }}</td>
+            <td>{{ aluno.usuario_responsavel }}</td>
+            <td>{{ aluno.telefone_responsavel }}</td>
+            <td>{{ aluno.cidade }}</td>
+            <td>{{ aluno.estado }}</td>
+            <td>
+              <a href="{{ url_for('deletar_aluno', id=aluno.id_aluno) }}" class="btn btn-danger btn-sm" onclick="return confirm('Deseja deletar este aluno?')">Deletar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>Nenhum aluno cadastrado.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

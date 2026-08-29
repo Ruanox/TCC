@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+  <h2>Gerenciar Escolas</h2>
+
+  <!-- Formulário de Cadastro -->
+  <div class="card mt-4 mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Cadastrar Nova Escola</h5>
+      <form method="POST">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cnpj" class="form-label">CNPJ:</label>
+            <input type="text" class="form-control" id="cnpj" name="cnpj" placeholder="00.000.000/0000-00" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="usuario" class="form-label">Nome da Escola:</label>
+            <input type="text" class="form-control" id="usuario" name="usuario" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input type="email" class="form-control" id="email" name="email" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="telefone" class="form-label">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" name="telefone" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="rua" class="form-label">Rua:</label>
+            <input type="text" class="form-control" id="rua" name="rua" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="bairro" class="form-label">Bairro:</label>
+            <input type="text" class="form-control" id="bairro" name="bairro" required>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="cidade" class="form-label">Cidade:</label>
+            <input type="text" class="form-control" id="cidade" name="cidade" required>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="estado" class="form-label">Estado:</label>
+            <input type="text" class="form-control" id="estado" name="estado" required>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-success">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Lista de Escolas -->
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Lista de Escolas</h5>
+      {% if escolas %}
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>CNPJ</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Rua</th>
+            <th>Bairro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for escola in escolas %}
+          <tr>
+            <td>{{ escola.cnpj }}</td>
+            <td>{{ escola.usuario }}</td>
+            <td>{{ escola.email }}</td>
+            <td>{{ escola.telefone }}</td>
+            <td>{{ escola.rua }}</td>
+            <td>{{ escola.bairro }}</td>
+            <td>{{ escola.cidade }}</td>
+            <td>{{ escola.estado }}</td>
+            <td>
+              <a href="{{ url_for('detalhes_escola', cnpj=escola.cnpj) }}" class="btn btn-info btn-sm">Detalhes</a>
+              <a href="{{ url_for('deletar_escola', cnpj=escola.cnpj) }}" class="btn btn-danger btn-sm" onclick="return confirm('Deseja deletar esta escola?')">Deletar</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p>Nenhuma escola cadastrada.</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
