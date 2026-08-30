@@ -25,6 +25,9 @@
     <Compile Update="Documentos_escola.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="edit_professor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="entrada_aluno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -32,6 +35,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="entrada_professor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="excluir_professor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="frm_principal.cs">

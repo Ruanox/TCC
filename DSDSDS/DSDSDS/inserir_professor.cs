@@ -17,6 +17,19 @@ namespace DSDSDS
         public string telefone;
         public string senha;
         public string email;
+        public string rua;
+        public int num_casa;
+        public int id_professor;
+
+        public void setId_professor(int id_professor)
+        {
+            this.id_professor = id_professor;
+        }
+
+        public int getId_professor()
+        {
+            return this.id_professor;
+        }
 
         public void setUsuario(string usuario)
         {
@@ -69,9 +82,30 @@ namespace DSDSDS
         {
             return this.senha;
         }
+
+        public void setRua(string rua)
+        {
+            this.rua = rua;
+        }
+        public string getRua()
+        {
+            return this.rua;
+        }
+
+        public void setNum_casa(int num_casa)
+        {
+            this.num_casa = num_casa;
+        }
+
+        public int getNum_casa()
+        {
+            return this.num_casa;
+        }
+
+
         public void inserir()
         {
-            string query = "INSERT INTO professor(usuario,cpf,email,senha,telefone,bairro) VALUES ('" + getUsuario() + "','" + getCpf() + "','" + getEmail() + "','" + getSenha() + "','" + getTelefone() + "','" + getBairro() + "')";
+            string query = "INSERT INTO professor(usuario,cpf,email,senha,telefone,bairro,rua,num_casa) VALUES ('" + getUsuario() + "','" + getCpf() + "','" + getEmail() + "','" + getSenha() + "','" + getTelefone() + "','" + getBairro() + "','" + getRua() + "','" +getNum_casa() + "')";
 
             if (this.abrirconexao() == true)
             {

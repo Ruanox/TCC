@@ -66,10 +66,18 @@
             circularPanel3 = new CircularPanel();
             pictureBox4 = new PictureBox();
             customPanel1 = new CustomPanel();
+            circularPanel8 = new CircularPanel();
+            pictureBox9 = new PictureBox();
+            lbl_numCasa = new Label();
+            txtbox_numCasa = new TextBox();
+            circularPanel7 = new CircularPanel();
+            pictureBox5 = new PictureBox();
+            lbl_rua = new Label();
+            txtxbox_rua = new TextBox();
             btn_voltar_menu = new Button();
-            btn_view = new Button();
             btn_trash = new Button();
             btn_edit = new Button();
+            btn_view = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
             circularPanel6.SuspendLayout();
@@ -85,6 +93,10 @@
             circularPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             customPanel1.SuspendLayout();
+            circularPanel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
+            circularPanel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             SuspendLayout();
             // 
             // btn_pronto
@@ -93,7 +105,7 @@
             btn_pronto.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_pronto.Image = (Image)resources.GetObject("btn_pronto.Image");
             btn_pronto.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_pronto.Location = new Point(232, 317);
+            btn_pronto.Location = new Point(237, 383);
             btn_pronto.Name = "btn_pronto";
             btn_pronto.Size = new Size(219, 36);
             btn_pronto.TabIndex = 12;
@@ -453,7 +465,13 @@
             customPanel1.BorderColor = Color.Transparent;
             customPanel1.BorderRadius = 15;
             customPanel1.BorderSize = 0;
+            customPanel1.Controls.Add(circularPanel8);
+            customPanel1.Controls.Add(lbl_numCasa);
+            customPanel1.Controls.Add(txtbox_numCasa);
+            customPanel1.Controls.Add(circularPanel7);
+            customPanel1.Controls.Add(lbl_rua);
             customPanel1.Controls.Add(txtbox_bairro);
+            customPanel1.Controls.Add(txtxbox_rua);
             customPanel1.Controls.Add(circularPanel6);
             customPanel1.Controls.Add(txtbox_cpf);
             customPanel1.Controls.Add(txtbox_nome);
@@ -472,12 +490,88 @@
             customPanel1.Controls.Add(lbl_email);
             customPanel1.Controls.Add(btn_pronto);
             customPanel1.Controls.Add(txtbox_email);
-            customPanel1.Location = new Point(477, 268);
+            customPanel1.Location = new Point(477, 224);
             customPanel1.Name = "customPanel1";
             customPanel1.ShadowColor = Color.FromArgb(35, 0, 0, 0);
             customPanel1.ShadowSize = 8;
-            customPanel1.Size = new Size(722, 397);
+            customPanel1.Size = new Size(722, 441);
             customPanel1.TabIndex = 34;
+            // 
+            // circularPanel8
+            // 
+            circularPanel8.BackColor = Color.FromArgb(255, 192, 192);
+            circularPanel8.Controls.Add(pictureBox9);
+            circularPanel8.Location = new Point(370, 317);
+            circularPanel8.Name = "circularPanel8";
+            circularPanel8.Size = new Size(64, 60);
+            circularPanel8.TabIndex = 37;
+            // 
+            // pictureBox9
+            // 
+            pictureBox9.Image = (Image)resources.GetObject("pictureBox9.Image");
+            pictureBox9.Location = new Point(13, 9);
+            pictureBox9.Name = "pictureBox9";
+            pictureBox9.Size = new Size(43, 41);
+            pictureBox9.TabIndex = 30;
+            pictureBox9.TabStop = false;
+            // 
+            // lbl_numCasa
+            // 
+            lbl_numCasa.AutoSize = true;
+            lbl_numCasa.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
+            lbl_numCasa.ForeColor = Color.FromArgb(250, 42, 85);
+            lbl_numCasa.ImageAlign = ContentAlignment.MiddleRight;
+            lbl_numCasa.Location = new Point(440, 317);
+            lbl_numCasa.Name = "lbl_numCasa";
+            lbl_numCasa.Size = new Size(102, 29);
+            lbl_numCasa.TabIndex = 36;
+            lbl_numCasa.Text = "N° casa";
+            // 
+            // txtbox_numCasa
+            // 
+            txtbox_numCasa.Location = new Point(440, 344);
+            txtbox_numCasa.Name = "txtbox_numCasa";
+            txtbox_numCasa.PlaceholderText = "Digite o N° da casa";
+            txtbox_numCasa.Size = new Size(139, 23);
+            txtbox_numCasa.TabIndex = 35;
+            // 
+            // circularPanel7
+            // 
+            circularPanel7.BackColor = Color.FromArgb(255, 192, 192);
+            circularPanel7.Controls.Add(pictureBox5);
+            circularPanel7.Location = new Point(104, 311);
+            circularPanel7.Name = "circularPanel7";
+            circularPanel7.Size = new Size(64, 60);
+            circularPanel7.TabIndex = 34;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(17, 15);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(43, 41);
+            pictureBox5.TabIndex = 30;
+            pictureBox5.TabStop = false;
+            // 
+            // lbl_rua
+            // 
+            lbl_rua.AutoSize = true;
+            lbl_rua.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
+            lbl_rua.ForeColor = Color.FromArgb(250, 42, 85);
+            lbl_rua.ImageAlign = ContentAlignment.MiddleRight;
+            lbl_rua.Location = new Point(174, 311);
+            lbl_rua.Name = "lbl_rua";
+            lbl_rua.Size = new Size(59, 29);
+            lbl_rua.TabIndex = 33;
+            lbl_rua.Text = "Rua";
+            // 
+            // txtxbox_rua
+            // 
+            txtxbox_rua.Location = new Point(174, 338);
+            txtxbox_rua.Name = "txtxbox_rua";
+            txtxbox_rua.PlaceholderText = "Digite o nome da rua";
+            txtxbox_rua.Size = new Size(139, 23);
+            txtxbox_rua.TabIndex = 32;
             // 
             // btn_voltar_menu
             // 
@@ -490,17 +584,6 @@
             btn_voltar_menu.UseVisualStyleBackColor = true;
             btn_voltar_menu.Click += btn_voltar_menu_Click;
             // 
-            // btn_view
-            // 
-            btn_view.BackgroundImage = (Image)resources.GetObject("btn_view.BackgroundImage");
-            btn_view.BackgroundImageLayout = ImageLayout.Stretch;
-            btn_view.Location = new Point(1235, 0);
-            btn_view.Name = "btn_view";
-            btn_view.Size = new Size(40, 40);
-            btn_view.TabIndex = 42;
-            btn_view.UseVisualStyleBackColor = true;
-            btn_view.Click += btn_opcoes_Click;
-            // 
             // btn_trash
             // 
             btn_trash.BackgroundImage = (Image)resources.GetObject("btn_trash.BackgroundImage");
@@ -510,6 +593,7 @@
             btn_trash.Size = new Size(40, 40);
             btn_trash.TabIndex = 43;
             btn_trash.UseVisualStyleBackColor = true;
+            btn_trash.Click += btn_trash_Click;
             // 
             // btn_edit
             // 
@@ -520,6 +604,18 @@
             btn_edit.Size = new Size(40, 40);
             btn_edit.TabIndex = 44;
             btn_edit.UseVisualStyleBackColor = true;
+            btn_edit.Click += btn_edit_Click;
+            // 
+            // btn_view
+            // 
+            btn_view.BackgroundImage = (Image)resources.GetObject("btn_view.BackgroundImage");
+            btn_view.BackgroundImageLayout = ImageLayout.Stretch;
+            btn_view.Location = new Point(1235, 0);
+            btn_view.Name = "btn_view";
+            btn_view.Size = new Size(40, 40);
+            btn_view.TabIndex = 45;
+            btn_view.UseVisualStyleBackColor = true;
+            btn_view.Click += btn_view_Click;
             // 
             // Add_prof_
             // 
@@ -527,9 +623,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
             ClientSize = new Size(1370, 749);
+            Controls.Add(btn_view);
             Controls.Add(btn_edit);
             Controls.Add(btn_trash);
-            Controls.Add(btn_view);
             Controls.Add(btn_voltar_menu);
             Controls.Add(customPanel1);
             Controls.Add(panel2);
@@ -560,6 +656,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             customPanel1.ResumeLayout(false);
             customPanel1.PerformLayout();
+            circularPanel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
+            circularPanel7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -603,8 +703,16 @@
         private PictureBox pictureBox4;
         private CustomPanel customPanel1;
         private Button btn_voltar_menu;
-        private Button btn_view;
         private Button btn_trash;
         private Button btn_edit;
+        private Button btn_view;
+        private CircularPanel circularPanel8;
+        private PictureBox pictureBox9;
+        private Label lbl_numCasa;
+        private TextBox txtbox_numCasa;
+        private CircularPanel circularPanel7;
+        private PictureBox pictureBox5;
+        private Label lbl_rua;
+        private TextBox txtxbox_rua;
     }
 }

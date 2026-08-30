@@ -27,6 +27,9 @@ namespace DSDSDS
                 ds.setBairro(txtbox_bairro.Text);
                 ds.setEmail(txtbox_email.Text);
                 ds.setTelefone(txtbox_tel.Text);
+                ds.setRua(txtxbox_rua.Text);
+                ds.setNum_casa(int.Parse(txtbox_numCasa.Text));
+
                 ds.inserir();
             }
 
@@ -62,10 +65,25 @@ namespace DSDSDS
             jamilson.Show();
         }
 
-        private void btn_opcoes_Click(object sender, EventArgs e)
+        private void btn_view_Click(object sender, EventArgs e)
         {
-         
+            Hide();
+            ver_professores paparazi = new ver_professores();
+            paparazi.Show();
+        }
 
+        private void btn_trash_Click(object sender, EventArgs e)
+        {
+            Hide();
+            excluir_professor ss = new excluir_professor();
+            ss.Show();
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            Hide();
+            edit_professor ad = new edit_professor();
+            ad.Show();
         }
     }
 }
