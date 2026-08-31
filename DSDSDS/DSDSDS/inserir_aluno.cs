@@ -9,7 +9,7 @@ namespace DSDSDS
         private DateTime data_nasc;
         private string cpf;
         private string nome_responsavel;
-        private string telefone_responsavel;
+        private string telefone_resp;
         private string senha;
         private string cpf_responsavel;
         private string bairro;
@@ -82,14 +82,14 @@ namespace DSDSDS
         // TELEFONE DO RESPONSÁVEL
         // =========================================================
 
-        public string getTelefoneResponsavel()
+        public string getTelefoneResp()
         {
-            return telefone_responsavel;
+            return telefone_resp;
         }
 
-        public void setTelefoneResponsavel(string telefone_responsavel)
+        public void setTelefoneResp(string telefone_resp)
         {
-            this.telefone_responsavel = telefone_responsavel;
+            this.telefone_resp = telefone_resp;
         }
 
 
@@ -219,7 +219,7 @@ namespace DSDSDS
                     cpf,
                     senha,
                     nome_responsavel,
-                    telefone_responsavel,
+                    telefone_resp,
                     cpf_responsavel,
                     bairro,
                     menor_de_idade,
@@ -235,7 +235,7 @@ namespace DSDSDS
                     @cpf,
                     @senha,
                     @nome_responsavel,
-                    @telefone_responsavel,
+                    @telefone_resp,
                     @cpf_responsavel,
                     @bairro,
                     @menor_de_idade,
@@ -294,11 +294,11 @@ namespace DSDSDS
 
 
                     cmd.Parameters.Add(
-                        "@telefone_responsavel",
+                        "@telefone_resp",
                         MySqlDbType.VarChar
-                    ).Value = string.IsNullOrWhiteSpace(telefone_responsavel)
+                    ).Value = string.IsNullOrWhiteSpace(telefone_resp)
                         ? DBNull.Value
-                        : telefone_responsavel;
+                        : telefone_resp;
 
 
                     cmd.Parameters.Add(

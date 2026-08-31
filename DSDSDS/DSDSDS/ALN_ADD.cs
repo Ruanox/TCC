@@ -176,7 +176,7 @@ namespace DSDSDS
 
                 pu.setNomeResponsavel(txtbox_nome_resp.Text);
                 pu.setCpfResponsavel(txtbox_cpf_resp.Text);
-                pu.setTelefoneResponsavel(txtbox_tel_resp.Text);
+                pu.setTelefoneResp(txtbox_tel_resp.Text);
 
 
                 // =================================================
@@ -381,6 +381,32 @@ namespace DSDSDS
         }
 
         private void txtbox_idade_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_view_Click(object sender, EventArgs e)
+        {
+            Hide();
+            View_aluno las = new View_aluno();
+            las.Show();
+        }
+
+        private void btn_trash_Click(object sender, EventArgs e)
+        {
+            Hide();
+            excluir_aluno ds = new excluir_aluno();
+            ds.Show();
+        }
+
+        private void btn_edit_Click(object sender, EventArgs e)
+        {
+            Hide();
+            editar_aluno asd = new editar_aluno();
+            asd.Show();
+        }
+
+        private void ALN_ADD_Load(object sender, EventArgs e)
         {
 
         }

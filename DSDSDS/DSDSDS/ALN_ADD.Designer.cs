@@ -709,6 +709,7 @@
             btn_edit.Size = new Size(40, 40);
             btn_edit.TabIndex = 47;
             btn_edit.UseVisualStyleBackColor = true;
+            btn_edit.Click += btn_edit_Click;
             // 
             // btn_trash
             // 
@@ -719,6 +720,7 @@
             btn_trash.Size = new Size(40, 40);
             btn_trash.TabIndex = 46;
             btn_trash.UseVisualStyleBackColor = true;
+            btn_trash.Click += btn_trash_Click;
             // 
             // btn_view
             // 
@@ -729,6 +731,7 @@
             btn_view.Size = new Size(40, 40);
             btn_view.TabIndex = 45;
             btn_view.UseVisualStyleBackColor = true;
+            btn_view.Click += btn_view_Click;
             // 
             // ALN_ADD
             // 
@@ -748,6 +751,7 @@
             Controls.Add(panel2);
             Name = "ALN_ADD";
             Text = "ALN_ADD";
+            Load += ALN_ADD_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             customPanel1.ResumeLayout(false);
             customPanel1.PerformLayout();
