@@ -16,6 +16,9 @@
     <Compile Update="CircularPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="criacaoTurmas.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="CustomPanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -49,11 +52,20 @@
     <Compile Update="frm_principal.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Horarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="informacao.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Matricula.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PanelArredondado.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Update="PinkCheckBox.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Update="professor.cs">
       <SubType>Form</SubType>

@@ -52,7 +52,9 @@ namespace DSDSDS
 
         private void label9_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            criacaoTurmas saf = new criacaoTurmas();
+            saf.Show();
         }
 
         private void buttonPanel1_Paint(object sender, PaintEventArgs e)
