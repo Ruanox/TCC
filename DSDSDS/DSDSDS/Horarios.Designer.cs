@@ -34,22 +34,24 @@
             panelArredondado1 = new PanelArredondado();
             label2 = new Label();
             panelArredondado2 = new PanelArredondado();
+            dtpHoraFim = new DateTimePicker();
+            dtpHoraInicio = new DateTimePicker();
             pictureBox6 = new PictureBox();
             lbl_HorarioFim = new Label();
             pictureBox5 = new PictureBox();
             lbl_HorarioInicio = new Label();
             pictureBox4 = new PictureBox();
             lbl_DiaSemana = new Label();
-            cmd_DiaSemana = new ComboBox();
+            cmbDiaSemana = new ComboBox();
             pictureBox3 = new PictureBox();
             lbl_Turno = new Label();
-            cmb_Turno = new ComboBox();
+            cmbTurno = new ComboBox();
             lbl_Professor = new Label();
             pictureBox2 = new PictureBox();
             cmbProfessor = new ComboBox();
             pictureBox1 = new PictureBox();
             lbl_Modalidade = new Label();
-            cmb_Modalidade = new ComboBox();
+            cmbModalidade = new ComboBox();
             panelArredondado3 = new PanelArredondado();
             buttonPanel2 = new ButtonPanel();
             lbl_cadastrar = new Label();
@@ -58,8 +60,6 @@
             label8 = new Label();
             pictureBox7 = new PictureBox();
             label7 = new Label();
-            dtpHoraInicio = new DateTimePicker();
-            dtpHorarioFim = new DateTimePicker();
             panelArredondado1.SuspendLayout();
             panelArredondado2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
@@ -104,7 +104,7 @@
             panelArredondado1.CorBorda = Color.FromArgb(250, 42, 85);
             panelArredondado1.EspessuraBorda = 2;
             panelArredondado1.Font = new Font("Montserrat SemiBold", 15.75F, FontStyle.Bold);
-            panelArredondado1.Location = new Point(241, 0);
+            panelArredondado1.Location = new Point(241, 3);
             panelArredondado1.Name = "panelArredondado1";
             panelArredondado1.Padding = new Padding(20);
             panelArredondado1.Raio = 20;
@@ -125,7 +125,7 @@
             // 
             panelArredondado2.BackColor = Color.White;
             panelArredondado2.BackgroundImage = (Image)resources.GetObject("panelArredondado2.BackgroundImage");
-            panelArredondado2.Controls.Add(dtpHorarioFim);
+            panelArredondado2.Controls.Add(dtpHoraFim);
             panelArredondado2.Controls.Add(dtpHoraInicio);
             panelArredondado2.Controls.Add(pictureBox6);
             panelArredondado2.Controls.Add(lbl_HorarioFim);
@@ -133,16 +133,16 @@
             panelArredondado2.Controls.Add(lbl_HorarioInicio);
             panelArredondado2.Controls.Add(pictureBox4);
             panelArredondado2.Controls.Add(lbl_DiaSemana);
-            panelArredondado2.Controls.Add(cmd_DiaSemana);
+            panelArredondado2.Controls.Add(cmbDiaSemana);
             panelArredondado2.Controls.Add(pictureBox3);
             panelArredondado2.Controls.Add(lbl_Turno);
-            panelArredondado2.Controls.Add(cmb_Turno);
+            panelArredondado2.Controls.Add(cmbTurno);
             panelArredondado2.Controls.Add(lbl_Professor);
             panelArredondado2.Controls.Add(pictureBox2);
             panelArredondado2.Controls.Add(cmbProfessor);
             panelArredondado2.Controls.Add(pictureBox1);
             panelArredondado2.Controls.Add(lbl_Modalidade);
-            panelArredondado2.Controls.Add(cmb_Modalidade);
+            panelArredondado2.Controls.Add(cmbModalidade);
             panelArredondado2.CorBorda = Color.FromArgb(250, 42, 85);
             panelArredondado2.EspessuraBorda = 2;
             panelArredondado2.Location = new Point(241, 123);
@@ -152,10 +152,32 @@
             panelArredondado2.Size = new Size(1094, 365);
             panelArredondado2.TabIndex = 35;
             // 
+            // dtpHoraFim
+            // 
+            dtpHoraFim.CustomFormat = "HH:mm";
+            dtpHoraFim.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpHoraFim.Format = DateTimePickerFormat.Custom;
+            dtpHoraFim.Location = new Point(633, 315);
+            dtpHoraFim.Name = "dtpHoraFim";
+            dtpHoraFim.ShowUpDown = true;
+            dtpHoraFim.Size = new Size(120, 33);
+            dtpHoraFim.TabIndex = 19;
+            // 
+            // dtpHoraInicio
+            // 
+            dtpHoraInicio.CustomFormat = " HH:mm";
+            dtpHoraInicio.Font = new Font("Segoe UI Semibold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dtpHoraInicio.Format = DateTimePickerFormat.Custom;
+            dtpHoraInicio.Location = new Point(126, 315);
+            dtpHoraInicio.Name = "dtpHoraInicio";
+            dtpHoraInicio.ShowUpDown = true;
+            dtpHoraInicio.Size = new Size(120, 33);
+            dtpHoraInicio.TabIndex = 18;
+            // 
             // pictureBox6
             // 
             pictureBox6.BackgroundImage = (Image)resources.GetObject("pictureBox6.BackgroundImage");
-            pictureBox6.Location = new Point(521, 281);
+            pictureBox6.Location = new Point(764, 280);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(33, 30);
             pictureBox6.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -176,7 +198,7 @@
             // pictureBox5
             // 
             pictureBox5.BackgroundImage = (Image)resources.GetObject("pictureBox5.BackgroundImage");
-            pictureBox5.Location = new Point(46, 280);
+            pictureBox5.Location = new Point(262, 280);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(33, 30);
             pictureBox5.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -197,7 +219,7 @@
             // pictureBox4
             // 
             pictureBox4.BackgroundImage = (Image)resources.GetObject("pictureBox4.BackgroundImage");
-            pictureBox4.Location = new Point(560, 206);
+            pictureBox4.Location = new Point(720, 174);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(33, 30);
             pictureBox4.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -215,20 +237,20 @@
             lbl_DiaSemana.TabIndex = 10;
             lbl_DiaSemana.Text = "Dia da semana";
             // 
-            // cmd_DiaSemana
+            // cmbDiaSemana
             // 
-            cmd_DiaSemana.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cmd_DiaSemana.FormattingEnabled = true;
-            cmd_DiaSemana.Items.AddRange(new object[] { "                               Dia", "                               Tarde                             ", "                               Noite" });
-            cmd_DiaSemana.Location = new Point(558, 204);
-            cmd_DiaSemana.Name = "cmd_DiaSemana";
-            cmd_DiaSemana.Size = new Size(300, 33);
-            cmd_DiaSemana.TabIndex = 9;
+            cmbDiaSemana.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbDiaSemana.FormattingEnabled = true;
+            cmbDiaSemana.Items.AddRange(new object[] { "                               Segunda", "                               Terça                           ", "                               Quarta", "                               Quinta", "                               Sexta", "                               Sabado" });
+            cmbDiaSemana.Location = new Point(558, 204);
+            cmbDiaSemana.Name = "cmbDiaSemana";
+            cmbDiaSemana.Size = new Size(300, 33);
+            cmbDiaSemana.TabIndex = 9;
             // 
             // pictureBox3
             // 
             pictureBox3.BackgroundImage = (Image)resources.GetObject("pictureBox3.BackgroundImage");
-            pictureBox3.Location = new Point(87, 207);
+            pictureBox3.Location = new Point(155, 175);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(33, 30);
             pictureBox3.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -246,15 +268,15 @@
             lbl_Turno.TabIndex = 7;
             lbl_Turno.Text = "Turno";
             // 
-            // cmb_Turno
+            // cmbTurno
             // 
-            cmb_Turno.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cmb_Turno.FormattingEnabled = true;
-            cmb_Turno.Items.AddRange(new object[] { "                                 Dia", "                               Tarde                             ", "                               Noite" });
-            cmb_Turno.Location = new Point(85, 205);
-            cmb_Turno.Name = "cmb_Turno";
-            cmb_Turno.Size = new Size(300, 33);
-            cmb_Turno.TabIndex = 6;
+            cmbTurno.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbTurno.FormattingEnabled = true;
+            cmbTurno.Items.AddRange(new object[] { "                                 Dia", "                               Tarde                             ", "                               Noite" });
+            cmbTurno.Location = new Point(85, 205);
+            cmbTurno.Name = "cmbTurno";
+            cmbTurno.Size = new Size(300, 33);
+            cmbTurno.TabIndex = 6;
             // 
             // lbl_Professor
             // 
@@ -269,7 +291,7 @@
             // pictureBox2
             // 
             pictureBox2.BackgroundImage = (Image)resources.GetObject("pictureBox2.BackgroundImage");
-            pictureBox2.Location = new Point(560, 85);
+            pictureBox2.Location = new Point(658, 54);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(33, 30);
             pictureBox2.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -280,16 +302,16 @@
             // 
             cmbProfessor.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             cmbProfessor.FormattingEnabled = true;
-            cmbProfessor.Items.AddRange(new object[] { "                               Volei" });
             cmbProfessor.Location = new Point(558, 84);
             cmbProfessor.Name = "cmbProfessor";
             cmbProfessor.Size = new Size(300, 33);
             cmbProfessor.TabIndex = 3;
+            cmbProfessor.SelectedIndexChanged += cmbProfessor_SelectedIndexChanged;
             // 
             // pictureBox1
             // 
             pictureBox1.BackgroundImage = (Image)resources.GetObject("pictureBox1.BackgroundImage");
-            pictureBox1.Location = new Point(87, 87);
+            pictureBox1.Location = new Point(219, 56);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(33, 30);
             pictureBox1.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -303,19 +325,19 @@
             lbl_Modalidade.ImageAlign = ContentAlignment.MiddleLeft;
             lbl_Modalidade.Location = new Point(85, 54);
             lbl_Modalidade.Name = "lbl_Modalidade";
-            lbl_Modalidade.Size = new Size(146, 31);
+            lbl_Modalidade.Size = new Size(136, 31);
             lbl_Modalidade.TabIndex = 1;
-            lbl_Modalidade.Text = "Modalidades";
+            lbl_Modalidade.Text = "Modalidade";
             // 
-            // cmb_Modalidade
+            // cmbModalidade
             // 
-            cmb_Modalidade.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            cmb_Modalidade.FormattingEnabled = true;
-            cmb_Modalidade.Items.AddRange(new object[] { "                               Volei" });
-            cmb_Modalidade.Location = new Point(85, 85);
-            cmb_Modalidade.Name = "cmb_Modalidade";
-            cmb_Modalidade.Size = new Size(300, 33);
-            cmb_Modalidade.TabIndex = 0;
+            cmbModalidade.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            cmbModalidade.FormattingEnabled = true;
+            cmbModalidade.Items.AddRange(new object[] { "                               Volei" });
+            cmbModalidade.Location = new Point(85, 85);
+            cmbModalidade.Name = "cmbModalidade";
+            cmbModalidade.Size = new Size(300, 33);
+            cmbModalidade.TabIndex = 0;
             // 
             // panelArredondado3
             // 
@@ -361,6 +383,7 @@
             lbl_cadastrar.Size = new Size(103, 30);
             lbl_cadastrar.TabIndex = 0;
             lbl_cadastrar.Text = "      Salvar";
+            lbl_cadastrar.Click += lbl_cadastrar_Click;
             // 
             // buttonPanel1
             // 
@@ -395,7 +418,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(113, 33);
+            label8.Location = new Point(116, 58);
             label8.Name = "label8";
             label8.Size = new Size(363, 20);
             label8.TabIndex = 2;
@@ -404,7 +427,7 @@
             // pictureBox7
             // 
             pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
-            pictureBox7.Location = new Point(55, 8);
+            pictureBox7.Location = new Point(58, 33);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(52, 52);
             pictureBox7.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -416,25 +439,11 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.FromArgb(250, 42, 85);
-            label7.Location = new Point(113, 8);
+            label7.Location = new Point(116, 33);
             label7.Name = "label7";
             label7.Size = new Size(85, 25);
             label7.TabIndex = 0;
             label7.Text = "Atenção";
-            // 
-            // dtpHoraInicio
-            // 
-            dtpHoraInicio.Location = new Point(85, 314);
-            dtpHoraInicio.Name = "dtpHoraInicio";
-            dtpHoraInicio.Size = new Size(300, 23);
-            dtpHoraInicio.TabIndex = 18;
-            // 
-            // dtpHorarioFim
-            // 
-            dtpHorarioFim.Location = new Point(560, 314);
-            dtpHorarioFim.Name = "dtpHorarioFim";
-            dtpHorarioFim.Size = new Size(298, 23);
-            dtpHorarioFim.TabIndex = 19;
             // 
             // Horarios
             // 
@@ -448,6 +457,7 @@
             Controls.Add(panel2);
             Name = "Horarios";
             Text = "Horarios";
+            Load += Horarios_Load;
             panelArredondado1.ResumeLayout(false);
             panelArredondado1.PerformLayout();
             panelArredondado2.ResumeLayout(false);
@@ -474,7 +484,7 @@
         private PanelArredondado panelArredondado1;
         private Label label2;
         private PanelArredondado panelArredondado2;
-        private ComboBox cmb_Modalidade;
+        private ComboBox cmbModalidade;
         private PictureBox pictureBox1;
         private Label lbl_Modalidade;
         private PictureBox pictureBox2;
@@ -482,10 +492,10 @@
         private Label lbl_Professor;
         private PictureBox pictureBox3;
         private Label lbl_Turno;
-        private ComboBox cmb_Turno;
+        private ComboBox cmbTurno;
         private PictureBox pictureBox4;
         private Label lbl_DiaSemana;
-        private ComboBox cmd_DiaSemana;
+        private ComboBox cmbDiaSemana;
         private PictureBox pictureBox6;
         private Label lbl_HorarioFim;
         private PictureBox pictureBox5;
@@ -498,7 +508,7 @@
         private Label lbl_limpar;
         private ButtonPanel buttonPanel2;
         private Label lbl_cadastrar;
-        private DateTimePicker dtpHorarioFim;
+        private DateTimePicker dtpHoraFim;
         private DateTimePicker dtpHoraInicio;
     }
 }

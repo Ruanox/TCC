@@ -19,7 +19,9 @@ namespace DSDSDS
             DateTime? data_nasc,
             string rua,
             int? num_casa,
-            string telefone
+            string telefone,
+            decimal peso,
+            decimal altura
         )
         {
             string query = @"
@@ -36,7 +38,9 @@ namespace DSDSDS
                     data_nasc = @data_nasc,
                     rua = @rua,
                     num_casa = @num_casa,
-                    telefone = @telefone
+                    telefone = @telefone,
+                    peso = @peso,
+                    altura = @altura
                 WHERE id_aluno = @id_aluno
             ";
 
@@ -50,52 +54,77 @@ namespace DSDSDS
                     cmd.Parameters.AddWithValue("@usuario", usuario);
                     cmd.Parameters.AddWithValue("@cpf", cpf);
                     cmd.Parameters.AddWithValue("@senha", senha);
-                    cmd.Parameters.AddWithValue("@nome_responsavel",
+
+                    cmd.Parameters.AddWithValue(
+                        "@nome_responsavel",
                         string.IsNullOrWhiteSpace(nome_responsavel)
-                        ? (object)DBNull.Value
-                        : nome_responsavel);
+                            ? (object)DBNull.Value
+                            : nome_responsavel
+                    );
 
-                    cmd.Parameters.AddWithValue("@telefone_resp",
+                    cmd.Parameters.AddWithValue(
+                        "@telefone_resp",
                         string.IsNullOrWhiteSpace(telefone_resp)
-                        ? (object)DBNull.Value
-                        : telefone_resp);
+                            ? (object)DBNull.Value
+                            : telefone_resp
+                    );
 
-                    cmd.Parameters.AddWithValue("@cpf_responsavel",
+                    cmd.Parameters.AddWithValue(
+                        "@cpf_responsavel",
                         string.IsNullOrWhiteSpace(cpf_responsavel)
-                        ? (object)DBNull.Value
-                        : cpf_responsavel);
+                            ? (object)DBNull.Value
+                            : cpf_responsavel
+                    );
 
-                    cmd.Parameters.AddWithValue("@bairro",
+                    cmd.Parameters.AddWithValue(
+                        "@bairro",
                         string.IsNullOrWhiteSpace(bairro)
-                        ? (object)DBNull.Value
-                        : bairro);
+                            ? (object)DBNull.Value
+                            : bairro
+                    );
 
-                    cmd.Parameters.AddWithValue("@menor_de_idade", menor_de_idade);
+                    cmd.Parameters.AddWithValue(
+                        "@menor_de_idade",
+                        menor_de_idade
+                    );
 
-                    cmd.Parameters.AddWithValue("@turma_idade",
+                    cmd.Parameters.AddWithValue(
+                        "@turma_idade",
                         string.IsNullOrWhiteSpace(turma_idade)
-                        ? (object)DBNull.Value
-                        : turma_idade);
+                            ? (object)DBNull.Value
+                            : turma_idade
+                    );
 
-                    cmd.Parameters.AddWithValue("@data_nasc",
+                    cmd.Parameters.AddWithValue(
+                        "@data_nasc",
                         data_nasc.HasValue
-                        ? (object)data_nasc.Value
-                        : DBNull.Value);
+                            ? (object)data_nasc.Value
+                            : DBNull.Value
+                    );
 
-                    cmd.Parameters.AddWithValue("@rua",
+                    cmd.Parameters.AddWithValue(
+                        "@rua",
                         string.IsNullOrWhiteSpace(rua)
-                        ? (object)DBNull.Value
-                        : rua);
+                            ? (object)DBNull.Value
+                            : rua
+                    );
 
-                    cmd.Parameters.AddWithValue("@num_casa",
+                    cmd.Parameters.AddWithValue(
+                        "@num_casa",
                         num_casa.HasValue
-                        ? (object)num_casa.Value
-                        : DBNull.Value);
+                            ? (object)num_casa.Value
+                            : DBNull.Value
+                    );
 
-                    cmd.Parameters.AddWithValue("@telefone",
+                    cmd.Parameters.AddWithValue(
+                        "@telefone",
                         string.IsNullOrWhiteSpace(telefone)
-                        ? (object)DBNull.Value
-                        : telefone);
+                            ? (object)DBNull.Value
+                            : telefone
+                    );
+
+                    cmd.Parameters.AddWithValue("@peso", peso);
+                    cmd.Parameters.AddWithValue("@altura", altura);
 
                     cmd.ExecuteNonQuery();
                 }

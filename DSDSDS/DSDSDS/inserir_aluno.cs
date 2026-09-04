@@ -1,5 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
+using System.Windows.Forms;
 
 namespace DSDSDS
 {
@@ -16,11 +17,28 @@ namespace DSDSDS
         private string rua;
         private int num_casa;
         private string telefone;
+        private decimal peso;
+        private decimal altura;
 
+        public decimal getPeso()
+        {
+            return peso;
+        }
 
-        // =========================================================
-        // USUARIO
-        // =========================================================
+        public void setPeso(decimal peso)
+        {
+            this.peso = peso;
+        }
+
+        public decimal getAltura()
+        {
+            return altura;
+        }
+
+        public void setAltura(decimal altura)
+        {
+            this.altura = altura;
+        }
 
         public string getUsuario()
         {
@@ -32,11 +50,6 @@ namespace DSDSDS
             this.usuario = usuario;
         }
 
-
-        // =========================================================
-        // DATA DE NASCIMENTO
-        // =========================================================
-
         public DateTime getData_nasc()
         {
             return data_nasc;
@@ -46,11 +59,6 @@ namespace DSDSDS
         {
             this.data_nasc = data_nasc;
         }
-
-
-        // =========================================================
-        // CPF
-        // =========================================================
 
         public string getCpf()
         {
@@ -62,11 +70,6 @@ namespace DSDSDS
             this.cpf = cpf;
         }
 
-
-        // =========================================================
-        // NOME DO RESPONSÁVEL
-        // =========================================================
-
         public string getNomeResponsavel()
         {
             return nome_responsavel;
@@ -76,11 +79,6 @@ namespace DSDSDS
         {
             this.nome_responsavel = nome_responsavel;
         }
-
-
-        // =========================================================
-        // TELEFONE DO RESPONSÁVEL
-        // =========================================================
 
         public string getTelefoneResp()
         {
@@ -92,11 +90,6 @@ namespace DSDSDS
             this.telefone_resp = telefone_resp;
         }
 
-
-        // =========================================================
-        // SENHA
-        // =========================================================
-
         public string getSenha()
         {
             return senha;
@@ -106,11 +99,6 @@ namespace DSDSDS
         {
             this.senha = senha;
         }
-
-
-        // =========================================================
-        // CPF DO RESPONSÁVEL
-        // =========================================================
 
         public string getCpfResponsavel()
         {
@@ -122,11 +110,6 @@ namespace DSDSDS
             this.cpf_responsavel = cpf_responsavel;
         }
 
-
-        // =========================================================
-        // BAIRRO
-        // =========================================================
-
         public string getBairro()
         {
             return bairro;
@@ -136,11 +119,6 @@ namespace DSDSDS
         {
             this.bairro = bairro;
         }
-
-
-        // =========================================================
-        // RUA
-        // =========================================================
 
         public string getRua()
         {
@@ -152,11 +130,6 @@ namespace DSDSDS
             this.rua = rua;
         }
 
-
-        // =========================================================
-        // NUMERO DA CASA
-        // =========================================================
-
         public int getNumCasa()
         {
             return num_casa;
@@ -166,7 +139,6 @@ namespace DSDSDS
         {
             this.num_casa = num_casa;
         }
-       
 
         public string getTelefone()
         {
@@ -177,11 +149,6 @@ namespace DSDSDS
         {
             this.telefone = telefone;
         }
-
-
-        // =========================================================
-        // CALCULAR IDADE
-        // =========================================================
 
         private int CalcularIdade(DateTime dataNascimento)
         {
@@ -197,19 +164,11 @@ namespace DSDSDS
             return idade;
         }
 
-
-        // =========================================================
-        // INSERIR ALUNO
-        // =========================================================
-
         public void inserir()
         {
-            // Calcula a idade
             int idade = CalcularIdade(data_nasc);
 
-            // Define se é menor de idade
             int menor_de_idade = idade < 18 ? 1 : 0;
-
 
             string query = @"
                 INSERT INTO aluno
@@ -224,6 +183,8 @@ namespace DSDSDS
                     bairro,
                     menor_de_idade,
                     turma_idade,
+                    peso,
+                    altura,
                     rua,
                     num_casa,
                     telefone
@@ -240,11 +201,12 @@ namespace DSDSDS
                     @bairro,
                     @menor_de_idade,
                     @turma_idade,
+                    @peso,
+                    @altura,
                     @rua,
                     @num_casa,
                     @telefone
                 )";
-
 
             if (this.abrirconexao())
             {
@@ -252,38 +214,25 @@ namespace DSDSDS
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conectar);
 
-
-                    // =================================================
-                    // ALUNO
-                    // =================================================
-
                     cmd.Parameters.Add(
                         "@usuario",
                         MySqlDbType.VarChar
                     ).Value = usuario;
-
 
                     cmd.Parameters.Add(
                         "@data_nasc",
                         MySqlDbType.Date
                     ).Value = data_nasc.Date;
 
-
                     cmd.Parameters.Add(
                         "@cpf",
                         MySqlDbType.VarChar
                     ).Value = cpf;
 
-
                     cmd.Parameters.Add(
                         "@senha",
                         MySqlDbType.VarChar
                     ).Value = senha;
-
-
-                    // =================================================
-                    // RESPONSÁVEL
-                    // =================================================
 
                     cmd.Parameters.Add(
                         "@nome_responsavel",
@@ -292,14 +241,12 @@ namespace DSDSDS
                         ? DBNull.Value
                         : nome_responsavel;
 
-
                     cmd.Parameters.Add(
                         "@telefone_resp",
                         MySqlDbType.VarChar
                     ).Value = string.IsNullOrWhiteSpace(telefone_resp)
                         ? DBNull.Value
                         : telefone_resp;
-
 
                     cmd.Parameters.Add(
                         "@cpf_responsavel",
@@ -308,11 +255,6 @@ namespace DSDSDS
                         ? DBNull.Value
                         : cpf_responsavel;
 
-
-                    // =================================================
-                    // ENDEREÇO
-                    // =================================================
-
                     cmd.Parameters.Add(
                         "@bairro",
                         MySqlDbType.VarChar
@@ -320,6 +262,25 @@ namespace DSDSDS
                         ? DBNull.Value
                         : bairro;
 
+                    cmd.Parameters.Add(
+                        "@menor_de_idade",
+                        MySqlDbType.Byte
+                    ).Value = menor_de_idade;
+
+                    cmd.Parameters.Add(
+                        "@turma_idade",
+                        MySqlDbType.VarChar
+                    ).Value = DBNull.Value;
+
+                    cmd.Parameters.Add(
+                        "@peso",
+                        MySqlDbType.Decimal
+                    ).Value = peso;
+
+                    cmd.Parameters.Add(
+                        "@altura",
+                        MySqlDbType.Decimal
+                    ).Value = altura;
 
                     cmd.Parameters.Add(
                         "@rua",
@@ -328,40 +289,15 @@ namespace DSDSDS
                         ? DBNull.Value
                         : rua;
 
-
                     cmd.Parameters.Add(
                         "@num_casa",
                         MySqlDbType.Int32
                     ).Value = num_casa;
 
-
-                    // =================================================
-                    // MENOR DE IDADE
-                    // =================================================
-
-                    cmd.Parameters.Add(
-                        "@menor_de_idade",
-                        MySqlDbType.Byte
-                    ).Value = menor_de_idade;
-
                     cmd.Parameters.Add(
                         "@telefone",
                         MySqlDbType.VarChar
                     ).Value = telefone;
-
-                    // =================================================
-                    // TURMA
-                    // =================================================
-
-                    cmd.Parameters.Add(
-                        "@turma_idade",
-                        MySqlDbType.VarChar
-                    ).Value = DBNull.Value;
-
-
-                    // =================================================
-                    // EXECUTA
-                    // =================================================
 
                     cmd.ExecuteNonQuery();
                 }

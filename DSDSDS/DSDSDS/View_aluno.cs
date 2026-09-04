@@ -190,6 +190,27 @@ namespace DSDSDS
             }
 
             // -----------------------------------------------------
+            // PESO 
+            // -----------------------------------------------------
+
+            if (dataGridView1.Columns.Contains("peso"))
+            {
+                dataGridView1.Columns["peso"].HeaderText = "Peso";
+                dataGridView1.Columns["peso"].Width = 100;
+
+            }
+
+            // -----------------------------------------------------
+            // ALTURA
+            // -----------------------------------------------------
+
+            if (dataGridView1.Columns.Contains("altura"))
+            {
+                dataGridView1.Columns["altura"].HeaderText = "Altura";
+                dataGridView1.Columns["altura"].Width = 100;
+            }
+
+            // -----------------------------------------------------
             // DATA DE NASCIMENTO
             // -----------------------------------------------------
 
@@ -235,6 +256,7 @@ namespace DSDSDS
                 dataGridView1.Columns["telefone"].Width = 150;
             }
 
+
             // =====================================================
             // ALINHAMENTO
             // =====================================================
@@ -260,6 +282,19 @@ namespace DSDSDS
             if (dataGridView1.Columns.Contains("menor_de_idade"))
             {
                 dataGridView1.Columns["menor_de_idade"]
+                    .DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+            }
+            if (dataGridView1.Columns.Contains("peso"))
+            {
+                dataGridView1.Columns["peso"]
+                    .DefaultCellStyle.Alignment =
+                    DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            if (dataGridView1.Columns.Contains("altura"))
+            {
+                dataGridView1.Columns["altura"]
                     .DefaultCellStyle.Alignment =
                     DataGridViewContentAlignment.MiddleCenter;
             }

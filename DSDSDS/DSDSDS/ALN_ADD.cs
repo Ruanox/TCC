@@ -169,6 +169,42 @@ namespace DSDSDS
 
                 pu.setNumCasa(numCasa);
                 pu.setTelefone(txtbox_telefone.Text);
+                if (!decimal.TryParse(
+    txtbox_Peso.Text,
+    System.Globalization.NumberStyles.Any,
+    System.Globalization.CultureInfo.CurrentCulture,
+    out decimal peso))
+                {
+                    MessageBox.Show(
+                        "Digite um peso válido.",
+                        "Peso inválido",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    txtbox_Peso.Focus();
+                    return;
+                }
+
+                if (!decimal.TryParse(
+                    txtbox_Altura.Text,
+                    System.Globalization.NumberStyles.Any,
+                    System.Globalization.CultureInfo.CurrentCulture,
+                    out decimal altura))
+                {
+                    MessageBox.Show(
+                        "Digite uma altura válida.",
+                        "Altura inválida",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+
+                    txtbox_Altura.Focus();
+                    return;
+                }
+
+                pu.setPeso(peso);
+                pu.setAltura(altura);
 
                 // =================================================
                 // DADOS DO RESPONSÁVEL
@@ -334,6 +370,8 @@ namespace DSDSDS
             txtbox_tel_resp.Clear();
             txtbox_rua.Clear();
             txtbox_numCasa.Clear();
+            txtbox_Peso.Clear();
+            txtbox_Altura.Clear();
 
         }
 

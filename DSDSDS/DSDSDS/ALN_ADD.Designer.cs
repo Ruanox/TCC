@@ -87,6 +87,14 @@
             btn_edit = new Button();
             btn_trash = new Button();
             btn_view = new Button();
+            txtbox_Peso = new TextBox();
+            circularPanel12 = new CircularPanel();
+            pictureBox13 = new PictureBox();
+            txtbox_Altura = new TextBox();
+            circularPanel13 = new CircularPanel();
+            pictureBox14 = new PictureBox();
+            label5 = new Label();
+            label6 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             customPanel1.SuspendLayout();
             circularPanel11.SuspendLayout();
@@ -112,6 +120,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             circularPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            circularPanel12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).BeginInit();
+            circularPanel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).BeginInit();
             SuspendLayout();
             // 
             // panel2
@@ -185,6 +197,12 @@
             customPanel1.BorderColor = Color.Transparent;
             customPanel1.BorderRadius = 15;
             customPanel1.BorderSize = 0;
+            customPanel1.Controls.Add(txtbox_Peso);
+            customPanel1.Controls.Add(circularPanel12);
+            customPanel1.Controls.Add(txtbox_Altura);
+            customPanel1.Controls.Add(circularPanel13);
+            customPanel1.Controls.Add(label5);
+            customPanel1.Controls.Add(label6);
             customPanel1.Controls.Add(txtbox_telefone);
             customPanel1.Controls.Add(circularPanel11);
             customPanel1.Controls.Add(label4);
@@ -220,7 +238,7 @@
             // 
             // txtbox_telefone
             // 
-            txtbox_telefone.Location = new Point(174, 492);
+            txtbox_telefone.Location = new Point(170, 451);
             txtbox_telefone.Mask = "(00)00000-0000";
             txtbox_telefone.Name = "txtbox_telefone";
             txtbox_telefone.Size = new Size(139, 23);
@@ -230,7 +248,7 @@
             // 
             circularPanel11.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel11.Controls.Add(pictureBox12);
-            circularPanel11.Location = new Point(104, 460);
+            circularPanel11.Location = new Point(100, 419);
             circularPanel11.Name = "circularPanel11";
             circularPanel11.Size = new Size(64, 60);
             circularPanel11.TabIndex = 41;
@@ -250,7 +268,7 @@
             label4.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             label4.ForeColor = Color.FromArgb(250, 42, 85);
             label4.ImageAlign = ContentAlignment.MiddleRight;
-            label4.Location = new Point(174, 460);
+            label4.Location = new Point(170, 419);
             label4.Name = "label4";
             label4.Size = new Size(118, 29);
             label4.TabIndex = 40;
@@ -260,7 +278,7 @@
             // 
             circularPanel10.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel10.Controls.Add(pictureBox11);
-            circularPanel10.Location = new Point(104, 385);
+            circularPanel10.Location = new Point(100, 344);
             circularPanel10.Name = "circularPanel10";
             circularPanel10.Size = new Size(64, 60);
             circularPanel10.TabIndex = 38;
@@ -280,7 +298,7 @@
             label3.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             label3.ForeColor = Color.FromArgb(250, 42, 85);
             label3.ImageAlign = ContentAlignment.MiddleRight;
-            label3.Location = new Point(174, 385);
+            label3.Location = new Point(170, 344);
             label3.Name = "label3";
             label3.Size = new Size(159, 29);
             label3.TabIndex = 37;
@@ -288,7 +306,7 @@
             // 
             // txtbox_numCasa
             // 
-            txtbox_numCasa.Location = new Point(174, 412);
+            txtbox_numCasa.Location = new Point(170, 371);
             txtbox_numCasa.Name = "txtbox_numCasa";
             txtbox_numCasa.PlaceholderText = "Digite o N° da casa";
             txtbox_numCasa.Size = new Size(139, 23);
@@ -298,7 +316,7 @@
             // 
             circularPanel9.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel9.Controls.Add(pictureBox10);
-            circularPanel9.Location = new Point(104, 309);
+            circularPanel9.Location = new Point(100, 268);
             circularPanel9.Name = "circularPanel9";
             circularPanel9.Size = new Size(64, 60);
             circularPanel9.TabIndex = 34;
@@ -318,7 +336,7 @@
             label2.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             label2.ForeColor = Color.FromArgb(250, 42, 85);
             label2.ImageAlign = ContentAlignment.MiddleRight;
-            label2.Location = new Point(174, 309);
+            label2.Location = new Point(170, 268);
             label2.Name = "label2";
             label2.Size = new Size(66, 29);
             label2.TabIndex = 33;
@@ -327,7 +345,7 @@
             // txtbox_aniversario
             // 
             txtbox_aniversario.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtbox_aniversario.Location = new Point(174, 173);
+            txtbox_aniversario.Location = new Point(170, 132);
             txtbox_aniversario.Mask = "00/00/0000";
             txtbox_aniversario.Name = "txtbox_aniversario";
             txtbox_aniversario.Size = new Size(139, 27);
@@ -337,7 +355,7 @@
             // 
             // txtbox_rua
             // 
-            txtbox_rua.Location = new Point(174, 336);
+            txtbox_rua.Location = new Point(170, 295);
             txtbox_rua.Name = "txtbox_rua";
             txtbox_rua.PlaceholderText = "Digite o nome da rua";
             txtbox_rua.Size = new Size(139, 23);
@@ -355,9 +373,9 @@
             panel_resp.Controls.Add(txtbox_tel_resp);
             panel_resp.Controls.Add(circularPanel4);
             panel_resp.Controls.Add(lbl_tel_resp);
-            panel_resp.Location = new Point(357, 213);
+            panel_resp.Location = new Point(335, 303);
             panel_resp.Name = "panel_resp";
-            panel_resp.Size = new Size(482, 275);
+            panel_resp.Size = new Size(492, 248);
             panel_resp.TabIndex = 34;
             panel_resp.Paint += panel1_Paint;
             // 
@@ -365,7 +383,7 @@
             // 
             btn_Cadastrar.Font = new Font("Montserrat SemiBold", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_Cadastrar.Image = (Image)resources.GetObject("btn_Cadastrar.Image");
-            btn_Cadastrar.Location = new Point(343, 116);
+            btn_Cadastrar.Location = new Point(352, 86);
             btn_Cadastrar.Name = "btn_Cadastrar";
             btn_Cadastrar.Size = new Size(136, 40);
             btn_Cadastrar.TabIndex = 38;
@@ -378,7 +396,7 @@
             // 
             circularPanel8.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel8.Controls.Add(pictureBox9);
-            circularPanel8.Location = new Point(5, 145);
+            circularPanel8.Location = new Point(22, 156);
             circularPanel8.Name = "circularPanel8";
             circularPanel8.Size = new Size(64, 60);
             circularPanel8.TabIndex = 35;
@@ -394,7 +412,7 @@
             // 
             // txtbox_cpf_resp
             // 
-            txtbox_cpf_resp.Location = new Point(66, 182);
+            txtbox_cpf_resp.Location = new Point(83, 193);
             txtbox_cpf_resp.Name = "txtbox_cpf_resp";
             txtbox_cpf_resp.PlaceholderText = "Digite o telefone";
             txtbox_cpf_resp.Size = new Size(139, 23);
@@ -404,7 +422,7 @@
             // 
             circularPanel7.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel7.Controls.Add(pictureBox5);
-            circularPanel7.Location = new Point(3, 79);
+            circularPanel7.Location = new Point(20, 90);
             circularPanel7.Name = "circularPanel7";
             circularPanel7.Size = new Size(64, 60);
             circularPanel7.TabIndex = 33;
@@ -424,7 +442,7 @@
             lbl_cpf_resp.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             lbl_cpf_resp.ForeColor = Color.FromArgb(250, 42, 85);
             lbl_cpf_resp.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_cpf_resp.Location = new Point(64, 144);
+            lbl_cpf_resp.Location = new Point(81, 155);
             lbl_cpf_resp.Name = "lbl_cpf_resp";
             lbl_cpf_resp.Size = new Size(250, 29);
             lbl_cpf_resp.TabIndex = 37;
@@ -432,7 +450,7 @@
             // 
             // txtbox_nome_resp
             // 
-            txtbox_nome_resp.Location = new Point(64, 116);
+            txtbox_nome_resp.Location = new Point(81, 127);
             txtbox_nome_resp.Name = "txtbox_nome_resp";
             txtbox_nome_resp.PlaceholderText = "Digite o telefone";
             txtbox_nome_resp.Size = new Size(139, 23);
@@ -444,7 +462,7 @@
             lbl_nome_resp.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             lbl_nome_resp.ForeColor = Color.FromArgb(250, 42, 85);
             lbl_nome_resp.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_nome_resp.Location = new Point(62, 78);
+            lbl_nome_resp.Location = new Point(79, 89);
             lbl_nome_resp.Name = "lbl_nome_resp";
             lbl_nome_resp.Size = new Size(269, 29);
             lbl_nome_resp.TabIndex = 34;
@@ -452,7 +470,7 @@
             // 
             // txtbox_tel_resp
             // 
-            txtbox_tel_resp.Location = new Point(64, 52);
+            txtbox_tel_resp.Location = new Point(81, 63);
             txtbox_tel_resp.Name = "txtbox_tel_resp";
             txtbox_tel_resp.PlaceholderText = "Digite o telefone";
             txtbox_tel_resp.Size = new Size(139, 23);
@@ -463,7 +481,7 @@
             // 
             circularPanel4.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel4.Controls.Add(pictureBox6);
-            circularPanel4.Location = new Point(0, 14);
+            circularPanel4.Location = new Point(17, 25);
             circularPanel4.Name = "circularPanel4";
             circularPanel4.Size = new Size(64, 60);
             circularPanel4.TabIndex = 32;
@@ -484,7 +502,7 @@
             lbl_tel_resp.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             lbl_tel_resp.ForeColor = Color.FromArgb(250, 42, 85);
             lbl_tel_resp.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_tel_resp.Location = new Point(62, 14);
+            lbl_tel_resp.Location = new Point(79, 25);
             lbl_tel_resp.Name = "lbl_tel_resp";
             lbl_tel_resp.Size = new Size(304, 29);
             lbl_tel_resp.TabIndex = 3;
@@ -493,7 +511,7 @@
             // 
             // txtbox_bairro
             // 
-            txtbox_bairro.Location = new Point(424, 174);
+            txtbox_bairro.Location = new Point(431, 125);
             txtbox_bairro.Name = "txtbox_bairro";
             txtbox_bairro.PlaceholderText = "Digite o bairro";
             txtbox_bairro.Size = new Size(139, 23);
@@ -503,7 +521,7 @@
             // 
             circularPanel6.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel6.Controls.Add(pictureBox8);
-            circularPanel6.Location = new Point(354, 137);
+            circularPanel6.Location = new Point(354, 88);
             circularPanel6.Name = "circularPanel6";
             circularPanel6.Size = new Size(64, 60);
             circularPanel6.TabIndex = 33;
@@ -519,7 +537,7 @@
             // 
             // txtbox_cpf
             // 
-            txtbox_cpf.Location = new Point(421, 89);
+            txtbox_cpf.Location = new Point(428, 40);
             txtbox_cpf.Name = "txtbox_cpf";
             txtbox_cpf.PlaceholderText = "Digite o CPF";
             txtbox_cpf.Size = new Size(139, 23);
@@ -528,7 +546,7 @@
             // txtbox_nome
             // 
             txtbox_nome.Font = new Font("Segoe UI", 9F);
-            txtbox_nome.Location = new Point(174, 89);
+            txtbox_nome.Location = new Point(170, 48);
             txtbox_nome.Name = "txtbox_nome";
             txtbox_nome.PlaceholderText = "Digite o nome";
             txtbox_nome.Size = new Size(139, 23);
@@ -538,7 +556,7 @@
             // 
             circularPanel5.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel5.Controls.Add(pictureBox7);
-            circularPanel5.Location = new Point(347, 52);
+            circularPanel5.Location = new Point(354, 3);
             circularPanel5.Name = "circularPanel5";
             circularPanel5.Size = new Size(64, 60);
             circularPanel5.TabIndex = 32;
@@ -558,7 +576,7 @@
             lbl_bairro.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             lbl_bairro.ForeColor = Color.FromArgb(250, 42, 85);
             lbl_bairro.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_bairro.Location = new Point(424, 142);
+            lbl_bairro.Location = new Point(431, 93);
             lbl_bairro.Name = "lbl_bairro";
             lbl_bairro.Size = new Size(119, 29);
             lbl_bairro.TabIndex = 11;
@@ -570,7 +588,7 @@
             lbl_cpf.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             lbl_cpf.ForeColor = Color.FromArgb(250, 42, 85);
             lbl_cpf.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_cpf.Location = new Point(423, 57);
+            lbl_cpf.Location = new Point(430, 8);
             lbl_cpf.Name = "lbl_cpf";
             lbl_cpf.Size = new Size(106, 29);
             lbl_cpf.TabIndex = 7;
@@ -580,7 +598,7 @@
             // 
             circularPanel3.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel3.Controls.Add(pictureBox4);
-            circularPanel3.Location = new Point(104, 228);
+            circularPanel3.Location = new Point(100, 187);
             circularPanel3.Name = "circularPanel3";
             circularPanel3.Size = new Size(64, 60);
             circularPanel3.TabIndex = 31;
@@ -600,7 +618,7 @@
             lbl_senha.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             lbl_senha.ForeColor = Color.FromArgb(250, 42, 85);
             lbl_senha.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_senha.Location = new Point(174, 228);
+            lbl_senha.Location = new Point(170, 187);
             lbl_senha.Name = "lbl_senha";
             lbl_senha.Size = new Size(129, 29);
             lbl_senha.TabIndex = 9;
@@ -610,7 +628,7 @@
             // 
             circularPanel2.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel2.Controls.Add(pictureBox3);
-            circularPanel2.Location = new Point(104, 49);
+            circularPanel2.Location = new Point(100, 8);
             circularPanel2.Name = "circularPanel2";
             circularPanel2.Size = new Size(64, 60);
             circularPanel2.TabIndex = 31;
@@ -630,7 +648,7 @@
             lbl_nome.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             lbl_nome.ForeColor = Color.FromArgb(250, 42, 85);
             lbl_nome.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_nome.Location = new Point(174, 57);
+            lbl_nome.Location = new Point(170, 16);
             lbl_nome.Name = "lbl_nome";
             lbl_nome.Size = new Size(146, 29);
             lbl_nome.TabIndex = 1;
@@ -638,7 +656,7 @@
             // 
             // txtbox_senha
             // 
-            txtbox_senha.Location = new Point(174, 255);
+            txtbox_senha.Location = new Point(170, 214);
             txtbox_senha.Name = "txtbox_senha";
             txtbox_senha.PlaceholderText = "Digite a senha";
             txtbox_senha.Size = new Size(139, 23);
@@ -648,7 +666,7 @@
             // 
             circularPanel1.BackColor = Color.FromArgb(255, 192, 192);
             circularPanel1.Controls.Add(pictureBox1);
-            circularPanel1.Location = new Point(104, 141);
+            circularPanel1.Location = new Point(100, 100);
             circularPanel1.Name = "circularPanel1";
             circularPanel1.Size = new Size(64, 60);
             circularPanel1.TabIndex = 29;
@@ -668,7 +686,7 @@
             lbl_idade.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
             lbl_idade.ForeColor = Color.FromArgb(250, 42, 85);
             lbl_idade.ImageAlign = ContentAlignment.MiddleRight;
-            lbl_idade.Location = new Point(174, 141);
+            lbl_idade.Location = new Point(170, 100);
             lbl_idade.Name = "lbl_idade";
             lbl_idade.Size = new Size(144, 29);
             lbl_idade.TabIndex = 5;
@@ -733,6 +751,82 @@
             btn_view.UseVisualStyleBackColor = true;
             btn_view.Click += btn_view_Click;
             // 
+            // txtbox_Peso
+            // 
+            txtbox_Peso.Location = new Point(435, 267);
+            txtbox_Peso.Name = "txtbox_Peso";
+            txtbox_Peso.PlaceholderText = "Digite o peso";
+            txtbox_Peso.Size = new Size(139, 23);
+            txtbox_Peso.TabIndex = 45;
+            // 
+            // circularPanel12
+            // 
+            circularPanel12.BackColor = Color.FromArgb(255, 192, 192);
+            circularPanel12.Controls.Add(pictureBox13);
+            circularPanel12.Location = new Point(354, 237);
+            circularPanel12.Name = "circularPanel12";
+            circularPanel12.Size = new Size(64, 60);
+            circularPanel12.TabIndex = 48;
+            // 
+            // pictureBox13
+            // 
+            pictureBox13.Image = (Image)resources.GetObject("pictureBox13.Image");
+            pictureBox13.Location = new Point(17, 12);
+            pictureBox13.Name = "pictureBox13";
+            pictureBox13.Size = new Size(43, 41);
+            pictureBox13.TabIndex = 30;
+            pictureBox13.TabStop = false;
+            // 
+            // txtbox_Altura
+            // 
+            txtbox_Altura.Location = new Point(435, 193);
+            txtbox_Altura.Name = "txtbox_Altura";
+            txtbox_Altura.PlaceholderText = "Digite a altura";
+            txtbox_Altura.Size = new Size(139, 23);
+            txtbox_Altura.TabIndex = 43;
+            // 
+            // circularPanel13
+            // 
+            circularPanel13.BackColor = Color.FromArgb(255, 192, 192);
+            circularPanel13.Controls.Add(pictureBox14);
+            circularPanel13.Location = new Point(354, 156);
+            circularPanel13.Name = "circularPanel13";
+            circularPanel13.Size = new Size(64, 60);
+            circularPanel13.TabIndex = 47;
+            // 
+            // pictureBox14
+            // 
+            pictureBox14.Image = (Image)resources.GetObject("pictureBox14.Image");
+            pictureBox14.Location = new Point(17, 15);
+            pictureBox14.Name = "pictureBox14";
+            pictureBox14.Size = new Size(43, 41);
+            pictureBox14.TabIndex = 30;
+            pictureBox14.TabStop = false;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
+            label5.ForeColor = Color.FromArgb(250, 42, 85);
+            label5.ImageAlign = ContentAlignment.MiddleRight;
+            label5.Location = new Point(433, 237);
+            label5.Name = "label5";
+            label5.Size = new Size(73, 29);
+            label5.TabIndex = 46;
+            label5.Text = "Peso";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
+            label6.ForeColor = Color.FromArgb(250, 42, 85);
+            label6.ImageAlign = ContentAlignment.MiddleRight;
+            label6.Location = new Point(431, 161);
+            label6.Name = "label6";
+            label6.Size = new Size(80, 29);
+            label6.TabIndex = 44;
+            label6.Text = "Altura";
+            // 
             // ALN_ADD
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -779,6 +873,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             circularPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            circularPanel12.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox13).EndInit();
+            circularPanel13.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox14).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -844,5 +942,13 @@
         private PictureBox pictureBox12;
         private Label label4;
         private MaskedTextBox txtbox_telefone;
+        private TextBox txtbox_Peso;
+        private CircularPanel circularPanel12;
+        private PictureBox pictureBox13;
+        private TextBox txtbox_Altura;
+        private CircularPanel circularPanel13;
+        private PictureBox pictureBox14;
+        private Label label5;
+        private Label label6;
     }
 }
