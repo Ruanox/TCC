@@ -78,6 +78,14 @@
             btn_trash = new Button();
             btn_edit = new Button();
             btn_view = new Button();
+            circularPanel9 = new CircularPanel();
+            pictureBox10 = new PictureBox();
+            lbl_cidade = new Label();
+            txtbox_Cidade = new TextBox();
+            circularPanel10 = new CircularPanel();
+            pictureBox11 = new PictureBox();
+            lbl_estado = new Label();
+            txtbox_Estado = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
             circularPanel6.SuspendLayout();
@@ -97,6 +105,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             circularPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            circularPanel9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
+            circularPanel10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
             SuspendLayout();
             // 
             // btn_pronto
@@ -105,7 +117,7 @@
             btn_pronto.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_pronto.Image = (Image)resources.GetObject("btn_pronto.Image");
             btn_pronto.ImageAlign = ContentAlignment.MiddleLeft;
-            btn_pronto.Location = new Point(237, 383);
+            btn_pronto.Location = new Point(596, 198);
             btn_pronto.Name = "btn_pronto";
             btn_pronto.Size = new Size(219, 36);
             btn_pronto.TabIndex = 12;
@@ -296,7 +308,7 @@
             panel3.Dock = DockStyle.Bottom;
             panel3.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             panel3.ForeColor = Color.Black;
-            panel3.Location = new Point(0, 701);
+            panel3.Location = new Point(0, 706);
             panel3.Name = "panel3";
             panel3.Size = new Size(1370, 48);
             panel3.TabIndex = 23;
@@ -401,7 +413,7 @@
             panel2.Dock = DockStyle.Left;
             panel2.Location = new Point(0, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(235, 701);
+            panel2.Size = new Size(235, 706);
             panel2.TabIndex = 31;
             panel2.Paint += panel2_Paint;
             // 
@@ -465,7 +477,13 @@
             customPanel1.BorderColor = Color.Transparent;
             customPanel1.BorderRadius = 15;
             customPanel1.BorderSize = 0;
+            customPanel1.Controls.Add(circularPanel10);
+            customPanel1.Controls.Add(lbl_estado);
+            customPanel1.Controls.Add(txtbox_Estado);
+            customPanel1.Controls.Add(circularPanel9);
+            customPanel1.Controls.Add(lbl_cidade);
             customPanel1.Controls.Add(circularPanel8);
+            customPanel1.Controls.Add(txtbox_Cidade);
             customPanel1.Controls.Add(lbl_numCasa);
             customPanel1.Controls.Add(txtbox_numCasa);
             customPanel1.Controls.Add(circularPanel7);
@@ -490,11 +508,11 @@
             customPanel1.Controls.Add(lbl_email);
             customPanel1.Controls.Add(btn_pronto);
             customPanel1.Controls.Add(txtbox_email);
-            customPanel1.Location = new Point(477, 224);
+            customPanel1.Location = new Point(421, 224);
             customPanel1.Name = "customPanel1";
             customPanel1.ShadowColor = Color.FromArgb(35, 0, 0, 0);
             customPanel1.ShadowSize = 8;
-            customPanel1.Size = new Size(722, 441);
+            customPanel1.Size = new Size(818, 482);
             customPanel1.TabIndex = 34;
             // 
             // circularPanel8
@@ -617,12 +635,88 @@
             btn_view.UseVisualStyleBackColor = true;
             btn_view.Click += btn_view_Click;
             // 
+            // circularPanel9
+            // 
+            circularPanel9.BackColor = Color.FromArgb(255, 192, 192);
+            circularPanel9.Controls.Add(pictureBox10);
+            circularPanel9.Location = new Point(104, 393);
+            circularPanel9.Name = "circularPanel9";
+            circularPanel9.Size = new Size(64, 60);
+            circularPanel9.TabIndex = 37;
+            // 
+            // pictureBox10
+            // 
+            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Location = new Point(17, 15);
+            pictureBox10.Name = "pictureBox10";
+            pictureBox10.Size = new Size(43, 41);
+            pictureBox10.TabIndex = 30;
+            pictureBox10.TabStop = false;
+            // 
+            // lbl_cidade
+            // 
+            lbl_cidade.AutoSize = true;
+            lbl_cidade.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
+            lbl_cidade.ForeColor = Color.FromArgb(250, 42, 85);
+            lbl_cidade.ImageAlign = ContentAlignment.MiddleRight;
+            lbl_cidade.Location = new Point(174, 389);
+            lbl_cidade.Name = "lbl_cidade";
+            lbl_cidade.Size = new Size(97, 29);
+            lbl_cidade.TabIndex = 36;
+            lbl_cidade.Text = "Cidade";
+            // 
+            // txtbox_Cidade
+            // 
+            txtbox_Cidade.Location = new Point(174, 420);
+            txtbox_Cidade.Name = "txtbox_Cidade";
+            txtbox_Cidade.PlaceholderText = "Digite o nome da cidade";
+            txtbox_Cidade.Size = new Size(139, 23);
+            txtbox_Cidade.TabIndex = 35;
+            // 
+            // circularPanel10
+            // 
+            circularPanel10.BackColor = Color.FromArgb(255, 192, 192);
+            circularPanel10.Controls.Add(pictureBox11);
+            circularPanel10.Location = new Point(370, 393);
+            circularPanel10.Name = "circularPanel10";
+            circularPanel10.Size = new Size(64, 60);
+            circularPanel10.TabIndex = 40;
+            // 
+            // pictureBox11
+            // 
+            pictureBox11.Image = (Image)resources.GetObject("pictureBox11.Image");
+            pictureBox11.Location = new Point(17, 15);
+            pictureBox11.Name = "pictureBox11";
+            pictureBox11.Size = new Size(43, 41);
+            pictureBox11.TabIndex = 30;
+            pictureBox11.TabStop = false;
+            // 
+            // lbl_estado
+            // 
+            lbl_estado.AutoSize = true;
+            lbl_estado.Font = new Font("Microsoft Sans Serif", 17.9999981F, FontStyle.Bold);
+            lbl_estado.ForeColor = Color.FromArgb(250, 42, 85);
+            lbl_estado.ImageAlign = ContentAlignment.MiddleRight;
+            lbl_estado.Location = new Point(440, 393);
+            lbl_estado.Name = "lbl_estado";
+            lbl_estado.Size = new Size(94, 29);
+            lbl_estado.TabIndex = 39;
+            lbl_estado.Text = "Estado";
+            // 
+            // txtbox_Estado
+            // 
+            txtbox_Estado.Location = new Point(440, 420);
+            txtbox_Estado.Name = "txtbox_Estado";
+            txtbox_Estado.PlaceholderText = "Digite o nome do estado";
+            txtbox_Estado.Size = new Size(139, 23);
+            txtbox_Estado.TabIndex = 38;
+            // 
             // Add_prof_
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ButtonHighlight;
-            ClientSize = new Size(1370, 749);
+            ClientSize = new Size(1370, 754);
             Controls.Add(btn_view);
             Controls.Add(btn_edit);
             Controls.Add(btn_trash);
@@ -660,6 +754,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             circularPanel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            circularPanel9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
+            circularPanel10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -714,5 +812,13 @@
         private PictureBox pictureBox5;
         private Label lbl_rua;
         private TextBox txtxbox_rua;
+        private CircularPanel circularPanel10;
+        private PictureBox pictureBox11;
+        private Label lbl_estado;
+        private TextBox txtbox_Estado;
+        private CircularPanel circularPanel9;
+        private PictureBox pictureBox10;
+        private Label lbl_cidade;
+        private TextBox txtbox_Cidade;
     }
 }

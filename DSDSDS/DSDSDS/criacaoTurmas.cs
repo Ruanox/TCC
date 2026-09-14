@@ -33,7 +33,7 @@ namespace DSDSDS
 
         private void cmdTurno_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbTurno.SelectedIndex = 0;
+
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -131,7 +131,8 @@ namespace DSDSDS
                 if (linha.Cells["id_aluno"].Value == null)
                     continue;
 
-                int idAluno = Convert.ToInt32(linha.Cells["id_aluno"].Value);
+                int idAluno =
+                    Convert.ToInt32(linha.Cells["id_aluno"].Value);
 
                 linha.Cells["Selecionar"].Value =
                     alunosSelecionados.Contains(idAluno);
@@ -140,7 +141,9 @@ namespace DSDSDS
             AtualizarContador();
         }
 
-        private void dgvAlunos_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        private void dgvAlunos_CurrentCellDirtyStateChanged(
+            object sender,
+            EventArgs e)
         {
             if (dgvAlunos.IsCurrentCellDirty)
             {
@@ -150,7 +153,9 @@ namespace DSDSDS
             }
         }
 
-        private void dgvAlunos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        private void dgvAlunos_CellValueChanged(
+            object sender,
+            DataGridViewCellEventArgs e)
         {
             if (restaurandoSelecao)
                 return;
@@ -161,18 +166,21 @@ namespace DSDSDS
             if (dgvAlunos.Columns[e.ColumnIndex].Name != "Selecionar")
                 return;
 
-            DataGridViewRow linha = dgvAlunos.Rows[e.RowIndex];
+            DataGridViewRow linha =
+                dgvAlunos.Rows[e.RowIndex];
 
             if (linha.Cells["id_aluno"].Value == null)
                 return;
 
-            int idAluno = Convert.ToInt32(
-                linha.Cells["id_aluno"].Value
-            );
+            int idAluno =
+                Convert.ToInt32(
+                    linha.Cells["id_aluno"].Value
+                );
 
-            bool selecionado = Convert.ToBoolean(
-                linha.Cells["Selecionar"].Value ?? false
-            );
+            bool selecionado =
+                Convert.ToBoolean(
+                    linha.Cells["Selecionar"].Value ?? false
+                );
 
             if (selecionado)
             {
@@ -187,8 +195,8 @@ namespace DSDSDS
         }
 
         private void dgvAlunos_DataBindingComplete(
-     object sender,
-     DataGridViewBindingCompleteEventArgs e)
+            object sender,
+            DataGridViewBindingCompleteEventArgs e)
         {
             if (!dgvAlunos.Columns.Contains("Selecionar"))
                 return;
@@ -200,9 +208,10 @@ namespace DSDSDS
                 if (linha.Cells["id_aluno"].Value == null)
                     continue;
 
-                int idAluno = Convert.ToInt32(
-                    linha.Cells["id_aluno"].Value
-                );
+                int idAluno =
+                    Convert.ToInt32(
+                        linha.Cells["id_aluno"].Value
+                    );
 
                 linha.Cells["Selecionar"].Value =
                     alunosSelecionados.Contains(idAluno);
@@ -271,12 +280,42 @@ namespace DSDSDS
             ConfigurarDataGridView();
         }
 
-        private void criacaoTurmas_Load_1(object sender, EventArgs e)
+        private void criacaoTurmas_Load_1(
+            object sender,
+            EventArgs e)
         {
+            cmdHorarioTurmas.Items.Clear();
+            cmbHorarioFinal.Items.Clear();
+
+            string[] horarios =
+            {
+                "08:00",
+                "09:00",
+                "10:00",
+                "11:00",
+                "12:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00",
+                "19:00",
+                "20:00",
+                "21:00"
+            };
+
+            foreach (string horario in horarios)
+            {
+                cmdHorarioTurmas.Items.Add(horario);
+                cmbHorarioFinal.Items.Add(horario);
+            }
+
             CarregarAlunos();
         }
 
-        private void txtPesquisarAluno_TextChanged(object sender, EventArgs e)
+        private void txtPesquisarAluno_TextChanged(
+            object sender,
+            EventArgs e)
         {
             if (tabelaAlunos == null)
                 return;
@@ -298,6 +337,260 @@ namespace DSDSDS
             }
 
             AtualizarContador();
+        }
+
+        private void lblSalvarTurma_Click(
+            object sender,
+            EventArgs e)
+        {
+            string nomeTurma =
+                txtbox_NomeTurma.Text.Trim();
+
+            if (string.IsNullOrWhiteSpace(nomeTurma))
+            {
+                MessageBox.Show(
+                    "Digite o nome da turma.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            if (cmbTurno.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Selecione o turno da turma.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            if (cmdHorarioTurmas.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Selecione o horário inicial dos treinos.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            if (cmbHorarioFinal.SelectedIndex == -1)
+            {
+                MessageBox.Show(
+                    "Selecione o horário final dos treinos.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            string horarioInicio =
+                cmdHorarioTurmas.Text.Trim();
+
+            string horarioFim =
+                cmbHorarioFinal.Text.Trim();
+
+            DateTime inicio =
+                DateTime.Parse(horarioInicio);
+
+            DateTime fim =
+                DateTime.Parse(horarioFim);
+
+            if (fim <= inicio)
+            {
+                MessageBox.Show(
+                    "O horário final deve ser maior que o horário inicial.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            List<int> dias =
+                new List<int>();
+
+            if (chkSegunda.Checked)
+                dias.Add(1);
+
+            if (chkTerca.Checked)
+                dias.Add(2);
+
+            if (chkQuarta.Checked)
+                dias.Add(3);
+
+            if (chkQuinta.Checked)
+                dias.Add(4);
+
+            if (chkSexta.Checked)
+                dias.Add(5);
+
+            if (chkSabado.Checked)
+                dias.Add(6);
+
+            if (dias.Count == 0)
+            {
+                MessageBox.Show(
+                    "Selecione pelo menos um dia da semana.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            if (alunosSelecionados.Count == 0)
+            {
+                MessageBox.Show(
+                    "Selecione pelo menos um aluno.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            int idTurno;
+
+            string nomeTurno =
+                cmbTurno.Text.Trim();
+
+            if (nomeTurno.Equals(
+                "Manha",
+                StringComparison.OrdinalIgnoreCase))
+            {
+                idTurno = 1;
+            }
+            else if (nomeTurno.Equals(
+                "Tarde",
+                StringComparison.OrdinalIgnoreCase))
+            {
+                idTurno = 2;
+            }
+            else if (nomeTurno.Equals(
+                "Noite",
+                StringComparison.OrdinalIgnoreCase))
+            {
+                idTurno = 3;
+            }
+            else
+            {
+                MessageBox.Show(
+                    "Turno inválido.",
+                    "Atenção",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            int idadeTurma =
+                Convert.ToInt32(
+                    numIdadeTurma.Value
+                );
+
+            try
+            {
+                criarTurma objCriarTurma =
+                    new criarTurma();
+
+                objCriarTurma.Criar(
+                    nomeTurma,
+                    idadeTurma,
+                    idTurno,
+                    horarioInicio,
+                    horarioFim,
+                    dias,
+                    alunosSelecionados
+                );
+
+                MessageBox.Show(
+                    "Turma criada com sucesso!",
+                    "Sucesso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                txtbox_NomeTurma.Clear();
+
+                cmbTurno.SelectedIndex = -1;
+
+                cmdHorarioTurmas.SelectedIndex = -1;
+
+                cmbHorarioFinal.SelectedIndex = -1;
+
+                chkSegunda.Checked = false;
+                chkTerca.Checked = false;
+                chkQuarta.Checked = false;
+                chkQuinta.Checked = false;
+                chkSexta.Checked = false;
+                chkSabado.Checked = false;
+
+                alunosSelecionados.Clear();
+
+                foreach (DataGridViewRow linha in dgvAlunos.Rows)
+                {
+                    if (linha.Cells["Selecionar"] != null)
+                    {
+                        linha.Cells["Selecionar"].Value =
+                            false;
+                    }
+                }
+
+                AtualizarContador();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Erro ao criar a turma:\n\n" +
+                    ex.Message,
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
+        }
+
+        private void lbl_Modalidade_Click(
+            object sender,
+            EventArgs e)
+        {
+
+        }
+
+        private void buttonPanel1_Paint(
+            object sender,
+            PaintEventArgs e)
+        {
+
+        }
+
+        private void Horarios_Load(
+            object sender,
+            EventArgs e)
+        {
+
+        }
+
+        private void cmbProfessor_SelectedIndexChanged(
+            object sender,
+            EventArgs e)
+        {
+
         }
     }
 }

@@ -7,24 +7,18 @@ namespace DSDSDS
     public partial class ALN_ADD : Form
     {
         inserir_aluno pu = new inserir_aluno();
+        controle_modalidade controle = new controle_modalidade();
 
         public ALN_ADD()
         {
             InitializeComponent();
-
-            // O painel do responsável começa escondido
             panel_resp.Visible = false;
         }
 
-        // =========================================================
-        // BOTÃO PRONTO
-        // Verifica a data e decide se precisa mostrar o responsável
-        // =========================================================
         private void btn_pronto_Click(object sender, EventArgs e)
         {
             DateTime dataNascimento;
 
-            // Verifica se a data foi preenchida corretamente
             if (!DateTime.TryParseExact(
                 txtbox_aniversario.Text,
                 "dd/MM/yyyy",
@@ -43,7 +37,6 @@ namespace DSDSDS
                 return;
             }
 
-            // Impede datas futuras
             if (dataNascimento > DateTime.Today)
             {
                 MessageBox.Show(
@@ -57,10 +50,13 @@ namespace DSDSDS
                 return;
             }
 
-            // Calcula a idade
+            if (!VerificarModalidade(dataNascimento))
+            {
+                return;
+            }
+
             int idade = CalcularIdade(dataNascimento);
 
-            // Se for menor de 18 anos
             if (idade < 18)
             {
                 panel_resp.Visible = true;
@@ -75,23 +71,42 @@ namespace DSDSDS
                 return;
             }
 
-            // Se for maior de idade
             panel_resp.Visible = false;
 
             CadastrarAluno();
         }
 
+        private bool VerificarModalidade(DateTime dataNascimento)
+        {
+            string mensagem;
 
-        // =========================================================
-        // CALCULA A IDADE ATRAVÉS DA DATA DE NASCIMENTO
-        // =========================================================
+            bool permitido = controle.VerificarCadastro(
+                1,
+                dataNascimento,
+                out mensagem
+            );
+
+            if (!permitido)
+            {
+                MessageBox.Show(
+                    mensagem,
+                    "Cadastro não permitido",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return false;
+            }
+
+            return true;
+        }
+
         private int CalcularIdade(DateTime dataNascimento)
         {
             DateTime hoje = DateTime.Today;
 
             int idade = hoje.Year - dataNascimento.Year;
 
-            // Verifica se a pessoa já fez aniversário neste ano
             if (dataNascimento.Date > hoje.AddYears(-idade))
             {
                 idade--;
@@ -100,17 +115,12 @@ namespace DSDSDS
             return idade;
         }
 
-
-        // =========================================================
-        // CADASTRAR ALUNO
-        // =========================================================
         private void CadastrarAluno()
         {
             try
             {
                 DateTime dataNascimento;
 
-                // Verifica novamente a data
                 if (!DateTime.TryParseExact(
                     txtbox_aniversario.Text,
                     "dd/MM/yyyy",
@@ -129,7 +139,6 @@ namespace DSDSDS
                     return;
                 }
 
-                // Impede datas futuras
                 if (dataNascimento > DateTime.Today)
                 {
                     MessageBox.Show(
@@ -143,17 +152,13 @@ namespace DSDSDS
                     return;
                 }
 
-
-                // =================================================
-                // DADOS DO ALUNO
-                // =================================================
-
                 pu.setUsuario(txtbox_nome.Text);
                 pu.setData_nasc(dataNascimento);
                 pu.setCpf(txtbox_cpf.Text);
                 pu.setSenha(txtbox_senha.Text);
                 pu.setBairro(txtbox_bairro.Text);
                 pu.setRua(txtbox_rua.Text);
+
                 if (!int.TryParse(txtbox_numCasa.Text, out int numCasa))
                 {
                     MessageBox.Show(
@@ -169,11 +174,12 @@ namespace DSDSDS
 
                 pu.setNumCasa(numCasa);
                 pu.setTelefone(txtbox_telefone.Text);
+
                 if (!decimal.TryParse(
-    txtbox_Peso.Text,
-    System.Globalization.NumberStyles.Any,
-    System.Globalization.CultureInfo.CurrentCulture,
-    out decimal peso))
+                    txtbox_Peso.Text,
+                    NumberStyles.Any,
+                    CultureInfo.CurrentCulture,
+                    out decimal peso))
                 {
                     MessageBox.Show(
                         "Digite um peso válido.",
@@ -188,8 +194,8 @@ namespace DSDSDS
 
                 if (!decimal.TryParse(
                     txtbox_Altura.Text,
-                    System.Globalization.NumberStyles.Any,
-                    System.Globalization.CultureInfo.CurrentCulture,
+                    NumberStyles.Any,
+                    CultureInfo.CurrentCulture,
                     out decimal altura))
                 {
                     MessageBox.Show(
@@ -206,21 +212,11 @@ namespace DSDSDS
                 pu.setPeso(peso);
                 pu.setAltura(altura);
 
-                // =================================================
-                // DADOS DO RESPONSÁVEL
-                // =================================================
-
                 pu.setNomeResponsavel(txtbox_nome_resp.Text);
                 pu.setCpfResponsavel(txtbox_cpf_resp.Text);
                 pu.setTelefoneResp(txtbox_tel_resp.Text);
 
-
-                // =================================================
-                // INSERE NO BANCO
-                // =================================================
-
                 pu.inserir();
-
 
                 MessageBox.Show(
                     "Aluno cadastrado com sucesso!!",
@@ -229,11 +225,8 @@ namespace DSDSDS
                     MessageBoxIcon.Information
                 );
 
-
-                // Limpa os campos
                 LimparCampos();
 
-                // Esconde o painel do responsável
                 panel_resp.Visible = false;
             }
             catch (Exception ex)
@@ -247,15 +240,10 @@ namespace DSDSDS
             }
         }
 
-
-        // =========================================================
-        // BOTÃO CONFIRMAR
-        // =========================================================
         private void btn_Cadastrar_Click(object sender, EventArgs e)
         {
             DateTime dataNascimento;
 
-            // Verifica a data
             if (!DateTime.TryParseExact(
                 txtbox_aniversario.Text,
                 "dd/MM/yyyy",
@@ -274,7 +262,6 @@ namespace DSDSDS
                 return;
             }
 
-            // Verifica se a data é futura
             if (dataNascimento > DateTime.Today)
             {
                 MessageBox.Show(
@@ -288,17 +275,15 @@ namespace DSDSDS
                 return;
             }
 
-            // Calcula a idade
+            if (!VerificarModalidade(dataNascimento))
+            {
+                return;
+            }
+
             int idade = CalcularIdade(dataNascimento);
-
-
-            // =====================================================
-            // SE FOR MENOR DE IDADE
-            // =====================================================
 
             if (idade < 18)
             {
-                // Verifica nome do responsável
                 if (string.IsNullOrWhiteSpace(txtbox_nome_resp.Text))
                 {
                     MessageBox.Show(
@@ -312,8 +297,6 @@ namespace DSDSDS
                     return;
                 }
 
-
-                // Verifica CPF do responsável
                 if (string.IsNullOrWhiteSpace(txtbox_cpf_resp.Text))
                 {
                     MessageBox.Show(
@@ -327,8 +310,6 @@ namespace DSDSDS
                     return;
                 }
 
-
-                // Verifica telefone do responsável
                 if (string.IsNullOrWhiteSpace(txtbox_tel_resp.Text))
                 {
                     MessageBox.Show(
@@ -343,26 +324,15 @@ namespace DSDSDS
                 }
             }
 
-
-            // =====================================================
-            // CADASTRA
-            // =====================================================
-
             CadastrarAluno();
         }
 
-
-        // =========================================================
-        // LIMPAR CAMPOS
-        // =========================================================
         private void LimparCampos()
         {
             txtbox_nome.Clear();
             txtbox_cpf.Clear();
             txtbox_senha.Clear();
             txtbox_bairro.Clear();
-
-            // Limpa a MaskedTextBox
             txtbox_aniversario.Clear();
 
             txtbox_nome_resp.Clear();
@@ -370,15 +340,12 @@ namespace DSDSDS
             txtbox_tel_resp.Clear();
             txtbox_rua.Clear();
             txtbox_numCasa.Clear();
+            txtbox_telefone.Clear();
+
             txtbox_Peso.Clear();
             txtbox_Altura.Clear();
-
         }
 
-
-        // =========================================================
-        // BOTÃO VOLTAR
-        // =========================================================
         private void btn_voltar_menu_Click(object sender, EventArgs e)
         {
             Hide();
@@ -388,44 +355,34 @@ namespace DSDSDS
             freefire.Show();
         }
 
-
-        // =========================================================
-        // EVENTOS QUE JÁ EXISTIAM NO SEU PROJETO
-        // =========================================================
-
         private void txtbox_tel_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void circularPanel4_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void lbl_tel_Click(object sender, EventArgs e)
         {
-
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void btn_opcoes_Click(object sender, EventArgs e)
         {
-
         }
 
         private void txtbox_idade_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void btn_view_Click(object sender, EventArgs e)
         {
             Hide();
+
             View_aluno las = new View_aluno();
             las.Show();
         }
@@ -433,6 +390,7 @@ namespace DSDSDS
         private void btn_trash_Click(object sender, EventArgs e)
         {
             Hide();
+
             excluir_aluno ds = new excluir_aluno();
             ds.Show();
         }
@@ -440,13 +398,13 @@ namespace DSDSDS
         private void btn_edit_Click(object sender, EventArgs e)
         {
             Hide();
+
             editar_aluno asd = new editar_aluno();
             asd.Show();
         }
 
         private void ALN_ADD_Load(object sender, EventArgs e)
         {
-
         }
     }
 }

@@ -1,15 +1,9 @@
 ﻿using MySql.Data.MySqlClient;
-using Org.BouncyCastle.Bcpg.OpenPgp;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
 
 namespace DSDSDS
 {
-    internal class inserir_professor:conexao
+    internal class inserir_professor : conexao
     {
         public string usuario;
         public string bairro;
@@ -18,6 +12,8 @@ namespace DSDSDS
         public string senha;
         public string email;
         public string rua;
+        public string cidade;
+        public string estado;
         public int num_casa;
         public int id_professor;
 
@@ -35,34 +31,42 @@ namespace DSDSDS
         {
             this.usuario = usuario;
         }
+
         public string getUsuario()
         {
             return this.usuario;
         }
+
         public void setBairro(string bairro)
         {
             this.bairro = bairro;
         }
+
         public string getBairro()
         {
             return this.bairro;
         }
+
         public void setTelefone(string telefone)
         {
             this.telefone = telefone;
         }
+
         public string getTelefone()
         {
             return this.telefone;
         }
+
         public void setCpf(long cpf)
         {
             this.cpf = cpf;
         }
+
         public long getCpf()
         {
             return this.cpf;
         }
+
         public void setEmail(string email)
         {
             this.email = email;
@@ -87,9 +91,30 @@ namespace DSDSDS
         {
             this.rua = rua;
         }
+
         public string getRua()
         {
             return this.rua;
+        }
+
+        public void setCidade(string cidade)
+        {
+            this.cidade = cidade;
+        }
+
+        public string getCidade()
+        {
+            return this.cidade;
+        }
+
+        public void setEstado(string estado)
+        {
+            this.estado = estado;
+        }
+
+        public string getEstado()
+        {
+            return this.estado;
         }
 
         public void setNum_casa(int num_casa)
@@ -102,21 +127,60 @@ namespace DSDSDS
             return this.num_casa;
         }
 
-
         public void inserir()
         {
-            string query = "INSERT INTO professor(usuario,cpf,email,senha,telefone,bairro,rua,num_casa) VALUES ('" + getUsuario() + "','" + getCpf() + "','" + getEmail() + "','" + getSenha() + "','" + getTelefone() + "','" + getBairro() + "','" + getRua() + "','" +getNum_casa() + "')";
+            string query = @"
+                INSERT INTO professor
+                (
+                    usuario,
+                    cpf,
+                    email,
+                    senha,
+                    telefone,
+                    bairro,
+                    rua,
+                    cidade,
+                    estado,
+                    num_casa
+                )
+                VALUES
+                (
+                    @usuario,
+                    @cpf,
+                    @email,
+                    @senha,
+                    @telefone,
+                    @bairro,
+                    @rua,
+                    @cidade,
+                    @estado,
+                    @num_casa
+                )";
 
-            if (this.abrirconexao() == true)
+            if (this.abrirconexao())
             {
-                MySqlCommand cmd = new MySqlCommand(query, conectar);
-                cmd.ExecuteNonQuery();
-                this.fecharconexao();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conectar);
+
+                    cmd.Parameters.AddWithValue("@usuario", usuario);
+                    cmd.Parameters.AddWithValue("@cpf", cpf);
+                    cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@senha", senha);
+                    cmd.Parameters.AddWithValue("@telefone", telefone);
+                    cmd.Parameters.AddWithValue("@bairro", bairro);
+                    cmd.Parameters.AddWithValue("@rua", rua);
+                    cmd.Parameters.AddWithValue("@cidade", cidade);
+                    cmd.Parameters.AddWithValue("@estado", estado);
+                    cmd.Parameters.AddWithValue("@num_casa", num_casa);
+
+                    cmd.ExecuteNonQuery();
+                }
+                finally
+                {
+                    this.fecharconexao();
+                }
             }
-
         }
-
-
-
     }
 }

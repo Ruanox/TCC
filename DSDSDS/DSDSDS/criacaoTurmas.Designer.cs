@@ -36,6 +36,11 @@
             label7 = new Label();
             btn_aleatorio3 = new Button();
             panel3 = new Panel();
+            label13 = new Label();
+            label12 = new Label();
+            pictureBox1 = new PictureBox();
+            buttonPanel3 = new ButtonPanel();
+            lblSalvarTurma = new Label();
             cmdHorarioTurmas = new ComboBox();
             label8 = new Label();
             numIdadeTurma = new NumericUpDown();
@@ -55,6 +60,8 @@
             chkTerca = new PinkCheckBox();
             txtbox_NomeTurma = new TextBox();
             panelArredondado1 = new PanelArredondado();
+            lblHorarioFinal = new Label();
+            cmbHorarioFinal = new ComboBox();
             panelArredondado2 = new PanelArredondado();
             customPanel1 = new CustomPanel();
             lblSelecionados = new Label();
@@ -67,6 +74,9 @@
             buttonPanel2 = new ButtonPanel();
             label10 = new Label();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            buttonPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numIdadeTurma).BeginInit();
             buttonPanel1.SuspendLayout();
             panelArredondado1.SuspendLayout();
@@ -129,16 +139,79 @@
             // panel3
             // 
             panel3.BackColor = Color.White;
+            panel3.Controls.Add(label13);
+            panel3.Controls.Add(label12);
+            panel3.Controls.Add(pictureBox1);
+            panel3.Controls.Add(buttonPanel3);
             panel3.Dock = DockStyle.Bottom;
             panel3.Location = new Point(189, 646);
             panel3.Name = "panel3";
             panel3.Size = new Size(1181, 100);
             panel3.TabIndex = 11;
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label13.Location = new Point(152, 54);
+            label13.Name = "label13";
+            label13.Size = new Size(274, 21);
+            label13.TabIndex = 3;
+            label13.Text = "todos os campos estejam preenchidos";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label12.Location = new Point(152, 32);
+            label12.Name = "label12";
+            label12.Size = new Size(164, 21);
+            label12.TabIndex = 2;
+            label12.Text = "Certifique-se de que";
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(86, 15);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(60, 60);
+            pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox1.TabIndex = 1;
+            pictureBox1.TabStop = false;
+            // 
+            // buttonPanel3
+            // 
+            buttonPanel3.BackColor = Color.White;
+            buttonPanel3.BorderColor = Color.FromArgb(250, 42, 85);
+            buttonPanel3.BorderRadius = 12;
+            buttonPanel3.BorderSize = 2;
+            buttonPanel3.Controls.Add(lblSalvarTurma);
+            buttonPanel3.HoverColor = Color.FromArgb(235, 50, 80);
+            buttonPanel3.Location = new Point(855, 15);
+            buttonPanel3.Name = "buttonPanel3";
+            buttonPanel3.NormalColor = Color.White;
+            buttonPanel3.PressedColor = Color.FromArgb(190, 20, 45);
+            buttonPanel3.Size = new Size(204, 58);
+            buttonPanel3.TabIndex = 0;
+            // 
+            // lblSalvarTurma
+            // 
+            lblSalvarTurma.AutoSize = true;
+            lblSalvarTurma.Font = new Font("Montserrat SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblSalvarTurma.ForeColor = Color.FromArgb(250, 42, 8);
+            lblSalvarTurma.Image = (Image)resources.GetObject("lblSalvarTurma.Image");
+            lblSalvarTurma.ImageAlign = ContentAlignment.MiddleLeft;
+            lblSalvarTurma.Location = new Point(15, 17);
+            lblSalvarTurma.Name = "lblSalvarTurma";
+            lblSalvarTurma.Size = new Size(177, 30);
+            lblSalvarTurma.TabIndex = 1;
+            lblSalvarTurma.Text = "       Salvar Turma";
+            lblSalvarTurma.Click += lblSalvarTurma_Click;
+            // 
             // cmdHorarioTurmas
             // 
             cmdHorarioTurmas.FormattingEnabled = true;
-            cmdHorarioTurmas.Items.AddRange(new object[] { "8:00", "9:00", "10:00", "11:00", "12:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00" });
+            cmdHorarioTurmas.Items.AddRange(new object[] { "8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "20:00", "20:30", "21:00", "21:30" });
             cmdHorarioTurmas.Location = new Point(23, 310);
             cmdHorarioTurmas.Name = "cmdHorarioTurmas";
             cmdHorarioTurmas.Size = new Size(125, 23);
@@ -147,16 +220,18 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(11, 282);
+            label8.Font = new Font("Montserrat SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Image = (Image)resources.GetObject("label8.Image");
+            label8.ImageAlign = ContentAlignment.MiddleRight;
+            label8.Location = new Point(8, 277);
             label8.Name = "label8";
-            label8.Size = new Size(168, 25);
+            label8.Size = new Size(175, 30);
             label8.TabIndex = 21;
-            label8.Text = "Horário dos treinos";
+            label8.Text = "Horário inicial      ";
             // 
             // numIdadeTurma
             // 
-            numIdadeTurma.Location = new Point(23, 220);
+            numIdadeTurma.Location = new Point(21, 225);
             numIdadeTurma.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numIdadeTurma.Name = "numIdadeTurma";
             numIdadeTurma.Size = new Size(125, 23);
@@ -166,10 +241,10 @@
             // label9
             // 
             label9.AutoSize = true;
-            label9.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(200, 282);
+            label9.Font = new Font("Montserrat SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(152, 395);
             label9.Name = "label9";
-            label9.Size = new Size(135, 25);
+            label9.Size = new Size(160, 30);
             label9.TabIndex = 22;
             label9.Text = "Dia da semana";
             // 
@@ -177,7 +252,7 @@
             // 
             cmbTurno.FormattingEnabled = true;
             cmbTurno.Items.AddRange(new object[] { "Manha", "Tarde", "Noite" });
-            cmbTurno.Location = new Point(200, 220);
+            cmbTurno.Location = new Point(246, 225);
             cmbTurno.Name = "cmbTurno";
             cmbTurno.Size = new Size(125, 23);
             cmbTurno.TabIndex = 18;
@@ -190,7 +265,7 @@
             chkSegunda.FlatStyle = FlatStyle.Flat;
             chkSegunda.Font = new Font("Segoe UI", 10F);
             chkSegunda.ForeColor = Color.FromArgb(30, 30, 30);
-            chkSegunda.Location = new Point(200, 335);
+            chkSegunda.Location = new Point(148, 428);
             chkSegunda.Name = "chkSegunda";
             chkSegunda.Size = new Size(78, 23);
             chkSegunda.TabIndex = 23;
@@ -200,14 +275,14 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Font = new Font("Montserrat SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.Image = (Image)resources.GetObject("label6.Image");
             label6.ImageAlign = ContentAlignment.MiddleRight;
-            label6.Location = new Point(191, 192);
+            label6.Location = new Point(225, 192);
             label6.Name = "label6";
-            label6.Size = new Size(174, 25);
+            label6.Size = new Size(201, 30);
             label6.TabIndex = 17;
-            label6.Text = "Turno da turma        ";
+            label6.Text = "Turno da turma       ";
             // 
             // chkSabado
             // 
@@ -215,7 +290,7 @@
             chkSabado.FlatStyle = FlatStyle.Flat;
             chkSabado.Font = new Font("Segoe UI", 10F);
             chkSabado.ForeColor = Color.FromArgb(30, 30, 30);
-            chkSabado.Location = new Point(287, 394);
+            chkSabado.Location = new Point(235, 487);
             chkSabado.Name = "chkSabado";
             chkSabado.Size = new Size(78, 23);
             chkSabado.TabIndex = 24;
@@ -225,12 +300,12 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Font = new Font("Montserrat SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.Image = (Image)resources.GetObject("label5.Image");
             label5.ImageAlign = ContentAlignment.MiddleRight;
-            label5.Location = new Point(7, 192);
+            label5.Location = new Point(0, 192);
             label5.Name = "label5";
-            label5.Size = new Size(168, 25);
+            label5.Size = new Size(200, 30);
             label5.TabIndex = 16;
             label5.Text = "Idade da turma       ";
             // 
@@ -240,7 +315,7 @@
             chkSexta.FlatStyle = FlatStyle.Flat;
             chkSexta.Font = new Font("Segoe UI", 10F);
             chkSexta.ForeColor = Color.FromArgb(30, 30, 30);
-            chkSexta.Location = new Point(287, 364);
+            chkSexta.Location = new Point(235, 457);
             chkSexta.Name = "chkSexta";
             chkSexta.Size = new Size(78, 23);
             chkSexta.TabIndex = 25;
@@ -264,7 +339,7 @@
             chkQuinta.FlatStyle = FlatStyle.Flat;
             chkQuinta.Font = new Font("Segoe UI", 10F);
             chkQuinta.ForeColor = Color.FromArgb(30, 30, 30);
-            chkQuinta.Location = new Point(287, 335);
+            chkQuinta.Location = new Point(235, 428);
             chkQuinta.Name = "chkQuinta";
             chkQuinta.Size = new Size(67, 23);
             chkQuinta.TabIndex = 26;
@@ -288,7 +363,7 @@
             chkQuarta.FlatStyle = FlatStyle.Flat;
             chkQuarta.Font = new Font("Segoe UI", 10F);
             chkQuarta.ForeColor = Color.FromArgb(30, 30, 30);
-            chkQuarta.Location = new Point(200, 394);
+            chkQuarta.Location = new Point(148, 487);
             chkQuarta.Name = "chkQuarta";
             chkQuarta.Size = new Size(68, 23);
             chkQuarta.TabIndex = 27;
@@ -327,7 +402,7 @@
             chkTerca.FlatStyle = FlatStyle.Flat;
             chkTerca.Font = new Font("Segoe UI", 10F);
             chkTerca.ForeColor = Color.FromArgb(30, 30, 30);
-            chkTerca.Location = new Point(200, 364);
+            chkTerca.Location = new Point(148, 457);
             chkTerca.Name = "chkTerca";
             chkTerca.Size = new Size(78, 23);
             chkTerca.TabIndex = 28;
@@ -345,6 +420,8 @@
             // panelArredondado1
             // 
             panelArredondado1.BackColor = Color.White;
+            panelArredondado1.Controls.Add(lblHorarioFinal);
+            panelArredondado1.Controls.Add(cmbHorarioFinal);
             panelArredondado1.Controls.Add(txtbox_NomeTurma);
             panelArredondado1.Controls.Add(chkTerca);
             panelArredondado1.Controls.Add(buttonPanel1);
@@ -364,12 +441,33 @@
             panelArredondado1.Controls.Add(cmdHorarioTurmas);
             panelArredondado1.CorBorda = Color.FromArgb(250, 42, 85);
             panelArredondado1.EspessuraBorda = 1;
-            panelArredondado1.Location = new Point(195, 58);
+            panelArredondado1.Location = new Point(189, 58);
             panelArredondado1.Name = "panelArredondado1";
             panelArredondado1.Padding = new Padding(20);
             panelArredondado1.Raio = 34;
-            panelArredondado1.Size = new Size(374, 594);
+            panelArredondado1.Size = new Size(437, 594);
             panelArredondado1.TabIndex = 12;
+            // 
+            // lblHorarioFinal
+            // 
+            lblHorarioFinal.AutoSize = true;
+            lblHorarioFinal.Font = new Font("Montserrat SemiBold", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblHorarioFinal.Image = (Image)resources.GetObject("lblHorarioFinal.Image");
+            lblHorarioFinal.ImageAlign = ContentAlignment.MiddleRight;
+            lblHorarioFinal.Location = new Point(239, 277);
+            lblHorarioFinal.Name = "lblHorarioFinal";
+            lblHorarioFinal.Size = new Size(162, 30);
+            lblHorarioFinal.TabIndex = 30;
+            lblHorarioFinal.Text = "Horário final      ";
+            // 
+            // cmbHorarioFinal
+            // 
+            cmbHorarioFinal.FormattingEnabled = true;
+            cmbHorarioFinal.Items.AddRange(new object[] { "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "20:00", "20:30", "21:00", "21:30", "22:00", "22:30" });
+            cmbHorarioFinal.Location = new Point(254, 310);
+            cmbHorarioFinal.Name = "cmbHorarioFinal";
+            cmbHorarioFinal.Size = new Size(125, 23);
+            cmbHorarioFinal.TabIndex = 29;
             // 
             // panelArredondado2
             // 
@@ -383,11 +481,11 @@
             panelArredondado2.Controls.Add(buttonPanel2);
             panelArredondado2.CorBorda = Color.FromArgb(230, 230, 230);
             panelArredondado2.EspessuraBorda = 1;
-            panelArredondado2.Location = new Point(575, 12);
+            panelArredondado2.Location = new Point(622, 12);
             panelArredondado2.Name = "panelArredondado2";
             panelArredondado2.Padding = new Padding(20);
             panelArredondado2.Raio = 20;
-            panelArredondado2.Size = new Size(874, 631);
+            panelArredondado2.Size = new Size(827, 631);
             panelArredondado2.TabIndex = 13;
             // 
             // customPanel1
@@ -445,10 +543,11 @@
             artanPanel1.GradientAngle = 90F;
             artanPanel1.GradientBottomColor = Color.FromArgb(255, 128, 128);
             artanPanel1.GradientTopColor = Color.FromArgb(250, 42, 85);
-            artanPanel1.Location = new Point(196, 142);
+            artanPanel1.Location = new Point(138, 133);
+            artanPanel1.MaximumSize = new Size(525, 424);
             artanPanel1.Name = "artanPanel1";
             artanPanel1.Padding = new Padding(10, 0, 10, 20);
-            artanPanel1.Size = new Size(543, 424);
+            artanPanel1.Size = new Size(525, 424);
             artanPanel1.TabIndex = 19;
             // 
             // dgvAlunos
@@ -482,7 +581,7 @@
             dgvAlunos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             dgvAlunos.RowTemplate.DividerHeight = 1;
             dgvAlunos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvAlunos.Size = new Size(523, 404);
+            dgvAlunos.Size = new Size(505, 404);
             dgvAlunos.TabIndex = 0;
             dgvAlunos.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -550,6 +649,11 @@
             Load += criacaoTurmas_Load_1;
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel3.ResumeLayout(false);
+            panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            buttonPanel3.ResumeLayout(false);
+            buttonPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numIdadeTurma).EndInit();
             buttonPanel1.ResumeLayout(false);
             buttonPanel1.PerformLayout();
@@ -603,5 +707,12 @@
         private TextBox txtPesquisarAluno;
         private CustomPanel customPanel1;
         private Label lblSelecionados;
+        private Label lblSalvarTurma;
+        private ButtonPanel buttonPanel3;
+        private Label label13;
+        private Label label12;
+        private PictureBox pictureBox1;
+        private Label lblHorarioFinal;
+        private ComboBox cmbHorarioFinal;
     }
 }

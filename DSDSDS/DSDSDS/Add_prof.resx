@@ -8655,4 +8655,32 @@
         YII=
 </value>
   </data>
+  <data name="pictureBox10.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAdtJREFUWEft
+        l00rhkEUhu+SfCzIylaUFJKdFZZK+SrlF1jYyWdZ2MiOpXxE/obymf8gO8rOL7AQujXzdjtmnmeGl9V7
+        1emd3nvOmTPzzJlnHqBGGk0AhgCMGptzZv9nX/r8mgYAxwBeAbxnGn3oW2+D5rAfCJxrezZoKt0A3lyQ
+        OwCTZpk3ZRC2VWPfe9EZK5sVCTBtRQCzorNtoY/XGSubK+fMZ9lsRQDtAB6csW2hj987jJWFOl9YMYPL
+        kklE0eVbtmIG+hinrFjEoTj2WlHocBajT+IcWLGIJ+fE3xg9EpztGCmxvqBZcyVilFWB5yhxNSuUlZ8n
+        NYEZ6bdkxRCpOzc1Aa2ocytacmo3NQFykzipz1LxQVetaEjdhGRd+k5YUWGp+I79VgxQVoaeAYlb+HLK
+        LpkMnstis0R8liydanNS9sh45PoOLJ1qo5t20YqELx2KpTvV0Qjg1BnbZbTK/eLMilp+11aMMCYz4iUk
+        hVvX/8Vd9yrwBuODralQQM454NkQn3EVtkVIKT/ykwQGxWdLBa3/FhUK+EkCbeLz5TxYEGEncM8PWdGl
+        NGa74jOvCXAT+oPiP4xjfftw6ZKT8C/t0Y0VpM6JI4HlC1ns0yxkwwA63Rg1KnwAG54GEwuIwdAAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAdtJREFUWEft
+        l00rhkEUhu+SfCzIylaUFJKdFZZK+SrlF1jYyWdZ2MiOpXxE/obymf8gO8rOL7AQujXzdjtmnmeGl9V7
+        1emd3nvOmTPzzJlnHqBGGk0AhgCMGptzZv9nX/r8mgYAxwBeAbxnGn3oW2+D5rAfCJxrezZoKt0A3lyQ
+        OwCTZpk3ZRC2VWPfe9EZK5sVCTBtRQCzorNtoY/XGSubK+fMZ9lsRQDtAB6csW2hj987jJWFOl9YMYPL
+        kklE0eVbtmIG+hinrFjEoTj2WlHocBajT+IcWLGIJ+fE3xg9EpztGCmxvqBZcyVilFWB5yhxNSuUlZ8n
+        NYEZ6bdkxRCpOzc1Aa2ocytacmo3NQFykzipz1LxQVetaEjdhGRd+k5YUWGp+I79VgxQVoaeAYlb+HLK
+        LpkMnstis0R8liydanNS9sh45PoOLJ1qo5t20YqELx2KpTvV0Qjg1BnbZbTK/eLMilp+11aMMCYz4iUk
+        hVvX/8Vd9yrwBuODralQQM454NkQn3EVtkVIKT/ykwQGxWdLBa3/FhUK+EkCbeLz5TxYEGEncM8PWdGl
+        NGa74jOvCXAT+oPiP4xjfftw6ZKT8C/t0Y0VpM6JI4HlC1ns0yxkwwA63Rg1KnwAG54GEwuIwdAAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
 </root>
