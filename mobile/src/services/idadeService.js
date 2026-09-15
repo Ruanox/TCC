@@ -1,197 +1,123 @@
-function extrairIdade(dados) {
-    if (!dados || typeof dados !== "object") {
-        return null;
-    }
-
-    const candidatos = [
-        dados.idade,
-        dados.idadeAluno,
-        dados.idade_aluno,
-        dados.idade_alunos,
-        dados.faixaEtaria,
-        dados.faixa_etaria,
-        dados.nascimento,
-        dados.dataNascimento,
-        dados.data_nascimento,
-        dados.data_nasc,
-        dados.dtNascimento,
-        dados.dt_nascimento,
-    ];
-
-    for (const candidato of candidatos) {
-        if (candidato === null || candidato === undefined || candidato === "") {
-            continue;
-        }
-
-        if (typeof candidato === "number" && Number.isFinite(candidato)) {
-            return candidato;
-        }
-
-        if (typeof candidato === "string") {
-            const texto = candidato.trim();
-
-            if (/^\d+$/.test(texto)) {
-                return Number(texto);
-            }
-
-            const data = parseData(texto);
-            if (data) {
-                return calcularIdade(data);
-            }
-        }
-
-        if (candidato instanceof Date) {
-            return calcularIdade(candidato);
-        }
-    }
-
+export function calcularIdade(dataNascimento) {
+  if (!dataNascimento) {
     return null;
+  }
+
+  const hoje = new Date();
+  const nascimento = new Date(dataNascimento);
+
+  if (isNaN(nascimento.getTime())) {
+    return null;
+  }
+
+  let idade =
+    hoje.getFullYear() -
+    nascimento.getFullYear();
+
+  const mes =
+    hoje.getMonth() -
+    nascimento.getMonth();
+
+  if (
+    mes < 0 ||
+    (mes === 0 &&
+      hoje.getDate() < nascimento.getDate())
+  ) {
+    idade--;
+  }
+
+  return idade;
 }
 
-function parseData(valor) {
-    const texto = String(valor).trim();
+export function classificarIdade(idade) {
+  const valor = Number(idade);
 
-    if (!texto) {
-        return null;
-    }
+  if (isNaN(valor)) {
+    return "";
+  }
 
-    const timestamp = Date.parse(texto);
-    if (!Number.isNaN(timestamp)) {
-        return new Date(timestamp);
-    }
+  if (valor < 6) {
+    return "Pré-escolar";
+  }
 
-    const partes = texto.split(/[/-]/);
-    if (partes.length !== 3) {
-        return null;
-    }
+  if (valor <= 10) {
+    return "Infantil";
+  }
 
-    if (/^\d{4}$/.test(partes[2])) {
-        return null;
-    }
+  if (valor <= 13) {
+    return "Juvenil";
+  }
 
-    let dia;
-    let mes;
-    let ano;
+  if (valor <= 17) {
+    return "Adolescente";
+  }
 
-    if (partes[2].length === 4) {
-        dia = Number(partes[0]);
-        mes = Number(partes[1]);
-        ano = Number(partes[2]);
-    } else {
-        dia = Number(partes[2]);
-        mes = Number(partes[1]);
-        ano = Number(partes[0]);
-    }
-
-    if ([dia, mes, ano].some((valor) => Number.isNaN(valor))) {
-        return null;
-    }
-
-    const data = new Date(ano, mes - 1, dia);
-    if (
-        data.getFullYear() !== ano ||
-        data.getMonth() !== mes - 1 ||
-        data.getDate() !== dia
-    ) {
-        return null;
-    }
-
-    return data;
+  return "Adulto";
 }
 
-function calcularIdade(dataNascimento) {
-    if (!dataNascimento || Number.isNaN(dataNascimento.getTime())) {
-        return null;
-    }
+export function normalizarAluno(aluno) {
+  if (!aluno || typeof aluno !== "object") {
+    return null;
+  }
 
-    const hoje = new Date();
-    let idade = hoje.getFullYear() - dataNascimento.getFullYear();
-    const mesAtual = hoje.getMonth();
-    const mesNascimento = dataNascimento.getMonth();
+  let idade = aluno.idade;
 
-    if (
-        mesAtual < mesNascimento ||
-        (mesAtual === mesNascimento && hoje.getDate() < dataNascimento.getDate())
-    ) {
-        idade -= 1;
-    }
+  if (
+    idade === undefined ||
+    idade === null ||
+    idade === ""
+  ) {
+    idade = calcularIdade(aluno.data_nasc);
+  }
 
-    return idade;
+  return {
+    ...aluno,
+    idade:
+      idade !== null &&
+      idade !== undefined &&
+      idade !== ""
+        ? Number(idade)
+        : null,
+    turmaIdade:
+      aluno.turma_idade ||
+      aluno.turmaIdade ||
+      classificarIdade(idade),
+  };
 }
 
-function determinarFaixaEtaria(idade) {
-    if (idade === null || idade === undefined || Number.isNaN(idade)) {
-        return "Sem idade informada";
+export function agruparAlunosPorFaixaEtaria(alunos) {
+  if (!Array.isArray(alunos)) {
+    return {};
+  }
+
+  return alunos.reduce((grupos, aluno) => {
+    if (!aluno) {
+      return grupos;
     }
 
-    if (idade < 6) {
-        return "Pré-escolar";
+    const idade = aluno.idade;
+
+    const faixa =
+      aluno.turmaIdade ||
+      classificarIdade(idade);
+
+    if (!faixa) {
+      return grupos;
     }
 
-    if (idade <= 10) {
-        return "Infantil";
+    if (!grupos[faixa]) {
+      grupos[faixa] = [];
     }
 
-    if (idade <= 13) {
-        return "Juvenil";
-    }
+    grupos[faixa].push(aluno);
 
-    if (idade <= 17) {
-        return "Adolescente";
-    }
-
-    return "Adulto";
+    return grupos;
+  }, {});
 }
 
-function normalizarAluno(aluno) {
-    const idade = extrairIdade(aluno);
-    const menorDeIdade = idade !== null && idade < 18;
-    const faixaEtaria = menorDeIdade ? determinarFaixaEtaria(idade) : "Adulto";
-
-    return {
-        ...aluno,
-        idade,
-        menorDeIdade,
-        faixaEtaria,
-        turmaIdade: faixaEtaria,
-    };
-}
-
-function normalizarRespostaLogin(resposta) {
-    if (!resposta || typeof resposta !== "object") {
-        return resposta;
-    }
-
-    const aluno =
-        resposta.tipo === "aluno" ? normalizarAluno(resposta) : resposta;
-
-    return {
-        ...resposta,
-        ...aluno,
-    };
-}
-
-function agruparAlunosPorFaixaEtaria(alunos) {
-    const mapa = {};
-
-    (Array.isArray(alunos) ? alunos : []).forEach((aluno) => {
-        const alunoNormalizado = normalizarAluno(aluno);
-        const chave = alunoNormalizado.faixaEtaria || "Sem idade informada";
-
-        if (!mapa[chave]) {
-            mapa[chave] = [];
-        }
-
-        mapa[chave].push(alunoNormalizado);
-    });
-
-    return mapa;
-}
-
-module.exports = {
-    calcularIdade,
-    determinarFaixaEtaria,
-    normalizarAluno,
-    normalizarRespostaLogin,
-    agruparAlunosPorFaixaEtaria,
+export default {
+  calcularIdade,
+  classificarIdade,
+  normalizarAluno,
+  agruparAlunosPorFaixaEtaria,
 };

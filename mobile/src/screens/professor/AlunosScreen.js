@@ -30,11 +30,41 @@ export default function AlunosScreen() {
 
   async function carregarAlunos() {
     try {
-      const dados = await getAlunos();
+      const resposta = await getAlunos();
+
+      let dados = resposta;
+
+      if (
+        resposta &&
+        resposta.data !== undefined
+      ) {
+        dados = resposta.data;
+      }
+
+      if (
+        dados &&
+        Array.isArray(dados.alunos)
+      ) {
+        dados = dados.alunos;
+      }
+
+      if (
+        dados &&
+        Array.isArray(dados.data)
+      ) {
+        dados = dados.data;
+      }
 
       const lista = Array.isArray(dados)
-        ? dados.map(normalizarAluno)
+        ? dados
+            .map(normalizarAluno)
+            .filter(Boolean)
         : [];
+
+      console.log(
+        "ALUNOS RECEBIDOS:",
+        lista
+      );
 
       setAlunos(lista);
     } catch (error) {
@@ -89,8 +119,8 @@ export default function AlunosScreen() {
                     style={styles.card}
                   >
                     <Text style={styles.nome}>
-                      {aluno.nome ||
-                        "Aluno sem nome"}
+                      {aluno.usuario ||
+                        "Aluno sem usuário"}
                     </Text>
 
                     <Text style={styles.info}>
@@ -107,7 +137,8 @@ export default function AlunosScreen() {
 
                     <Text style={styles.info}>
                       Turma:{" "}
-                      {aluno.turmaIdade}
+                      {aluno.turmaIdade ||
+                        "Não informada"}
                     </Text>
                   </View>
                 )
